@@ -3,326 +3,425 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="KIM AI School — AI-наставничество для школьников 12–17 лет. Научим работать с нейросетями безопасно и осмысленно. 4–8 занятий онлайн.">
-<title>KIM AI School — AI-наставничество для школьников 12–17 лет</title>
+<meta name="description" content="KIM AI School — школа AI-мышления для подростков 12–17 лет. Учим думать, проверять, создавать проекты и безопасно работать с ИИ.">
+<title>KIM AI School — Школа AI-мышления для подростков</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --dark:        #16181b;
-  --dark-2:      #1e2227;
-  --dark-border: #2a2d32;
-  --red:         #cb172c;
-  --red-hover:   #b01225;
-  --cyan:        #22d3ee;
-  --lime:        #80cb17;
-  --white:       #ffffff;
-  --bg-alt:      #f5f6f8;
-  --text:        #111318;
-  --text-muted:  #6b7280;
-  --text-subtle: #9ca3af;
-  --border:      #e5e7eb;
-  --on-dark:     #d1d5db;
-  --on-dark-muted: #8d9198;
-  --container:   1140px;
-  --r:           8px;
-  --r-sm:        5px;
+:root{
+  --d:#16181b;--d2:#1a1e24;--d3:#0e1014;--db:#252830;
+  --red:#cb172c;--rh:#b01225;
+  --cy:#22d3ee;--cyd:rgba(34,211,238,.09);--cyb:rgba(34,211,238,.18);
+  --lime:#80cb17;
+  --w:#fff;--bg:#f5f6f8;--bg2:#eef0f3;
+  --t:#111318;--tm:#6b7280;--ts:#9ca3af;
+  --bd:#e5e7eb;
+  --od:#d1d5db;--om:#8d9198;--os:#4a4d54;
+  --r:8px;--rs:5px;
+  --max:1160px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:16px}
-img{display:block;max-width:100%}
-button,input,textarea{font-family:inherit}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--t);background:var(--w);-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
+img{display:block;max-width:100%}
+button,input,textarea{font-family:inherit}
 
-.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 24px}
-section{padding:88px 0}
-section.alt{background:var(--bg-alt)}
-section.dark{background:var(--dark)}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 28px}
+.sec{padding:96px 0}
+.sec.dark{background:var(--d)}
+.sec.alt{background:var(--bg)}
+.sec.deep{background:var(--d3)}
 
-.sec-label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
-.sec-h{font-size:clamp(26px,2.8vw,38px);font-weight:800;line-height:1.12;letter-spacing:-0.5px;color:var(--text);margin-bottom:16px}
-.sec-h.light{color:#f1f2f4}
-.sec-sub{font-size:16px;color:var(--text-muted);max-width:560px;line-height:1.75}
-.sec-sub.light{color:var(--on-dark-muted)}
+.lbl{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--tm);margin-bottom:16px}
+.lbl.cy{color:var(--cy)}
+.lbl.dim{color:var(--om)}
+.h2{font-size:clamp(28px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing:-.6px;color:var(--t);margin-bottom:18px}
+.h2.lt{color:#f1f2f4}
+.sub{font-size:16px;color:var(--tm);line-height:1.75;max-width:580px}
+.sub.lt{color:var(--om)}
 
-/* ── Buttons ── */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:var(--r-sm);font-size:15px;font-weight:700;cursor:pointer;transition:all 0.15s ease;border:none;white-space:nowrap;text-decoration:none}
-.btn-primary{background:var(--red);color:#fff}
-.btn-primary:hover{background:var(--red-hover);transform:translateY(-1px);box-shadow:0 4px 20px rgba(203,23,44,.3)}
-.btn-ghost{background:transparent;color:#9ca3af;border:1px solid var(--dark-border);font-weight:600}
-.btn-ghost:hover{border-color:#4a4d54;color:var(--on-dark)}
+/* Grid BG */
+.gbg{position:relative;overflow:hidden}
+.gbg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
 
-/* ── Nav ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .2s,border-color .2s,box-shadow .2s;border-bottom:1px solid transparent}
-.nav.scrolled{background:rgba(22,24,27,.97);border-bottom-color:var(--dark-border);box-shadow:0 1px 20px rgba(0,0,0,.2);backdrop-filter:blur(12px)}
-.nav-inner{display:flex;align-items:center;height:64px;gap:32px}
-.nav-brand{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.3px;flex-shrink:0}
-.nav-brand span{color:var(--red)}
-.nav-links{display:flex;align-items:center;gap:28px;margin-left:auto}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:var(--rs);font-size:15px;font-weight:700;cursor:pointer;transition:all .18s;border:none;white-space:nowrap}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--rh);transform:translateY(-2px);box-shadow:0 6px 24px rgba(203,23,44,.32)}
+.btn-ghost{background:transparent;color:var(--om);border:1px solid var(--db);font-weight:600}
+.btn-ghost:hover{border-color:#3a3d44;color:var(--od)}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px solid transparent;transition:background .25s,border-color .25s,backdrop-filter .25s}
+.nav.on{background:rgba(14,16,20,.95);border-bottom-color:var(--db);backdrop-filter:blur(14px)}
+.nav-in{display:flex;align-items:center;height:64px;gap:32px}
+.nav-logo{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.3px;flex-shrink:0}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:28px;margin-left:auto}
 .nav-links a{font-size:14px;font-weight:500;color:#9ca3af;transition:color .15s}
 .nav-links a:hover{color:#fff}
-.nav-cta{padding:8px 18px;background:var(--red);color:#fff;border-radius:var(--r-sm);font-size:14px;font-weight:700;transition:background .15s;white-space:nowrap;flex-shrink:0;margin-left:8px}
-.nav-cta:hover{background:var(--red-hover)}
-.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;margin-left:auto;padding:4px}
-.nav-burger span{display:block;width:22px;height:2px;background:#fff;border-radius:1px;transition:all .2s}
-.nav-mobile{display:none;flex-direction:column;background:var(--dark);border-top:1px solid var(--dark-border);padding:8px 0 16px}
-.nav-mobile.open{display:flex}
-.nav-mobile a{padding:12px 24px;font-size:15px;font-weight:500;color:var(--on-dark-muted);border-bottom:1px solid var(--dark-border)}
-.nav-mobile a:last-child{border-bottom:none}
+.nav-cta{padding:8px 18px;background:var(--red);color:#fff;border-radius:var(--rs);font-size:14px;font-weight:700;transition:background .15s;margin-left:8px;flex-shrink:0}
+.nav-cta:hover{background:var(--rh)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;margin-left:auto;padding:4px}
+.burger span{display:block;width:22px;height:2px;background:#fff;border-radius:1px;transition:.2s}
+.mnav{display:none;flex-direction:column;background:var(--d);border-top:1px solid var(--db);padding:8px 0 16px}
+.mnav.open{display:flex}
+.mnav a{padding:12px 28px;font-size:15px;font-weight:500;color:var(--om);border-bottom:1px solid var(--db)}
+.mnav a.hot{color:var(--red);font-weight:700}
+.mnav a:last-child{border:none}
 
-/* ── Hero ── */
-.hero{background:var(--dark);padding:0;min-height:100vh;display:flex;flex-direction:column}
-.hero-inner{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:140px 24px 96px;max-width:var(--container);margin:0 auto;width:100%}
-.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(34,211,238,.08);color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(34,211,238,.18)}
-.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);flex-shrink:0}
-.hero-h1{font-size:clamp(34px,3.8vw,54px);font-weight:900;line-height:1.08;letter-spacing:-1.5px;color:#f1f2f4;margin-bottom:20px}
-.hero-h1 em{font-style:normal;color:var(--red)}
-.hero-sub{font-size:17px;color:var(--on-dark-muted);line-height:1.75;max-width:440px;margin-bottom:32px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
-.hero-stats{display:flex;gap:28px;padding-top:28px;border-top:1px solid var(--dark-border)}
-.hero-stat-num{font-size:22px;font-weight:800;color:#f1f2f4;letter-spacing:-.5px}
-.hero-stat-label{font-size:11px;color:var(--on-dark-muted);letter-spacing:.5px;text-transform:uppercase;margin-top:2px}
+/* ── HERO ── */
+.hero{background:var(--d);min-height:100vh;display:flex;flex-direction:column;padding:0}
+.hero-in{flex:1;display:grid;grid-template-columns:55% 45%;gap:48px;align-items:center;padding:136px 28px 96px;max-width:var(--max);margin:0 auto;width:100%}
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:var(--cyd);color:var(--cy);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:26px;border:1px solid var(--cyb)}
+.hero-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cy);flex-shrink:0}
+.hero-h1{font-size:clamp(38px,5vw,68px);font-weight:900;line-height:1.04;letter-spacing:-2px;color:#f1f2f4;margin-bottom:22px}
+.hero-h1 .ai{background:linear-gradient(135deg,#f1f2f4 0%,var(--cy) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:17px;color:var(--om);line-height:1.78;max-width:460px;margin-bottom:34px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{display:flex;gap:32px;padding-top:28px;border-top:1px solid var(--db)}
+.hstat-n{font-size:22px;font-weight:800;color:#f1f2f4;letter-spacing:-.5px}
+.hstat-l{font-size:10px;color:var(--om);letter-spacing:.8px;text-transform:uppercase;margin-top:3px}
 
-/* Hero card */
-.hero-card{background:#0e1014;border:1px solid #252830;border-radius:12px;overflow:hidden;max-width:430px;margin-left:auto}
-.hero-card-header{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #1a1e24;background:#0a0c0f}
-.hc-dots{display:flex;gap:5px}
-.hc-dots span{width:10px;height:10px;border-radius:50%;background:#2a2d32}
-.hc-title{font-size:12px;font-weight:600;color:#6b7280;margin-left:4px}
-.hc-live{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase}
-.hc-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
-.hc-body{padding:24px;display:flex;flex-direction:column;gap:20px}
-.hc-step{display:flex;gap:14px}
-.hc-num{font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:1px;flex-shrink:0;padding-top:1px;width:20px}
-.hc-content{flex:1}
-.hc-label{font-size:10px;font-weight:700;color:#4a4d54;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:9px}
-.hc-prompt{background:#141720;border:1px solid #252830;border-radius:6px;padding:11px 14px;font-size:13px;color:#c9d1d9;line-height:1.55}
-.hc-prompt-send{display:flex;justify-content:flex-end;margin-top:8px}
-.hc-prompt-send span{font-size:11px;font-weight:600;color:var(--cyan);cursor:pointer;opacity:.8}
-.hc-checks{display:flex;flex-direction:column;gap:8px}
-.hc-check{display:flex;align-items:center;gap:9px;font-size:13px;color:#9ca3af}
-.hc-check-ico{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
-.hc-check.ok .hc-check-ico{background:rgba(34,211,238,.12);color:var(--cyan)}
-.hc-check.warn .hc-check-ico{background:rgba(203,23,44,.12);color:var(--red)}
-.hc-divider{border:none;border-top:1px solid #1a1e24}
-.hc-result{background:rgba(34,211,238,.05);border:1px solid rgba(34,211,238,.15);border-radius:6px;padding:13px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.hc-result-title{font-size:13px;font-weight:600;color:#e2e4e8}
-.hc-result-sub{font-size:11px;color:#6b7280;margin-top:2px}
-.hc-result-badge{background:var(--cyan);color:#000;font-size:9px;font-weight:800;padding:4px 9px;border-radius:3px;letter-spacing:.8px;flex-shrink:0}
+/* Hero right */
+.hero-right{display:flex;flex-direction:column;gap:16px;align-items:flex-end}
+.hero-photo{width:100%;max-width:340px;height:280px;border-radius:14px;background:linear-gradient(160deg,#1c2235 0%,#12151e 100%);border:1px solid #1e2535;overflow:hidden;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(14,16,20,.7));pointer-events:none}
+.photo-mono{width:80px;height:80px;border-radius:50%;background:rgba(34,211,238,.08);border:2px solid rgba(34,211,238,.2);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:var(--cy);letter-spacing:-1px;position:relative;z-index:1}
+.photo-name{font-size:15px;font-weight:700;color:#e2e4e8;position:relative;z-index:1}
+.photo-role{font-size:12px;color:var(--om);position:relative;z-index:1}
+.photo-hint{position:absolute;top:12px;right:12px;font-size:10px;color:var(--os);background:rgba(255,255,255,.03);border:1px solid var(--db);padding:4px 8px;border-radius:3px;z-index:2}
 
-/* ── Trust bar ── */
-.trust-bar{padding:0;border-bottom:1px solid var(--border);background:var(--white)}
-.trust-bar-inner{display:grid;grid-template-columns:repeat(4,1fr)}
-.trust-item{text-align:center;padding:28px 16px;border-right:1px solid var(--border)}
-.trust-item:last-child{border-right:none}
-.trust-num{font-size:28px;font-weight:800;color:var(--text);letter-spacing:-.5px}
-.trust-lbl{font-size:11px;font-weight:600;color:var(--text-subtle);text-transform:uppercase;letter-spacing:.8px;margin-top:5px}
+/* AI Card */
+.ai-card{width:100%;max-width:340px;background:#0a0d12;border:1px solid #1e2330;border-radius:12px;overflow:hidden}
+.ai-hdr{display:flex;align-items:center;gap:8px;padding:12px 18px;background:#070a0e;border-bottom:1px solid #141820}
+.ai-dots{display:flex;gap:5px}
+.ai-dots span{width:9px;height:9px;border-radius:50%;background:#252830}
+.ai-htitle{font-size:11px;font-weight:600;color:#4a4d54;margin-left:4px}
+.ai-live{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:var(--cy);letter-spacing:.5px;text-transform:uppercase}
+.ai-live-dot{width:6px;height:6px;border-radius:50%;background:var(--cy);animation:pulse-dot 2s infinite}
+.ai-body{padding:20px;display:flex;flex-direction:column;gap:16px}
+.ai-step{display:flex;gap:12px}
+.ai-snum{font-size:10px;font-weight:700;color:var(--cy);letter-spacing:1px;flex-shrink:0;padding-top:1px;width:18px}
+.ai-sc{flex:1}
+.ai-slbl{font-size:10px;font-weight:700;color:#3a3e46;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:7px}
+.ai-prompt{background:#111520;border:1px solid #1e2330;border-radius:5px;padding:10px 12px;font-size:12px;color:#9ca3af;line-height:1.55;min-height:44px;position:relative}
+.ai-cursor{display:inline-block;width:1px;height:13px;background:var(--cy);margin-left:1px;vertical-align:middle;animation:blink .8s step-end infinite}
+.ai-send{font-size:10px;font-weight:600;color:var(--cy);margin-top:6px;opacity:.7}
+.ai-checks{display:flex;flex-direction:column;gap:7px}
+.ai-chk{display:flex;align-items:center;gap:8px;font-size:12px;color:#6b7280;opacity:0;transform:translateX(-6px);transition:opacity .4s,transform .4s}
+.ai-chk.show{opacity:1;transform:translateX(0)}
+.ai-ci{width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+.ai-chk.ok .ai-ci{background:rgba(34,211,238,.12);color:var(--cy)}
+.ai-chk.warn .ai-ci{background:rgba(203,23,44,.12);color:var(--red)}
+.ai-div{border:none;border-top:1px solid #141820}
+.ai-res{background:rgba(34,211,238,.05);border:1px solid rgba(34,211,238,.14);border-radius:5px;padding:11px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;opacity:0;transition:opacity .5s}
+.ai-res.show{opacity:1}
+.ai-rt{font-size:12px;font-weight:600;color:#c9d1d9}
+.ai-rs{font-size:10px;color:#4a4d54;margin-top:2px}
+.ai-rb{background:var(--cy);color:#000;font-size:9px;font-weight:800;padding:3px 8px;border-radius:3px;letter-spacing:.6px;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,211,238,.4)}70%{box-shadow:0 0 0 5px rgba(34,211,238,0)}}
 
-/* ── Problem ── */
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
-.prob-card{background:var(--white);border-radius:var(--r);padding:22px 20px;border-left:3px solid var(--red);box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.prob-card h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
-.prob-card p{font-size:13px;color:var(--text-muted);line-height:1.55}
+/* ── TRUST ── */
+.trust{border-bottom:1px solid var(--bd)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.titem{text-align:center;padding:28px 16px;border-right:1px solid var(--bd)}
+.titem:last-child{border-right:none}
+.tnum{font-size:30px;font-weight:800;letter-spacing:-.5px;color:var(--t)}
+.tlbl{font-size:10px;font-weight:600;color:var(--ts);text-transform:uppercase;letter-spacing:.9px;margin-top:5px}
 
-/* ── For whom ── */
-.forwhom-list{display:flex;flex-direction:column;gap:10px;margin-top:32px;max-width:660px}
-.fw-item{display:flex;align-items:flex-start;gap:13px;background:var(--bg-alt);border-radius:var(--r);padding:16px 20px}
-.fw-check{width:20px;height:20px;border-radius:50%;background:var(--dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.fw-check svg{width:10px;height:10px;stroke:#fff;stroke-width:2.5;fill:none}
-.fw-item p{font-size:15px;color:var(--text);line-height:1.5}
+/* ── PROBLEM ── */
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px}
+.pc{background:var(--w);border-radius:var(--r);padding:22px;border-left:3px solid var(--red);box-shadow:0 1px 6px rgba(0,0,0,.04)}
+.pc h3{font-size:14px;font-weight:700;color:var(--t);margin-bottom:7px}
+.pc p{font-size:13px;color:var(--tm);line-height:1.6}
 
-/* ── Skills ── */
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
-.skill-card{background:var(--white);border-radius:var(--r);padding:22px 20px;border:1px solid var(--border);transition:box-shadow .2s}
-.skill-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.skill-n{font-size:11px;font-weight:700;color:var(--text-subtle);letter-spacing:1px;margin-bottom:12px}
-.skill-card h3{font-size:14px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:6px}
-.skill-card p{font-size:13px;color:var(--text-muted);line-height:1.5}
+/* ── WHY STARTED ── */
+.why-in{max-width:820px;margin:0 auto;text-align:center}
+.why-quote{font-size:clamp(18px,2.2vw,24px);font-weight:500;color:var(--od);line-height:1.7;font-style:italic;margin-bottom:32px;position:relative}
+.why-quote::before{content:'\201C';font-size:80px;color:rgba(34,211,238,.15);font-family:Georgia,serif;position:absolute;top:-20px;left:-10px;line-height:1}
+.why-sig{font-size:14px;font-weight:700;color:var(--cy);margin-bottom:36px}
+.why-sig span{color:var(--om);font-weight:400}
+.why-video{width:100%;max-width:440px;height:200px;margin:0 auto;border-radius:12px;background:linear-gradient(160deg,#1a1e2a,#111520);border:1px solid var(--db);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer;transition:border-color .2s}
+.why-video:hover{border-color:var(--cy)}
+.why-play{width:52px;height:52px;border-radius:50%;background:rgba(34,211,238,.1);border:2px solid var(--cyb);display:flex;align-items:center;justify-content:center}
+.why-play::after{content:'';border-left:18px solid var(--cy);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
+.why-vtitle{font-size:13px;color:var(--om)}
 
-/* ── Programs ── */
-.programs-list{display:flex;flex-direction:column;gap:10px;margin-top:36px;max-width:700px}
-.prog-item{border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;display:flex;align-items:center;gap:16px;background:var(--white);transition:border-color .15s,box-shadow .15s}
-.prog-item:hover{border-color:#c4c8d0;box-shadow:0 2px 12px rgba(0,0,0,.05)}
-.prog-item.featured{border:2px solid var(--red);background:#fffbfb}
-.prog-body{flex:1}
-.prog-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
-.prog-sub{font-size:13px;color:var(--text-muted)}
-.prog-badge{background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:4px 10px;border-radius:3px;letter-spacing:.5px;flex-shrink:0}
-.prog-arrow{font-size:16px;color:var(--text-subtle);flex-shrink:0}
+/* ── METHODOLOGY ── */
+.method-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:48px;position:relative}
+.method-steps::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--bd) 20%,var(--bd) 80%,transparent);z-index:0}
+.mstep{text-align:center;padding:0 12px;position:relative;z-index:1}
+.mstep-num{width:80px;height:80px;border-radius:50%;background:var(--w);border:2px solid var(--bd);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:11px;font-weight:700;color:var(--ts);letter-spacing:1px;transition:border-color .2s,background .2s;position:relative}
+.mstep:hover .mstep-num{border-color:var(--red);background:#fff8f8}
+.mstep-icon{font-size:24px;line-height:1}
+.mstep-title{font-size:15px;font-weight:700;color:var(--t);margin-bottom:8px}
+.mstep-desc{font-size:13px;color:var(--tm);line-height:1.55}
+.mstep.active .mstep-num{background:var(--red);border-color:var(--red);color:#fff}
 
-/* ── Safety (dark) ── */
-.safety-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.safety-text .sec-label{color:var(--on-dark-muted)}
-.safety-text p{font-size:16px;color:var(--on-dark-muted);line-height:1.8;margin-top:12px}
-.safety-checks{display:flex;flex-direction:column;gap:16px}
-.safety-check{display:flex;align-items:flex-start;gap:13px}
-.safety-ico{width:22px;height:22px;border-radius:50%;background:rgba(128,203,23,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:11px;font-weight:700;color:var(--lime)}
-.safety-check p{font-size:15px;color:var(--on-dark);line-height:1.5}
+/* ── ARTIFACTS ── */
+.arts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.art-card{background:var(--w);border-radius:var(--r);border:1px solid var(--bd);overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:default}
+.art-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.art-top{height:6px}
+.art-top.r{background:var(--red)}
+.art-top.c{background:var(--cy)}
+.art-top.d{background:var(--d)}
+.art-body{padding:18px 16px}
+.art-ico{font-size:22px;margin-bottom:10px;line-height:1}
+.art-title{font-size:14px;font-weight:700;color:var(--t);margin-bottom:6px}
+.art-desc{font-size:12px;color:var(--tm);line-height:1.5}
+.art-tag{display:inline-block;margin-top:10px;font-size:10px;font-weight:600;color:var(--ts);letter-spacing:.8px;text-transform:uppercase}
 
-/* ── Mentor ── */
-.mentor-card{display:flex;gap:32px;align-items:flex-start;max-width:780px;background:var(--white);border-radius:var(--r);padding:36px;border:1px solid var(--border);margin-top:36px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
-.mentor-ava{width:72px;height:72px;border-radius:50%;background:var(--dark);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;flex-shrink:0;letter-spacing:-1px}
-.mentor-name{font-size:20px;font-weight:800;color:var(--text);margin-bottom:4px}
-.mentor-role{font-size:14px;color:var(--text-muted);margin-bottom:14px}
-.mentor-bio{font-size:15px;color:var(--text-muted);line-height:1.75;margin-bottom:20px}
-.mentor-tags{display:flex;flex-wrap:wrap;gap:8px}
-.mentor-tag{background:var(--dark);color:#e2e4e8;font-size:12px;font-weight:500;padding:5px 12px;border-radius:4px}
+/* ── USE CASES ── */
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.uc-card{border-radius:var(--r);padding:24px;border:1px solid var(--db);background:rgba(255,255,255,.03);transition:border-color .2s,background .2s}
+.uc-card:hover{border-color:rgba(34,211,238,.25);background:rgba(34,211,238,.04)}
+.uc-ico{width:40px;height:40px;border-radius:8px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.15);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px}
+.uc-title{font-size:15px;font-weight:700;color:var(--od);margin-bottom:10px}
+.uc-list{display:flex;flex-direction:column;gap:5px}
+.uc-list li{font-size:13px;color:var(--om);padding-left:14px;position:relative;line-height:1.45}
+.uc-list li::before{content:'·';position:absolute;left:2px;color:var(--cy);font-weight:700}
 
-/* ── Timeline ── */
-.timeline{position:relative;display:flex;flex-direction:column;gap:0;margin-top:40px;max-width:600px}
-.timeline::before{content:'';position:absolute;left:15px;top:32px;bottom:32px;width:1px;background:var(--border)}
-.tl-item{display:flex;gap:20px;padding-bottom:24px;position:relative;z-index:1}
-.tl-item:last-child{padding-bottom:0}
-.tl-circle{width:32px;height:32px;border-radius:50%;background:var(--dark);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:3px solid var(--white)}
-.tl-circle.red{background:var(--red)}
-.tl-circle.accent{background:#111318;color:var(--lime);border-color:var(--white)}
-.tl-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px;padding-top:5px}
-.tl-sub{font-size:13px;color:var(--text-muted)}
+/* ── CURRICULUM ── */
+.cur-tabs{display:flex;gap:0;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:32px;width:fit-content}
+.cur-tab{padding:10px 22px;font-size:14px;font-weight:600;color:var(--tm);cursor:pointer;background:var(--w);border:none;transition:all .15s}
+.cur-tab.on{background:var(--d);color:#fff}
+.cur-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mod{border:1px solid var(--bd);border-radius:var(--r);padding:18px 20px;background:var(--w);transition:box-shadow .2s}
+.mod:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.mod.locked{opacity:.55}
+.mod-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.mod-num{font-size:10px;font-weight:700;color:var(--ts);letter-spacing:1px;width:24px}
+.mod-title{font-size:14px;font-weight:700;color:var(--t)}
+.mod-badge{margin-left:auto;font-size:9px;font-weight:700;padding:3px 7px;border-radius:3px;letter-spacing:.5px}
+.mod-badge.starter{background:rgba(203,23,44,.1);color:var(--red)}
+.mod-badge.full{background:rgba(22,24,27,.07);color:var(--tm)}
+.mod-points{display:flex;flex-direction:column;gap:4px}
+.mod-points li{font-size:12px;color:var(--tm);padding-left:12px;position:relative;line-height:1.4}
+.mod-points li::before{content:'—';position:absolute;left:0;color:var(--ts);font-size:11px}
+
+/* ── MENTOR ── */
+.mentor-in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.mentor-photo{aspect-ratio:4/5;max-width:360px;border-radius:14px;background:linear-gradient(160deg,#1c2238,#12151e);border:1px solid #1e2535;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden}
+.mentor-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(10,12,18,.85));pointer-events:none}
+.mentor-ava{width:100px;height:100px;border-radius:50%;background:rgba(34,211,238,.07);border:2px solid rgba(34,211,238,.18);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;color:var(--cy);letter-spacing:-1px;z-index:1}
+.mentor-ph-name{font-size:17px;font-weight:800;color:#f1f2f4;z-index:1}
+.mentor-ph-role{font-size:12px;color:var(--om);z-index:1}
+.mentor-chips{position:absolute;bottom:20px;left:20px;right:20px;display:flex;flex-wrap:wrap;gap:6px;z-index:2}
+.mchip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:4px 10px;font-size:10px;font-weight:600;color:var(--om)}
+.mentor-content .lbl{margin-bottom:8px}
+.mentor-name{font-size:28px;font-weight:800;color:#f1f2f4;margin-bottom:6px}
+.mentor-title{font-size:15px;color:var(--om);margin-bottom:20px;line-height:1.5}
+.mentor-bio{font-size:15px;color:var(--od);line-height:1.8;margin-bottom:28px}
+.mentor-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px}
+.mstat{border:1px solid var(--db);border-radius:var(--r);padding:14px 16px}
+.mstat-n{font-size:20px;font-weight:800;color:#f1f2f4}
+.mstat-l{font-size:11px;color:var(--om);margin-top:3px}
+.media-row{margin-top:4px}
+.media-row .lbl{margin-bottom:12px}
+.media-badges{display:flex;flex-wrap:wrap;gap:8px}
+.mbadge{border:1px solid var(--db);border-radius:4px;padding:6px 14px;font-size:12px;color:var(--om);background:rgba(255,255,255,.02);transition:border-color .15s}
+.mbadge:hover{border-color:rgba(255,255,255,.15);color:var(--od)}
+
+/* ── TIMELINE ── */
+.tl{position:relative;display:flex;flex-direction:column;gap:0;margin-top:44px;max-width:620px}
+.tl::before{content:'';position:absolute;left:15px;top:32px;bottom:32px;width:1px;background:var(--bd)}
+.tli{display:flex;gap:22px;padding-bottom:28px;position:relative;z-index:1}
+.tli:last-child{padding-bottom:0}
+.tli-c{width:32px;height:32px;border-radius:50%;background:var(--d);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:3px solid var(--w)}
+.tli-c.r{background:var(--red)}
+.tli-c.a{background:#111318;color:var(--lime);border-color:var(--w)}
+.tli-title{font-size:15px;font-weight:700;color:var(--t);padding-top:5px;margin-bottom:3px}
+.tli-sub{font-size:13px;color:var(--tm)}
+
+/* ── REVIEWS ── */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.rev-card{border-radius:var(--r);border:1px solid var(--bd);padding:24px;background:var(--w)}
+.rev-stars{display:flex;gap:3px;margin-bottom:14px}
+.rev-star{width:14px;height:14px;background:var(--red);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.rev-text{font-size:14px;color:var(--tm);line-height:1.7;font-style:italic;margin-bottom:16px}
+.rev-author{font-size:13px;font-weight:600;color:var(--t)}
+.rev-role{font-size:12px;color:var(--ts)}
+.rev-placeholder{text-align:center;padding:32px 20px}
+.rev-placeholder .rev-text{font-style:normal;color:var(--ts);font-size:13px}
 
 /* ── FAQ ── */
-.faq-list{display:flex;flex-direction:column;gap:8px;margin-top:36px;max-width:720px}
-.faq-item{background:var(--white);border-radius:var(--r);border:1px solid var(--border);overflow:hidden}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-size:15px;font-weight:600;color:var(--text);gap:16px;user-select:none;transition:background .15s}
-.faq-q:hover{background:#fafafa}
-.faq-ico{width:24px;height:24px;border-radius:50%;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:300;flex-shrink:0;transition:transform .2s,background .2s;line-height:1}
-.faq-item.open .faq-ico{transform:rotate(45deg);background:var(--red)}
-.faq-a{display:none;padding:0 22px 18px;font-size:14px;color:var(--text-muted);line-height:1.75;border-top:1px solid var(--border);padding-top:16px}
-.faq-item.open .faq-a{display:block}
+.faq-list{display:flex;flex-direction:column;gap:8px;margin-top:40px;max-width:740px}
+.fq{background:var(--w);border-radius:var(--r);border:1px solid var(--bd);overflow:hidden}
+.fq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-size:15px;font-weight:600;color:var(--t);gap:16px;user-select:none;transition:background .15s}
+.fq-q:hover{background:#fafafa}
+.fq-ico{width:24px;height:24px;border-radius:50%;background:var(--d);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:300;flex-shrink:0;transition:transform .2s,background .2s;line-height:1}
+.fq.open .fq-ico{transform:rotate(45deg);background:var(--red)}
+.fq-a{display:none;padding:16px 22px 20px;font-size:14px;color:var(--tm);line-height:1.75;border-top:1px solid var(--bd)}
+.fq.open .fq-a{display:block}
 
-/* ── CTA form ── */
-.cta-wrap{max-width:520px;margin:0 auto;text-align:center}
-.cta-wrap .sec-h{color:#f1f2f4;margin-bottom:10px}
-.cta-wrap .sec-sub{text-align:center;margin:0 auto 36px}
+/* ── CTA ── */
+.cta-in{max-width:540px;margin:0 auto;text-align:center}
+.cta-in .h2{margin-bottom:10px}
+.cta-in .sub{margin:0 auto 38px}
 .cta-form{display:flex;flex-direction:column;gap:10px}
-.cta-input{background:#1a1e24;border:1px solid var(--dark-border);border-radius:var(--r-sm);padding:13px 16px;color:#e2e4e8;font-size:15px;outline:none;width:100%;transition:border-color .15s}
-.cta-input::placeholder{color:#3a3e45}
-.cta-input:focus{border-color:#4a4d54}
-.cta-submit{background:var(--red);color:#fff;font-size:15px;font-weight:700;padding:15px;border:none;border-radius:var(--r-sm);cursor:pointer;transition:all .15s;letter-spacing:.2px}
-.cta-submit:hover{background:var(--red-hover);transform:translateY(-1px);box-shadow:0 4px 20px rgba(203,23,44,.3)}
-.cta-note{font-size:12px;color:#3a3e45;margin-top:6px}
+.cta-inp{background:#161a21;border:1px solid var(--db);border-radius:var(--rs);padding:13px 16px;color:#e2e4e8;font-size:15px;outline:none;width:100%;transition:border-color .15s}
+.cta-inp::placeholder{color:#333740}
+.cta-inp:focus{border-color:#4a4d54}
+.cta-btn{background:var(--red);color:#fff;font-size:15px;font-weight:700;padding:15px;border:none;border-radius:var(--rs);cursor:pointer;transition:all .15s;letter-spacing:.2px}
+.cta-btn:hover{background:var(--rh);transform:translateY(-2px);box-shadow:0 6px 24px rgba(203,23,44,.3)}
+.cta-note{font-size:12px;color:var(--os);margin-top:6px}
+#cta-ok{display:none;padding:28px;background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.18);border-radius:var(--r);text-align:center;margin-top:12px}
+#cta-ok h3{font-size:18px;font-weight:700;color:#f1f2f4;margin-bottom:6px}
+#cta-ok p{font-size:14px;color:var(--om)}
 
-/* ── Footer ── */
-footer{background:#0a0c0f;border-top:1px solid var(--dark-border);padding:28px 0}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.footer-brand{font-size:15px;font-weight:800;color:#e2e4e8}
-.footer-domain{font-size:12px;color:var(--on-dark-muted);margin-top:3px}
-.footer-copy{font-size:13px;color:#3a3e45;text-align:right}
-.footer-policy{font-size:12px;color:#2a2d32;margin-top:4px;cursor:pointer;transition:color .15s}
-.footer-policy:hover{color:#6b7280}
+/* ── FOOTER ── */
+footer{background:var(--d3);border-top:1px solid var(--db);padding:28px 0}
+.ft-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.ft-brand{font-size:15px;font-weight:800;color:#e2e4e8}
+.ft-domain{font-size:12px;color:var(--om);margin-top:3px}
+.ft-r{text-align:right}
+.ft-copy{font-size:13px;color:var(--os)}
+.ft-policy{font-size:12px;color:#2a2d32;margin-top:4px;cursor:pointer;transition:color .15s}
+.ft-policy:hover{color:var(--tm)}
 
-/* ── Responsive ── */
-@media(max-width:960px){
-  .hero-inner{grid-template-columns:1fr;padding:120px 24px 80px;gap:48px}
-  .hero-card{max-width:100%;margin:0}
-  .safety-inner{grid-template-columns:1fr;gap:40px}
-  .trust-bar-inner{grid-template-columns:1fr 1fr}
-  .trust-item{border-right:none;border-bottom:1px solid var(--border)}
-  .trust-item:nth-child(odd){border-right:1px solid var(--border)}
-  .trust-item:nth-child(3),.trust-item:nth-child(4){border-bottom:none}
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.1s}
+.reveal.d2{transition-delay:.2s}
+.reveal.d3{transition-delay:.3s}
+.reveal.d4{transition-delay:.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  .hero-in{grid-template-columns:1fr;padding:120px 28px 80px;gap:48px}
+  .hero-right{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:16px}
+  .hero-photo{max-width:260px;height:220px}
+  .ai-card{max-width:calc(100% - 276px)}
+  .mentor-in{grid-template-columns:1fr;gap:40px}
+  .mentor-photo{max-width:100%;height:240px;aspect-ratio:auto;flex-direction:row;justify-content:center;gap:20px}
+  .method-steps{grid-template-columns:1fr 1fr;gap:24px}
+  .method-steps::before{display:none}
+  .arts-grid{grid-template-columns:1fr 1fr}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .titem:nth-child(2){border-right:none}
+  .titem:nth-child(3){border-right:1px solid var(--bd)}
+  .titem:nth-child(3),.titem:nth-child(4){border-top:1px solid var(--bd)}
 }
 @media(max-width:768px){
-  section{padding:64px 0}
+  .sec{padding:64px 0}
   .nav-links,.nav-cta{display:none}
-  .nav-burger{display:flex}
-  .hero-h1{font-size:32px;letter-spacing:-1px}
-  .hero-sub{font-size:15px}
-  .problem-grid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr 1fr}
-  .mentor-card{flex-direction:column;padding:24px;gap:20px}
-  .timeline::before{display:none}
+  .burger{display:flex}
+  .hero-h1{font-size:38px;letter-spacing:-1px}
+  .hero-sub{font-size:16px}
+  .hero-right{flex-direction:column;gap:14px}
+  .hero-photo{max-width:100%;height:200px}
+  .ai-card{max-width:100%}
+  .prob-grid{grid-template-columns:1fr}
+  .uc-grid{grid-template-columns:1fr 1fr}
+  .cur-grid{grid-template-columns:1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .method-steps{grid-template-columns:1fr}
+  .arts-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:480px){
-  .hero-h1{font-size:28px}
-  .hero-actions{flex-direction:column}
-  .hero-actions .btn{justify-content:center}
-  .skills-grid{grid-template-columns:1fr}
-  .trust-bar-inner{grid-template-columns:1fr 1fr}
-  .trust-item:nth-child(odd){border-right:1px solid var(--border)}
-  .trust-item:nth-child(3){border-right:none}
-  .trust-item:last-child{border-bottom:none}
-  .sec-h{font-size:24px}
+  .hero-h1{font-size:32px}
+  .hero-btns{flex-direction:column}
+  .hero-btns .btn{justify-content:center}
+  .hero-stats{gap:20px}
+  .arts-grid{grid-template-columns:1fr}
+  .uc-grid{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .h2{font-size:26px}
+  .mentor-chips{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- ① NAV -->
+<!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#" class="nav-brand">KIM <span>AI</span> School</a>
+  <div class="wrap">
+    <div class="nav-in">
+      <a href="#" class="nav-logo">KIM <span>AI</span> School</a>
       <ul class="nav-links">
+        <li><a href="#методология">Методология</a></li>
         <li><a href="#программа">Программа</a></li>
         <li><a href="#наставник">Наставник</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
       <a href="#записаться" class="nav-cta">Записаться</a>
-      <div class="nav-burger" id="burger">
-        <span></span><span></span><span></span>
-      </div>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
     </div>
   </div>
-  <div class="nav-mobile" id="mobile-nav">
+  <div class="mnav" id="mnav">
+    <a href="#методология">Методология</a>
     <a href="#программа">Программа</a>
     <a href="#наставник">Наставник</a>
     <a href="#faq">FAQ</a>
-    <a href="#записаться" style="color:var(--red);font-weight:700">Записаться →</a>
+    <a href="#записаться" class="hot">Записаться →</a>
   </div>
 </nav>
 
-<!-- ② HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge">Для школьников 12–17 лет</div>
-      <h1 class="hero-h1">Ваш ребёнок уже<br>будет жить в <em>мире ИИ</em></h1>
-      <p class="hero-sub">Научим пользоваться нейросетями безопасно, осмысленно и с пользой для учёбы и развития</p>
-      <div class="hero-actions">
-        <a href="#записаться" class="btn btn-primary">Записаться на диагностику</a>
-        <a href="#программа" class="btn btn-ghost">Программа →</a>
+<!-- HERO -->
+<section class="hero gbg" id="hero">
+  <div class="hero-in">
+    <div class="hero-left">
+      <div class="hero-pill">Для школьников 12–17 лет</div>
+      <h1 class="hero-h1">Школа<br><span class="ai">AI</span>-мышления<br>для подростков</h1>
+      <p class="hero-sub">Учим не просто пользоваться нейросетями, а думать, проверять, создавать проекты и безопасно работать с ИИ.</p>
+      <div class="hero-btns">
+        <a href="#записаться" class="btn btn-red">Записаться на диагностику</a>
+        <a href="#программа" class="btn btn-ghost">Посмотреть программу</a>
       </div>
       <div class="hero-stats">
-        <div><div class="hero-stat-num">200+</div><div class="hero-stat-label">Проектов</div></div>
-        <div><div class="hero-stat-num">2015</div><div class="hero-stat-label">KIM.agency</div></div>
-        <div><div class="hero-stat-num">4–8</div><div class="hero-stat-label">Занятий</div></div>
+        <div><div class="hstat-n">200+</div><div class="hstat-l">Проектов</div></div>
+        <div><div class="hstat-n">2015</div><div class="hstat-l">KIM.agency</div></div>
+        <div><div class="hstat-n">4–8</div><div class="hstat-l">Занятий</div></div>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hero-card-header">
-        <div class="hc-dots"><span></span><span></span><span></span></div>
-        <span class="hc-title">KIM AI School</span>
-        <span class="hc-live">Онлайн</span>
+    <div class="hero-right">
+      <div class="hero-photo">
+        <div class="photo-hint">Фото наставника</div>
+        <div class="photo-mono">КК</div>
+        <div class="photo-name">Константин Ким</div>
+        <div class="photo-role">Основатель KIM.agency</div>
       </div>
-      <div class="hc-body">
-        <div class="hc-step">
-          <span class="hc-num">01</span>
-          <div class="hc-content">
-            <div class="hc-label">Запрос</div>
-            <div class="hc-prompt">Как написать исследовательскую работу правильно?<div class="hc-prompt-send"><span>Отправить →</span></div></div>
-          </div>
+      <div class="ai-card" id="ai-card">
+        <div class="ai-hdr">
+          <div class="ai-dots"><span></span><span></span><span></span></div>
+          <span class="ai-htitle">KIM AI School</span>
+          <span class="ai-live"><span class="ai-live-dot"></span>Онлайн</span>
         </div>
-        <hr class="hc-divider">
-        <div class="hc-step">
-          <span class="hc-num">02</span>
-          <div class="hc-content">
-            <div class="hc-label">Проверка</div>
-            <div class="hc-checks">
-              <div class="hc-check ok"><div class="hc-check-ico">✓</div><span>Источник подтверждён</span></div>
-              <div class="hc-check warn"><div class="hc-check-ico">!</div><span>Обнаружена галлюцинация</span></div>
+        <div class="ai-body">
+          <div class="ai-step">
+            <span class="ai-snum">01</span>
+            <div class="ai-sc">
+              <div class="ai-slbl">Запрос</div>
+              <div class="ai-prompt"><span id="ai-text"></span><span class="ai-cursor" id="ai-cur">|</span><div class="ai-send" id="ai-send" style="display:none">Отправить →</div></div>
             </div>
           </div>
-        </div>
-        <hr class="hc-divider">
-        <div class="hc-step">
-          <span class="hc-num">03</span>
-          <div class="hc-content">
-            <div class="hc-label">Проект</div>
-            <div class="hc-result">
-              <div><div class="hc-result-title">Исследовательская работа</div><div class="hc-result-sub">Готова к сдаче</div></div>
-              <div class="hc-result-badge">ГОТОВО</div>
+          <div class="ai-div"></div>
+          <div class="ai-step">
+            <span class="ai-snum">02</span>
+            <div class="ai-sc">
+              <div class="ai-slbl">Проверка</div>
+              <div class="ai-checks">
+                <div class="ai-chk ok" id="chk1"><div class="ai-ci">✓</div><span>Аргументы проверены</span></div>
+                <div class="ai-chk warn" id="chk2"><div class="ai-ci">!</div><span>Источник нужно уточнить</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="ai-div"></div>
+          <div class="ai-step">
+            <span class="ai-snum">03</span>
+            <div class="ai-sc">
+              <div class="ai-slbl">Результат</div>
+              <div class="ai-res" id="ai-res">
+                <div><div class="ai-rt">Проект готов к защите</div><div class="ai-rs">Черновик доработан ребёнком</div></div>
+                <div class="ai-rb">ГОТОВО</div>
+              </div>
             </div>
           </div>
         </div>
@@ -331,246 +430,365 @@ footer{background:#0a0c0f;border-top:1px solid var(--dark-border);padding:28px 0
   </div>
 </section>
 
-<!-- ③ TRUST BAR -->
-<div class="trust-bar">
-  <div class="container">
-    <div class="trust-bar-inner">
-      <div class="trust-item"><div class="trust-num">200+</div><div class="trust-lbl">Проектов KIM.agency</div></div>
-      <div class="trust-item"><div class="trust-num">2015</div><div class="trust-lbl">Год основания</div></div>
-      <div class="trust-item"><div class="trust-num">4–8</div><div class="trust-lbl">Занятий в программе</div></div>
-      <div class="trust-item"><div class="trust-num">12–17</div><div class="trust-lbl">Возраст участников</div></div>
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="titem"><div class="tnum">200+</div><div class="tlbl">Проектов KIM.agency</div></div>
+      <div class="titem"><div class="tnum">2015</div><div class="tlbl">Год основания</div></div>
+      <div class="titem"><div class="tnum">4–8</div><div class="tlbl">Занятий в программе</div></div>
+      <div class="titem"><div class="tnum">12–17</div><div class="tlbl">Возраст учеников</div></div>
     </div>
   </div>
 </div>
 
-<!-- ④ PROBLEM -->
-<section class="alt" id="программа">
-  <div class="container">
-    <span class="sec-label">Почему это важно сейчас</span>
-    <h2 class="sec-h">Дети уже используют ИИ.<br>Но хаотично.</h2>
-    <div class="problem-grid">
-      <div class="prob-card"><h3>Списывают без понимания</h3><p>Копируют ответы ИИ целиком, не разбирая логику и не формируя собственного мышления.</p></div>
-      <div class="prob-card"><h3>Доверяют ошибкам ИИ</h3><p>Не проверяют факты, не распознают галлюцинации — и сдают неверное как правильное.</p></div>
-      <div class="prob-card"><h3>Не знают о рисках данных</h3><p>Вводят личную информацию, фото, имена близких — без понимания последствий.</p></div>
-      <div class="prob-card"><h3>Школа не объясняет правил</h3><p>Системного AI-образования нет. Ребёнок учится стихийно, из TikTok и Telegram.</p></div>
+<!-- PROBLEM -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="reveal"><span class="lbl">Почему это важно сейчас</span></div>
+    <div class="reveal d1"><h2 class="h2">Дети уже используют ИИ.<br>Но хаотично.</h2></div>
+    <div class="reveal d2"><p class="sub">Они копируют, не думая. Доверяют ошибкам. Не защищают данные. Школа не объясняет правил — а ИИ уже в каждом телефоне.</p></div>
+    <div class="prob-grid" style="margin-top:36px">
+      <div class="pc reveal d1"><h3>Списывают без понимания</h3><p>Копируют ответы ИИ целиком, не разбирая логику и не формируя собственного мышления.</p></div>
+      <div class="pc reveal d2"><h3>Доверяют ошибкам ИИ</h3><p>Не проверяют факты, не распознают галлюцинации — и сдают неверное как правильное.</p></div>
+      <div class="pc reveal d3"><h3>Не знают о рисках данных</h3><p>Вводят личную информацию, фото, имена близких — без понимания последствий.</p></div>
+      <div class="pc reveal d4"><h3>Школа не даёт системы</h3><p>Системного AI-образования нет. Ребёнок учится стихийно, из TikTok и Telegram.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ⑤ FOR WHOM -->
-<section>
-  <div class="container">
-    <span class="sec-label">Для кого</span>
-    <h2 class="sec-h">Программа подойдёт, если…</h2>
-    <div class="forwhom-list">
-      <div class="fw-item"><div class="fw-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><p>Ребёнок 12–17 лет уже пользуется нейросетями, но хаотично и без понимания рисков</p></div>
-      <div class="fw-item"><div class="fw-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><p>8–10 класс: впереди проекты, экзамены, выбор профессии — и ИИ может помочь или навредить</p></div>
-      <div class="fw-item"><div class="fw-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><p>Сильный ребёнок — скучно в стандартных кружках, хочется настоящих инструментов</p></div>
-      <div class="fw-item"><div class="fw-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div><p>Много времени в гаджетах — хочется перевести это в реальный навык</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ⑥ SKILLS -->
-<section class="alt">
-  <div class="container">
-    <span class="sec-label">Результат</span>
-    <h2 class="sec-h">Чему научится ребёнок</h2>
-    <div class="skills-grid">
-      <div class="skill-card"><div class="skill-n">01</div><h3>Формулировать точные запросы</h3><p>Prompt engineering на практике — от хаотичных вопросов к точным инструкциям.</p></div>
-      <div class="skill-card"><div class="skill-n">02</div><h3>Проверять ответы ИИ</h3><p>Критическое мышление: распознавать галлюцинации, проверять факты, не доверять слепо.</p></div>
-      <div class="skill-card"><div class="skill-n">03</div><h3>Готовить проекты и презентации</h3><p>Использовать ИИ как помощника в учёбе — не вместо себя, а вместе с собой.</p></div>
-      <div class="skill-card"><div class="skill-n">04</div><h3>Защищать личные данные</h3><p>Что нельзя вводить в чат, как работают данные, что такое приватность в 2025.</p></div>
-      <div class="skill-card"><div class="skill-n">05</div><h3>Видеть ошибки и галлюцинации</h3><p>ИИ уверенно врёт. Ребёнок научится это видеть и не попадаться.</p></div>
-      <div class="skill-card"><div class="skill-n">06</div><h3>Создать собственный AI-проект</h3><p>Итог обучения — личный проект, который можно показать и защитить.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ⑦ PROGRAMS -->
-<section>
-  <div class="container">
-    <span class="sec-label">Программа</span>
-    <h2 class="sec-h">Форматы обучения</h2>
-    <div class="programs-list">
-      <div class="prog-item">
-        <div class="prog-body"><div class="prog-title">Вводная диагностика</div><div class="prog-sub">Оценка уровня + карта рекомендаций, 30–40 минут</div></div>
-        <span class="prog-arrow">→</span>
+<!-- WHY STARTED -->
+<section class="sec dark gbg">
+  <div class="wrap">
+    <div class="why-in">
+      <div class="reveal"><span class="lbl dim">Почему я запустил эту школу</span></div>
+      <div class="reveal d1">
+        <p class="why-quote">Я вижу, как ИИ меняет бизнес, маркетинг, продажи, аналитику, разработку и управление. Но дети часто знакомятся с нейросетями через хаотичные советы: как сделать домашку, как обойти проверку, как скопировать ответ. Мне кажется, это неправильный путь. Ребёнка нужно научить не списывать, а думать в новой среде: ставить задачу, проверять результат, видеть ошибки, защищать данные и создавать собственные проекты.</p>
       </div>
-      <div class="prog-item featured">
-        <div class="prog-body"><div class="prog-title">Стартовый модуль — 4 занятия</div><div class="prog-sub">Базовая AI-грамотность + первый результат, онлайн</div></div>
-        <span class="prog-badge">ХИТ</span>
-      </div>
-      <div class="prog-item">
-        <div class="prog-body"><div class="prog-title">Полная программа — 8 занятий</div><div class="prog-sub">Навык + собственный AI-проект с защитой</div></div>
-        <span class="prog-arrow">→</span>
-      </div>
-      <div class="prog-item">
-        <div class="prog-body"><div class="prog-title">Индивидуальное сопровождение</div><div class="prog-sub">Личная траектория для сильных учеников</div></div>
-        <span class="prog-arrow">→</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ⑧ SAFETY (dark) -->
-<section class="dark">
-  <div class="container">
-    <div class="safety-inner">
-      <div class="safety-text">
-        <span class="sec-label">Безопасность</span>
-        <h2 class="sec-h light">Мы не учим списывать</h2>
-        <p>Ребёнок учится думать вместе с ИИ: задавать точные вопросы, проверять ответы, защищать данные и использовать технологию как инструмент развития — а не замену собственному мышлению.</p>
-      </div>
-      <div class="safety-checks">
-        <div class="safety-check"><div class="safety-ico">✓</div><p>Объясняем, что такое галлюцинации и ошибки ИИ</p></div>
-        <div class="safety-check"><div class="safety-ico">✓</div><p>Учим не вводить личные данные в чат</p></div>
-        <div class="safety-check"><div class="safety-ico">✓</div><p>Родитель получает отчёт после каждого модуля</p></div>
-        <div class="safety-check"><div class="safety-ico">✓</div><p>Этика, цифровые фейки и критическое мышление</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ⑨ MENTOR -->
-<section class="alt" id="наставник">
-  <div class="container">
-    <span class="sec-label">Кто ведёт</span>
-    <h2 class="sec-h">Наставник</h2>
-    <div class="mentor-card">
-      <div class="mentor-ava">КК</div>
-      <div>
-        <div class="mentor-name">Константин Ким</div>
-        <div class="mentor-role">Предприниматель, стратег, основатель KIM.agency</div>
-        <div class="mentor-bio">Практик AI-внедрений в бизнесе с 2023 года. Не объясняет теорию — показывает как ИИ работает в реальных задачах. Опыт 200+ проектов в агентстве даёт понимание, что действительно нужно в работе и учёбе, а что — маркетинговый шум.</div>
-        <div class="mentor-tags">
-          <span class="mentor-tag">200+ проектов</span>
-          <span class="mentor-tag">AI с 2023</span>
-          <span class="mentor-tag">Наставник с 2022</span>
-          <span class="mentor-tag">KIM.agency с 2015</span>
+      <div class="reveal d2"><div class="why-sig">— Константин Ким <span>· Основатель KIM.agency</span></div></div>
+      <div class="reveal d3">
+        <div class="why-video" onclick="">
+          <div class="why-play"></div>
+          <div class="why-vtitle">2 минуты: почему я делаю эту школу</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ⑩ HOW IT WORKS -->
-<section>
-  <div class="container">
-    <span class="sec-label">Как всё устроено</span>
-    <h2 class="sec-h">7 шагов от заявки до результата</h2>
-    <div class="timeline">
-      <div class="tl-item"><div class="tl-circle">1</div><div><div class="tl-title">Заявка от родителя</div><div class="tl-sub">Оставляете контакт на сайте</div></div></div>
-      <div class="tl-item"><div class="tl-circle">2</div><div><div class="tl-title">Короткая консультация</div><div class="tl-sub">15 минут — знакомство и ответы на вопросы</div></div></div>
-      <div class="tl-item"><div class="tl-circle red">3</div><div><div class="tl-title">Вводная диагностика ребёнка</div><div class="tl-sub">Оценка уровня, интересов, карта развития</div></div></div>
-      <div class="tl-item"><div class="tl-circle">4</div><div><div class="tl-title">Подбор программы</div><div class="tl-sub">Формат и темп подбираются индивидуально</div></div></div>
-      <div class="tl-item"><div class="tl-circle">5</div><div><div class="tl-title">Занятия онлайн</div><div class="tl-sub">4 или 8 занятий, 1–2 раза в неделю</div></div></div>
-      <div class="tl-item"><div class="tl-circle accent">6</div><div><div class="tl-title">Мини-проект ребёнка</div><div class="tl-sub">Личный AI-проект, который можно показать</div></div></div>
-      <div class="tl-item"><div class="tl-circle accent">7</div><div><div class="tl-title">Итоговый отчёт для родителя</div><div class="tl-sub">Что освоил, какие навыки, рекомендации</div></div></div>
+<!-- METHODOLOGY -->
+<section class="sec" id="методология">
+  <div class="wrap">
+    <div class="reveal"><span class="lbl">Методология</span></div>
+    <div class="reveal d1"><h2 class="h2">Как мы учим думать с ИИ</h2></div>
+    <div class="reveal d2"><p class="sub">Пять этапов, которые превращают хаотичное использование нейросетей в осознанный навык.</p></div>
+    <div class="method-steps reveal d2" id="методология-steps">
+      <div class="mstep reveal">
+        <div class="mstep-num"><div class="mstep-icon">🔍</div></div>
+        <div class="mstep-title">Понять</div>
+        <div class="mstep-desc">Как работает ИИ и почему он ошибается</div>
+      </div>
+      <div class="mstep reveal d1">
+        <div class="mstep-num"><div class="mstep-icon">🎯</div></div>
+        <div class="mstep-title">Поставить задачу</div>
+        <div class="mstep-desc">Формулировать запросы и не получать мусор</div>
+      </div>
+      <div class="mstep reveal d2">
+        <div class="mstep-num active"><div class="mstep-icon">✓</div></div>
+        <div class="mstep-title">Проверить</div>
+        <div class="mstep-desc">Факты, источники, логика, галлюцинации</div>
+      </div>
+      <div class="mstep reveal d3">
+        <div class="mstep-num"><div class="mstep-icon">⚡</div></div>
+        <div class="mstep-title">Применить</div>
+        <div class="mstep-desc">Учёба, проекты, презентации, творчество</div>
+      </div>
+      <div class="mstep reveal d4">
+        <div class="mstep-num"><div class="mstep-icon">🛡</div></div>
+        <div class="mstep-title">Защитить</div>
+        <div class="mstep-desc">Презентовать проект, показать ход мысли</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ⑪ FAQ -->
-<section class="alt" id="faq">
-  <div class="container">
-    <span class="sec-label">FAQ</span>
-    <h2 class="sec-h">Частые вопросы</h2>
+<!-- ARTIFACTS -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="reveal"><span class="lbl">Результат обучения</span></div>
+    <div class="reveal d1"><h2 class="h2">Что ребёнок создаст</h2></div>
+    <div class="reveal d2"><p class="sub">Не абстрактные "знания", а конкретные артефакты, которые остаются после курса.</p></div>
+    <div class="arts-grid">
+      <div class="art-card reveal"><div class="art-top r"></div><div class="art-body"><div class="art-ico">🗺</div><div class="art-title">Личная prompt-карта</div><div class="art-desc">Шаблоны запросов под задачи ребёнка: учёба, проекты, творчество</div><div class="art-tag">Артефакт · Занятие 2</div></div></div>
+      <div class="art-card reveal d1"><div class="art-top c"></div><div class="art-body"><div class="art-ico">🔬</div><div class="art-title">Мини-исследование</div><div class="art-desc">Реальная тема + проверенные источники + структура</div><div class="art-tag">Артефакт · Занятие 4</div></div></div>
+      <div class="art-card reveal d2"><div class="art-top d"></div><div class="art-body"><div class="art-ico">📊</div><div class="art-title">Презентация</div><div class="art-desc">Структура, аргументы, визуальная часть — вместе с ИИ</div><div class="art-tag">Артефакт · Занятие 5</div></div></div>
+      <div class="art-card reveal d3"><div class="art-top r"></div><div class="art-body"><div class="art-ico">🛡</div><div class="art-title">Чек-лист безопасности</div><div class="art-desc">Что вводить в чат нельзя и почему — свои правила</div><div class="art-tag">Артефакт · Занятие 7</div></div></div>
+      <div class="art-card reveal d1"><div class="art-top c"></div><div class="art-body"><div class="art-ico">🧭</div><div class="art-title">Карта навыков</div><div class="art-desc">Что умею, где применяю, куда развиваться дальше</div><div class="art-tag">Артефакт · Занятие 6</div></div></div>
+      <div class="art-card reveal d2"><div class="art-top d"></div><div class="art-body"><div class="art-ico">🚀</div><div class="art-title">AI-проект</div><div class="art-desc">Собственный проект на тему интересов ребёнка</div><div class="art-tag">Артефакт · Занятие 8</div></div></div>
+      <div class="art-card reveal d3"><div class="art-top r"></div><div class="art-body"><div class="art-ico">🎤</div><div class="art-title">Итоговая защита</div><div class="art-desc">Ребёнок объясняет проект своими словами и показывает ход мысли</div><div class="art-tag">Артефакт · Финал</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="sec dark gbg">
+  <div class="wrap">
+    <div class="reveal"><span class="lbl cy">Где применять</span></div>
+    <div class="reveal d1"><h2 class="h2 lt">Где ребёнок будет использовать ИИ</h2></div>
+    <div class="reveal d2"><p class="sub lt">Практика с первого занятия — в задачах, которые уже есть у ребёнка.</p></div>
+    <div class="uc-grid">
+      <div class="uc-card reveal"><div class="uc-ico">📚</div><div class="uc-title">Учёба</div><ul class="uc-list"><li>Объяснить сложную тему</li><li>Сделать конспект</li><li>Подготовиться к ответу</li></ul></div>
+      <div class="uc-card reveal d1"><div class="uc-ico">🔬</div><div class="uc-title">Проекты</div><ul class="uc-list"><li>Структура исследования</li><li>Поиск и проверка источников</li><li>Подготовка к защите</li></ul></div>
+      <div class="uc-card reveal d2"><div class="uc-ico">🎨</div><div class="uc-title">Творчество</div><ul class="uc-list"><li>Идеи, тексты, сценарии</li><li>Изображения и визуал</li><li>Нейтральная обратная связь</li></ul></div>
+      <div class="uc-card reveal d1"><div class="uc-ico">🧭</div><div class="uc-title">Профориентация</div><ul class="uc-list"><li>Разобраться в профессиях</li><li>Навыки будущего</li><li>Карта интересов</li></ul></div>
+      <div class="uc-card reveal d2"><div class="uc-ico">🌍</div><div class="uc-title">Английский</div><ul class="uc-list"><li>Тренировка диалогов</li><li>Объяснение грамматики</li><li>Разбор ошибок</li></ul></div>
+      <div class="uc-card reveal d3"><div class="uc-ico">⚡</div><div class="uc-title">Личная эффективность</div><ul class="uc-list"><li>Планирование дня и целей</li><li>Подготовка к выступлениям</li><li>Структура мышления</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="sec" id="программа">
+  <div class="wrap">
+    <div class="reveal"><span class="lbl">Программа</span></div>
+    <div class="reveal d1"><h2 class="h2">8 модулей — от основ до защиты проекта</h2></div>
+    <div class="reveal d2"><p class="sub">Стартовый пакет — модули 1–4. Полная программа — все 8 модулей с финальным AI-проектом.</p></div>
+    <div style="height:28px"></div>
+    <div class="cur-grid reveal d2">
+      <div class="mod"><div class="mod-head"><span class="mod-num">01</span><span class="mod-title">Как работает ИИ</span><span class="mod-badge starter">Стартовый</span></div><ul class="mod-points"><li>Что такое нейросети простыми словами</li><li>Почему ИИ уверенно ошибается</li><li>Галлюцинации и как их замечать</li></ul></div>
+      <div class="mod"><div class="mod-head"><span class="mod-num">02</span><span class="mod-title">Запросы и постановка задач</span><span class="mod-badge starter">Стартовый</span></div><ul class="mod-points"><li>Принципы хорошего промпта</li><li>Контекст, роль, формат, ограничения</li><li>Личная prompt-карта</li></ul></div>
+      <div class="mod"><div class="mod-head"><span class="mod-num">03</span><span class="mod-title">Проверка фактов</span><span class="mod-badge starter">Стартовый</span></div><ul class="mod-points"><li>Как проверять ответы ИИ</li><li>Источники и критическое мышление</li><li>Практика: найти ошибку в ответе</li></ul></div>
+      <div class="mod"><div class="mod-head"><span class="mod-num">04</span><span class="mod-title">ИИ для учёбы</span><span class="mod-badge starter">Стартовый</span></div><ul class="mod-points"><li>Учёба с ИИ без списывания</li><li>Объяснение → понимание → своими словами</li><li>Как родитель увидит прогресс</li></ul></div>
+      <div class="mod"><div class="mod-head"><span class="mod-num">05</span><span class="mod-title">Презентации и исследования</span><span class="mod-badge full">Полная</span></div><ul class="mod-points"><li>Структура проекта с ИИ</li><li>Аргументы, источники, визуал</li><li>Итоговая презентация ученика</li></ul></div>
+      <div class="mod"><div class="mod-head"><span class="mod-num">06</span><span class="mod-title">Тексты, изображения, идеи</span><span class="mod-badge full">Полная</span></div><ul class="mod-points"><li>Творческие задачи с ИИ</li><li>Midjourney и генерация изображений</li><li>Авторский голос vs ИИ-текст</li></ul></div>
+      <div class="mod"><div class="mod-head"><span class="mod-num">07</span><span class="mod-title">Безопасность и этика</span><span class="mod-badge full">Полная</span></div><ul class="mod-points"><li>Что нельзя вводить в чат</li><li>Данные, приватность, цифровой след</li><li>Фейки и дипфейки: как не попасться</li></ul></div>
+      <div class="mod"><div class="mod-head"><span class="mod-num">08</span><span class="mod-title">Финальный проект и защита</span><span class="mod-badge full">Полная</span></div><ul class="mod-points"><li>Собственный AI-проект на интересную тему</li><li>Ребёнок объясняет ход мысли</li><li>Отчёт родителю + карта навыков</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTOR -->
+<section class="sec dark gbg" id="наставник">
+  <div class="wrap">
+    <div class="mentor-in">
+      <div>
+        <div class="mentor-photo reveal">
+          <div class="mentor-ava">КК</div>
+          <div class="mentor-ph-name">Константин Ким</div>
+          <div class="mentor-ph-role">Основатель KIM.agency</div>
+          <div class="mentor-chips">
+            <span class="mchip">200+ проектов</span>
+            <span class="mchip">AI с 2023</span>
+            <span class="mchip">ТПП Москвы</span>
+            <span class="mchip">Наставник с 2022</span>
+          </div>
+        </div>
+      </div>
+      <div class="mentor-content">
+        <div class="reveal"><span class="lbl dim">Наставник</span></div>
+        <div class="reveal d1"><h2 class="mentor-name">Константин Ким</h2></div>
+        <div class="reveal d2"><div class="mentor-title">Предприниматель, стратег, основатель KIM.agency<br>Член ТПП Москвы · KIM.agency с 2015 года</div></div>
+        <div class="reveal d2"><p class="mentor-bio">Практик AI-внедрений в бизнесе с 2023 года. Работает с нейросетями в маркетинге, продажах, аналитике и стратегии. Не объясняет теорию ради теории — показывает, как ИИ работает в реальных задачах.<br><br>Запустил KIM AI School, потому что увидел: дети используют ИИ неправильно, а родители не знают, как помочь. Это решаемо — нужна правильная методология и живой наставник.</p></div>
+        <div class="mentor-stats reveal d3">
+          <div class="mstat"><div class="mstat-n">200+</div><div class="mstat-l">Проектов агентства</div></div>
+          <div class="mstat"><div class="mstat-n">2015</div><div class="mstat-l">Год основания KIM.agency</div></div>
+          <div class="mstat"><div class="mstat-n">2023</div><div class="mstat-l">AI-практика с года</div></div>
+          <div class="mstat"><div class="mstat-n">2022</div><div class="mstat-l">Наставничество с года</div></div>
+        </div>
+        <div class="media-row reveal d3">
+          <div class="lbl dim">Медиа и выступления</div>
+          <div class="media-badges">
+            <span class="mbadge">Москва 24</span>
+            <span class="mbadge">РБК</span>
+            <span class="mbadge">Сбер Про Медиа</span>
+            <span class="mbadge">Sostav</span>
+            <span class="mbadge">Т-Бизнес</span>
+            <span class="mbadge">Шмаркетинг</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="reveal"><span class="lbl">Как всё устроено</span></div>
+    <div class="reveal d1"><h2 class="h2">7 шагов от заявки до результата</h2></div>
+    <div class="tl">
+      <div class="tli reveal"><div class="tli-c">1</div><div><div class="tli-title">Заявка от родителя</div><div class="tli-sub">Оставляете контакт на сайте</div></div></div>
+      <div class="tli reveal d1"><div class="tli-c">2</div><div><div class="tli-title">Короткая консультация</div><div class="tli-sub">15 минут — знакомство, ответы на вопросы</div></div></div>
+      <div class="tli reveal d2"><div class="tli-c r">3</div><div><div class="tli-title">Вводная диагностика ребёнка</div><div class="tli-sub">Уровень, интересы, карта развития</div></div></div>
+      <div class="tli reveal d1"><div class="tli-c">4</div><div><div class="tli-title">Подбор программы</div><div class="tli-sub">Формат и темп — индивидуально</div></div></div>
+      <div class="tli reveal d2"><div class="tli-c">5</div><div><div class="tli-title">Занятия онлайн</div><div class="tli-sub">4 или 8 занятий, 1–2 раза в неделю</div></div></div>
+      <div class="tli reveal d3"><div class="tli-c a">6</div><div><div class="tli-title">AI-проект ребёнка</div><div class="tli-sub">Личный проект на интересную тему</div></div></div>
+      <div class="tli reveal d4"><div class="tli-c a">7</div><div><div class="tli-title">Итоговый отчёт для родителя</div><div class="tli-sub">Что освоил, навыки, рекомендации</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="reveal"><span class="lbl">Отзывы</span></div>
+    <div class="reveal d1"><h2 class="h2">Что говорят после наставничества</h2></div>
+    <div class="reveal d2"><p class="sub">Отзывы родителей и учеников появятся после пилотного запуска. Ниже — структура, в которой они будут.</p></div>
+    <div class="rev-grid">
+      <div class="rev-card reveal">
+        <div class="rev-stars"><div class="rev-star"></div><div class="rev-star"></div><div class="rev-star"></div><div class="rev-star"></div><div class="rev-star"></div></div>
+        <div class="rev-text rev-placeholder">"Здесь появится отзыв родителя после пилотного набора."</div>
+        <div class="rev-author">Родитель ученика</div>
+        <div class="rev-role">Ученик 9 класса, 14 лет</div>
+      </div>
+      <div class="rev-card reveal d1">
+        <div class="rev-stars"><div class="rev-star"></div><div class="rev-star"></div><div class="rev-star"></div><div class="rev-star"></div><div class="rev-star"></div></div>
+        <div class="rev-text rev-placeholder">"Здесь появится отзыв участника наставничества Константина."</div>
+        <div class="rev-author">Участник наставничества</div>
+        <div class="rev-role">KIM.agency, 2024</div>
+      </div>
+      <div class="rev-card reveal d2">
+        <div class="rev-stars"><div class="rev-star"></div><div class="rev-star"></div><div class="rev-star"></div><div class="rev-star"></div><div class="rev-star"></div></div>
+        <div class="rev-text rev-placeholder">"Здесь появится отзыв ученика после первого потока."</div>
+        <div class="rev-author">Ученик</div>
+        <div class="rev-role">KIM AI School, 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec alt" id="faq">
+  <div class="wrap">
+    <div class="reveal"><span class="lbl">FAQ</span></div>
+    <div class="reveal d1"><h2 class="h2">Частые вопросы</h2></div>
     <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">Это курс программирования?<div class="faq-ico">+</div></div>
-        <div class="faq-a">Нет. Мы не учим писать код. Учим работать с готовыми AI-инструментами: ChatGPT, Claude, Midjourney и другими. Фокус — на грамотности, критическом мышлении и практических навыках.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Ребёнок будет делать домашку через ИИ?<div class="faq-ico">+</div></div>
-        <div class="faq-a">Мы специально разбираем разницу между «ИИ сделал за меня» и «ИИ помог мне сделать лучше». Это один из ключевых блоков программы. Родители отмечают, что после курса дети начинают думать, а не просто копировать.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">С какого возраста можно?<div class="faq-ico">+</div></div>
-        <div class="faq-a">С 12 лет. Оптимальный возраст — 13–16. Важнее возраста — готовность ребёнка: есть ли интерес, пользуется ли уже нейросетями хоть иногда.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Занятия очные или онлайн?<div class="faq-ico">+</div></div>
-        <div class="faq-a">Только онлайн. Это удобно и для ребёнка, и для родителей. Платформа — Zoom или Google Meet, все материалы в общем доступе.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Что такое вводная диагностика?<div class="faq-ico">+</div></div>
-        <div class="faq-a">Короткая встреча (30–40 минут) с ребёнком и родителем. Смотрим текущий уровень, интересы, цели. По результатам — конкретный план: какой формат подойдёт, с чего начать.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Сколько стоит?<div class="faq-ico">+</div></div>
-        <div class="faq-a">Стоимость уточняется индивидуально после диагностики — зависит от формата и количества занятий. Запишитесь на диагностику, и я озвучу всё на консультации.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Нужен ли опыт с ИИ у ребёнка?<div class="faq-ico">+</div></div>
-        <div class="faq-a">Нет. Можно с нуля. Если ребёнок уже пользуется — хорошо, разберём его опыт и исправим неправильные паттерны. Главное — любопытство и готовность учиться.</div>
-      </div>
+      <div class="fq reveal"><div class="fq-q">Это курс программирования?<div class="fq-ico">+</div></div><div class="fq-a">Нет. Мы не учим писать код. Учим работать с готовыми AI-инструментами: ChatGPT, Claude, Midjourney и другими. Фокус — на грамотности, критическом мышлении и практических навыках.</div></div>
+      <div class="fq reveal d1"><div class="fq-q">Ребёнок будет делать домашку через ИИ?<div class="fq-ico">+</div></div><div class="fq-a">Мы специально разбираем разницу между «ИИ сделал за меня» и «ИИ помог мне сделать лучше». Это один из ключевых блоков программы. Родители отмечают, что после курса дети начинают думать, а не копировать.</div></div>
+      <div class="fq reveal d2"><div class="fq-q">С какого возраста можно?<div class="fq-ico">+</div></div><div class="fq-a">С 12 лет. Оптимальный возраст — 13–16. Важнее возраста — готовность ребёнка: есть ли интерес, пользуется ли нейросетями хоть иногда.</div></div>
+      <div class="fq reveal"><div class="fq-q">Занятия очные или онлайн?<div class="fq-ico">+</div></div><div class="fq-a">Только онлайн. Занятия через Zoom или Google Meet, все материалы в общем доступе.</div></div>
+      <div class="fq reveal d1"><div class="fq-q">Что такое вводная диагностика?<div class="fq-ico">+</div></div><div class="fq-a">Короткая встреча (30–40 минут) с ребёнком и родителем. Смотрим текущий уровень, интересы, цели. По результатам — конкретный план: какой формат подойдёт, с чего начать.</div></div>
+      <div class="fq reveal d2"><div class="fq-q">Сколько стоит?<div class="fq-ico">+</div></div><div class="fq-a">Стоимость уточняется индивидуально после диагностики — зависит от формата и количества занятий. Запишитесь, и я озвучу всё на консультации.</div></div>
+      <div class="fq reveal"><div class="fq-q">Нужен ли опыт с ИИ у ребёнка?<div class="fq-ico">+</div></div><div class="fq-a">Нет, можно с нуля. Если ребёнок уже пользуется — разберём его опыт и исправим неправильные паттерны. Главное — любопытство.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ⑫ CTA + FORM (dark) -->
-<section class="dark" id="записаться">
-  <div class="container">
-    <div class="cta-wrap">
-      <h2 class="sec-h">Запишите ребёнка<br>на вводную диагностику</h2>
-      <p class="sec-sub light">Оставьте заявку — свяжемся в течение дня и подберём удобное время</p>
-      <form class="cta-form" id="cta-form">
-        <input class="cta-input" type="text" placeholder="Имя родителя" required>
-        <input class="cta-input" type="tel" placeholder="Телефон или Telegram" required>
-        <input class="cta-input" type="text" placeholder="Возраст и класс ребёнка" required>
-        <button class="cta-submit" type="submit">Записаться на диагностику</button>
+<!-- CTA -->
+<section class="sec dark gbg" id="записаться">
+  <div class="wrap">
+    <div class="cta-in">
+      <div class="reveal"><span class="lbl cy">Начать</span></div>
+      <div class="reveal d1"><h2 class="h2 lt">Покажите ребёнку,<br>как пользоваться ИИ правильно</h2></div>
+      <div class="reveal d2"><p class="sub lt">Начнём с диагностики: посмотрим уровень, интересы и подберём траекторию обучения.</p></div>
+      <form class="cta-form reveal d2" id="cta-form">
+        <input class="cta-inp" type="text" placeholder="Имя родителя" required>
+        <input class="cta-inp" type="tel" placeholder="Телефон или Telegram" required>
+        <input class="cta-inp" type="text" placeholder="Возраст и класс ребёнка" required>
+        <input class="cta-inp" type="text" placeholder="Интерес ребёнка или цель обучения">
+        <button class="cta-btn" type="submit">Записаться на диагностику</button>
         <div class="cta-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</div>
       </form>
-      <div id="cta-thanks" style="display:none;padding:24px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);border-radius:var(--r);margin-top:16px;text-align:center">
-        <div style="font-size:18px;font-weight:700;color:#f1f2f4;margin-bottom:6px">Заявка принята ✓</div>
-        <div style="font-size:14px;color:var(--on-dark-muted)">Свяжемся с вами в течение дня</div>
-      </div>
+      <div id="cta-ok"><h3>Заявка принята ✓</h3><p>Свяжемся с вами в течение дня</p></div>
     </div>
   </div>
 </section>
 
-<!-- ⑬ FOOTER -->
+<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-brand">KIM AI School</div>
-        <div class="footer-domain">ai.kim.agency</div>
-      </div>
-      <div class="footer-copy">
-        <div>KIM.agency © 2025</div>
-        <div class="footer-policy">Политика конфиденциальности</div>
-      </div>
+  <div class="wrap">
+    <div class="ft-in">
+      <div><div class="ft-brand">KIM AI School</div><div class="ft-domain">ai.kim.agency</div></div>
+      <div class="ft-r"><div class="ft-copy">KIM.agency © 2025</div><div class="ft-policy">Политика конфиденциальности</div></div>
     </div>
   </div>
 </footer>
 
 <script>
+// Nav scroll
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
+window.addEventListener('scroll', () => nav.classList.toggle('on', scrollY > 24), {passive:true});
 
+// Burger
 const burger = document.getElementById('burger');
-const mobileNav = document.getElementById('mobile-nav');
-burger.addEventListener('click', () => mobileNav.classList.toggle('open'));
-mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+const mnav = document.getElementById('mnav');
+burger.addEventListener('click', () => mnav.classList.toggle('open'));
+mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mnav.classList.remove('open')));
 
-document.querySelectorAll('.faq-q').forEach(q => {
+// FAQ
+document.querySelectorAll('.fq-q').forEach(q => {
   q.addEventListener('click', () => {
-    const item = q.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+    const item = q.closest('.fq');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.fq').forEach(f => f.classList.remove('open'));
+    if (!open) item.classList.add('open');
   });
 });
 
+// CTA form
 document.getElementById('cta-form').addEventListener('submit', e => {
   e.preventDefault();
   e.target.style.display = 'none';
-  document.getElementById('cta-thanks').style.display = 'block';
+  document.getElementById('cta-ok').style.display = 'block';
 });
+
+// Scroll reveal
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+}, {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// AI Card typing animation
+(function() {
+  const text = 'Как подготовиться к защите проекта?';
+  const el = document.getElementById('ai-text');
+  const cur = document.getElementById('ai-cur');
+  const sendEl = document.getElementById('ai-send');
+  const chk1 = document.getElementById('chk1');
+  const chk2 = document.getElementById('chk2');
+  const res = document.getElementById('ai-res');
+  let i = 0, running = false;
+
+  function reset() {
+    el.textContent = '';
+    cur.style.display = 'inline-block';
+    sendEl.style.display = 'none';
+    chk1.classList.remove('show');
+    chk2.classList.remove('show');
+    res.classList.remove('show');
+    i = 0;
+  }
+
+  function run() {
+    if (running) return;
+    running = true;
+    reset();
+
+    function type() {
+      if (i < text.length) {
+        el.textContent += text[i++];
+        setTimeout(type, 55 + Math.random() * 35);
+      } else {
+        cur.style.display = 'none';
+        sendEl.style.display = 'block';
+        setTimeout(() => { chk1.classList.add('show'); }, 600);
+        setTimeout(() => { chk2.classList.add('show'); }, 1100);
+        setTimeout(() => { res.classList.add('show'); }, 1800);
+        setTimeout(() => { running = false; }, 5000);
+      }
+    }
+    setTimeout(type, 600);
+  }
+
+  // Start on load, replay when hero enters view
+  const heroObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) run();
+  }, {threshold: 0.3});
+  const heroEl = document.getElementById('hero');
+  if (heroEl) heroObs.observe(heroEl);
+
+  setTimeout(run, 800);
+})();
 </script>
 </body>
 </html>
