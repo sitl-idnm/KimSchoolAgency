@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KIM AI School — Design Guidebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Tokens (same as site) ── */
+:root{
+  --d:#16181b;--d2:#1a1e24;--d3:#0e1014;--db:#252830;
+  --red:#cb172c;--rh:#b01225;
+  --cy:#22d3ee;--cyd:rgba(34,211,238,.09);--cyb:rgba(34,211,238,.18);
+  --lime:#80cb17;
+  --w:#fff;--bg:#f5f6f8;
+  --t:#111318;--tm:#6b7280;--ts:#9ca3af;
+  --bd:#e5e7eb;
+  --od:#d1d5db;--om:#8d9198;--os:#4a4d54;
+  --r:8px;--rs:5px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;color:var(--t);background:#f0f1f4;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+code,pre{font-family:'JetBrains Mono',monospace}
+
+/* ── Layout ── */
+.gb-layout{display:flex;min-height:100vh}
+.gb-sidebar{width:232px;flex-shrink:0;background:var(--d);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:10;display:flex;flex-direction:column}
+.gb-sidebar::-webkit-scrollbar{width:4px}
+.gb-sidebar::-webkit-scrollbar-track{background:transparent}
+.gb-sidebar::-webkit-scrollbar-thumb{background:var(--db);border-radius:2px}
+.gb-main{margin-left:232px;flex:1;padding:40px 48px 80px}
+
+/* Sidebar header */
+.gb-logo{padding:24px 20px 20px;border-bottom:1px solid var(--db)}
+.gb-logo-name{font-size:14px;font-weight:800;color:#f1f2f4;letter-spacing:-.3px}
+.gb-logo-name span{color:var(--red)}
+.gb-logo-sub{font-size:10px;font-weight:600;color:var(--om);letter-spacing:1.2px;text-transform:uppercase;margin-top:4px}
+.gb-logo-link{display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:11px;color:var(--cy);opacity:.8;transition:opacity .15s}
+.gb-logo-link:hover{opacity:1}
+.gb-logo-link::before{content:'↗';font-size:10px}
+
+/* Nav groups */
+.gb-nav-group{padding:16px 0 8px}
+.gb-nav-group-title{font-size:10px;font-weight:700;color:var(--os);letter-spacing:1.4px;text-transform:uppercase;padding:0 20px 8px}
+.gb-nav-item{display:block;padding:7px 20px;font-size:13px;font-weight:500;color:var(--om);cursor:pointer;transition:color .15s,background .15s;border-left:2px solid transparent}
+.gb-nav-item:hover{color:#e2e4e8;background:rgba(255,255,255,.03)}
+.gb-nav-item.active{color:var(--cy);border-left-color:var(--cy);background:rgba(34,211,238,.05)}
+
+/* Version badge */
+.gb-version{margin-top:auto;padding:16px 20px;border-top:1px solid var(--db);font-size:11px;color:var(--os);display:flex;align-items:center;justify-content:space-between}
+.gb-v-tag{background:rgba(34,211,238,.1);color:var(--cy);padding:2px 8px;border-radius:3px;font-size:10px;font-weight:700}
+
+/* ── Content sections ── */
+.gb-sec{max-width:900px;margin-bottom:72px}
+.gb-sec-head{margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--bd)}
+.gb-sec-num{font-size:11px;font-weight:700;color:var(--ts);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px}
+.gb-sec-title{font-size:28px;font-weight:800;color:var(--t);letter-spacing:-.5px;margin-bottom:8px}
+.gb-sec-desc{font-size:15px;color:var(--tm);line-height:1.7;max-width:640px}
+
+/* Sub-sections */
+.gb-sub{margin-bottom:36px}
+.gb-sub-title{font-size:13px;font-weight:700;color:var(--ts);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.gb-sub-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+
+/* Demo box */
+.gb-demo{background:var(--w);border:1px solid var(--bd);border-radius:var(--r);padding:28px;margin-bottom:10px}
+.gb-demo.dark{background:var(--d);border-color:var(--db)}
+.gb-demo.alt{background:var(--bg)}
+.gb-demo.center{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.gb-demo.col{flex-direction:column;align-items:flex-start}
+.gb-demo.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gb-demo.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+
+/* Code block */
+.gb-code{background:#111520;border-radius:var(--rs);padding:12px 16px;margin-bottom:24px;overflow-x:auto}
+.gb-code code{font-size:12px;color:#9ca3af;line-height:1.7;display:block}
+.gb-code code .cls{color:#22d3ee}
+.gb-code code .prop{color:#f8b4b4}
+.gb-code code .val{color:#a7f3d0}
+.gb-code code .cmt{color:#4a4d54}
+
+/* Note box */
+.gb-note{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--rs);padding:12px 16px;font-size:13px;color:#78350f;margin-bottom:24px;display:flex;gap:8px}
+.gb-note::before{content:'💡';flex-shrink:0}
+.gb-note.info{background:rgba(34,211,238,.06);border-color:rgba(34,211,238,.2);color:var(--tm)}
+.gb-note.info::before{content:'ℹ️'}
+.gb-note.warn{background:#fff5f5;border-color:#fecaca;color:#991b1b}
+.gb-note.warn::before{content:'⚠️'}
+
+/* ── COLOR SWATCHES ── */
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}
+.swatch{border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform .15s;border:1px solid rgba(0,0,0,.08)}
+.swatch:hover{transform:translateY(-2px)}
+.swatch-color{height:72px}
+.swatch-info{padding:10px 12px;background:#fff;border-top:1px solid rgba(0,0,0,.06)}
+.swatch-name{font-size:12px;font-weight:700;color:var(--t);margin-bottom:2px}
+.swatch-hex{font-size:11px;color:var(--tm);font-family:'JetBrains Mono',monospace}
+.swatch-var{font-size:10px;color:var(--ts);margin-top:2px;font-family:'JetBrains Mono',monospace}
+.swatch-copied{font-size:10px;color:var(--cy);font-weight:700;display:none}
+.swatch.just-copied .swatch-hex{display:none}
+.swatch.just-copied .swatch-copied{display:block}
+
+/* ── TYPOGRAPHY SCALE ── */
+.typo-row{display:flex;align-items:baseline;gap:24px;padding:14px 0;border-bottom:1px solid var(--bd)}
+.typo-row:last-child{border-bottom:none}
+.typo-meta{width:160px;flex-shrink:0}
+.typo-size{font-size:11px;font-weight:700;color:var(--ts);letter-spacing:.5px}
+.typo-spec{font-size:11px;color:var(--ts);margin-top:2px;font-family:'JetBrains Mono',monospace}
+.typo-sample{flex:1;color:var(--t)}
+
+/* ── COMPONENT LABELS ── */
+.comp-label{font-size:10px;font-weight:700;color:var(--ts);letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px}
+
+/* ── SECTION PATTERN CARDS ── */
+.sec-pattern{border-radius:var(--r);overflow:hidden;border:1px solid var(--bd)}
+.sec-pattern-preview{height:120px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.sec-pattern-preview.dark{background:var(--d)}
+.sec-pattern-preview.white{background:#fff}
+.sec-pattern-preview.alt{background:var(--bg)}
+.sec-pattern-preview.pricing{background:var(--d);overflow:hidden}
+.sec-pattern-info{background:#fff;padding:14px 16px;border-top:1px solid var(--bd)}
+.sec-pattern-name{font-size:13px;font-weight:700;color:var(--t);margin-bottom:3px}
+.sec-pattern-use{font-size:12px;color:var(--tm)}
+
+/* Grid BG preview */
+.gbg-preview{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:44px 44px}
+
+/* ── ANIMATION REFERENCE ── */
+.anim-row{display:flex;align-items:flex-start;gap:20px;padding:16px 0;border-bottom:1px solid var(--bd)}
+.anim-row:last-child{border-bottom:none}
+.anim-name{width:180px;flex-shrink:0}
+.anim-name-title{font-size:13px;font-weight:700;color:var(--t)}
+.anim-name-cls{font-size:11px;color:var(--cy);font-family:'JetBrains Mono',monospace;margin-top:3px}
+.anim-desc{flex:1;font-size:13px;color:var(--tm);line-height:1.6}
+.anim-demo{width:140px;flex-shrink:0;display:flex;justify-content:flex-end}
+
+/* ── CHECKLIST ── */
+.checklist-step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--bd)}
+.checklist-step:last-child{border-bottom:none}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--d);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.step-num.r{background:var(--red)}
+.step-body{flex:1}
+.step-title{font-size:14px;font-weight:700;color:var(--t);margin-bottom:4px}
+.step-desc{font-size:13px;color:var(--tm);line-height:1.6}
+
+/* ── Site components (copied from index.html) ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:5px;font-size:14px;font-weight:700;cursor:pointer;transition:all .18s;border:none;white-space:nowrap}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--rh);transform:translateY(-2px);box-shadow:0 6px 24px rgba(203,23,44,.32)}
+.btn-ghost{background:transparent;color:var(--om);border:1px solid var(--db);font-weight:600}
+.lbl-demo{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--tm)}
+.lbl-cy{color:var(--cy)}
+.lbl-dim{color:var(--om)}
+.hero-pill-demo{display:inline-flex;align-items:center;gap:7px;background:var(--cyd);color:var(--cy);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:1px solid var(--cyb)}
+.hero-pill-demo::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cy);flex-shrink:0}
+.nav-cta-demo{padding:8px 18px;background:var(--red);color:#fff;border-radius:5px;font-size:14px;font-weight:700;display:inline-block}
+.pbtn-cy{padding:11px 20px;background:var(--cy);color:#000;border:none;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.pbtn-cy:hover{background:#38e4f5;transform:translateY(-1px);box-shadow:0 8px 24px rgba(34,211,238,.35)}
+.pbtn-gl{padding:11px 20px;background:rgba(255,255,255,.1);color:#e2e4e8;border:1px solid rgba(255,255,255,.14);border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.pbtn-gl:hover{background:rgba(255,255,255,.18);transform:translateY(-1px)}
+.pc-demo{background:var(--w);border-radius:8px;padding:16px 18px;border-left:3px solid var(--red);box-shadow:0 1px 6px rgba(0,0,0,.04)}
+.pc-demo h3{font-size:13px;font-weight:700;color:var(--t);margin-bottom:5px}
+.pc-demo p{font-size:12px;color:var(--tm);line-height:1.5}
+.art-card-demo{background:var(--w);border-radius:8px;border:1px solid var(--bd);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.art-card-demo:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.art-top-r{height:5px;background:var(--red)}
+.art-top-c{height:5px;background:var(--cy)}
+.art-top-d{height:5px;background:var(--d)}
+.art-body-demo{padding:14px 13px}
+.art-ico-demo{font-size:18px;margin-bottom:8px}
+.art-title-demo{font-size:13px;font-weight:700;color:var(--t);margin-bottom:4px}
+.art-desc-demo{font-size:11px;color:var(--tm);line-height:1.4}
+.art-tag-demo{font-size:9px;font-weight:600;color:var(--ts);letter-spacing:.8px;text-transform:uppercase;margin-top:8px;display:inline-block}
+.uc-card-demo{border-radius:8px;padding:18px;border:1px solid var(--db);background:rgba(255,255,255,.03);transition:border-color .2s}
+.uc-card-demo:hover{border-color:rgba(34,211,238,.25)}
+.uc-ico-demo{width:36px;height:36px;border-radius:7px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.15);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:10px}
+.uc-title-demo{font-size:14px;font-weight:700;color:var(--od);margin-bottom:8px}
+.mod-demo{border:1px solid var(--bd);border-radius:8px;padding:14px 16px;background:var(--w)}
+.mod-head-demo{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.mod-num-demo{font-size:10px;font-weight:700;color:var(--ts);letter-spacing:1px;width:20px}
+.mod-title-demo{font-size:13px;font-weight:700;color:var(--t)}
+.mod-badge-r{margin-left:auto;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(203,23,44,.1);color:var(--red)}
+.mod-badge-g{margin-left:auto;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(22,24,27,.07);color:var(--tm)}
+.pcard-demo{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px 20px;position:relative}
+.pcard-pop-demo{background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.08));border-color:rgba(34,211,238,.28);box-shadow:0 0 0 1px rgba(34,211,238,.15)}
+.pop-badge-demo{position:absolute;top:-11px;right:16px;background:var(--cy);color:#000;font-size:10px;font-weight:700;letter-spacing:.5px;padding:3px 10px;border-radius:20px}
+.pcard-name-demo{font-size:24px;font-weight:300;color:#f1f2f4;margin-bottom:4px}
+.pcard-desc-demo{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:14px}
+.pcard-num-demo{font-size:36px;font-weight:300;color:#f1f2f4}
+.pcard-unit-demo{font-size:12px;color:rgba(255,255,255,.4)}
+.fq-demo{background:var(--w);border-radius:8px;border:1px solid var(--bd);overflow:hidden}
+.fq-q-demo{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;font-size:14px;font-weight:600;color:var(--t);gap:16px}
+.fq-ico-demo{width:22px;height:22px;border-radius:50%;background:var(--d);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:300;flex-shrink:0}
+.fq-ico-open{background:var(--red);transform:rotate(45deg)}
+.fq-a-demo{padding:12px 18px 16px;font-size:13px;color:var(--tm);line-height:1.7;border-top:1px solid var(--bd)}
+.inp-demo{background:#161a21;border:1px solid var(--db);border-radius:5px;padding:11px 14px;color:#e2e4e8;font-size:14px;outline:none;width:100%}
+.inp-demo::placeholder{color:#333740}
+.inp-demo:focus{border-color:#4a4d54}
+.reveal-box{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;background:var(--w);border:1px solid var(--bd);border-radius:8px;padding:16px 20px;font-size:14px;color:var(--tm)}
+.reveal-box.in{opacity:1;transform:translateY(0)}
+.mstat-demo{border:1px solid var(--db);border-radius:8px;padding:12px 14px}
+.mstat-n-demo{font-size:18px;font-weight:800;color:#f1f2f4}
+.mstat-l-demo{font-size:10px;color:var(--om);margin-top:2px}
+.mbadge-demo{border:1px solid var(--db);border-radius:4px;padding:5px 12px;font-size:12px;color:var(--om)}
+.tli-demo{display:flex;gap:16px;padding-bottom:20px;position:relative}
+.tli-c-demo{width:28px;height:28px;border-radius:50%;background:var(--d);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:3px solid var(--bg)}
+.tli-c-r{background:var(--red)}
+.tli-c-a{background:#111318;color:var(--lime)}
+.tli-title-demo{font-size:14px;font-weight:700;color:var(--t);margin-bottom:2px}
+.tli-sub-demo{font-size:12px;color:var(--tm)}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .gb-sidebar{width:0;overflow:hidden}
+  .gb-main{margin-left:0;padding:28px 20px 60px}
+  .gb-demo.grid3{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .gb-demo.grid2,.gb-demo.grid3{grid-template-columns:1fr}
+  .swatch-grid{grid-template-columns:repeat(3,1fr)}
+  .typo-row{flex-direction:column;gap:4px}
+  .typo-meta{width:auto}
+  .anim-row{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<div class="gb-layout">
+
+<!-- ── SIDEBAR ── -->
+<nav class="gb-sidebar" id="sidebar">
+  <div class="gb-logo">
+    <div class="gb-logo-name">KIM <span>AI</span> School</div>
+    <div class="gb-logo-sub">Design System v1.0</div>
+    <a href="index.html" class="gb-logo-link" target="_blank">Открыть сайт</a>
+  </div>
+
+  <div class="gb-nav-group">
+    <div class="gb-nav-group-title">Основы</div>
+    <a class="gb-nav-item" href="#brand">Бренд</a>
+    <a class="gb-nav-item" href="#colors">Цвета</a>
+    <a class="gb-nav-item" href="#typography">Типографика</a>
+    <a class="gb-nav-item" href="#spacing">Отступы и радиусы</a>
+  </div>
+
+  <div class="gb-nav-group">
+    <div class="gb-nav-group-title">Компоненты</div>
+    <a class="gb-nav-item" href="#buttons">Кнопки</a>
+    <a class="gb-nav-item" href="#badges">Метки и бейджи</a>
+    <a class="gb-nav-item" href="#cards">Карточки</a>
+    <a class="gb-nav-item" href="#forms">Формы</a>
+    <a class="gb-nav-item" href="#timeline">Таймлайн</a>
+    <a class="gb-nav-item" href="#faq">FAQ-аккордеон</a>
+  </div>
+
+  <div class="gb-nav-group">
+    <div class="gb-nav-group-title">Паттерны</div>
+    <a class="gb-nav-item" href="#sections">Секции</a>
+    <a class="gb-nav-item" href="#grids">Сетки</a>
+    <a class="gb-nav-item" href="#animations">Анимации</a>
+  </div>
+
+  <div class="gb-nav-group">
+    <div class="gb-nav-group-title">Руководство</div>
+    <a class="gb-nav-item" href="#tone">Тон и текст</a>
+    <a class="gb-nav-item" href="#checklist">Добавить секцию</a>
+    <a class="gb-nav-item" href="#dos">Что можно / нельзя</a>
+  </div>
+
+  <div class="gb-version">
+    <span>Обновлён 2025</span>
+    <span class="gb-v-tag">v1.0</span>
+  </div>
+</nav>
+
+<!-- ── MAIN ── -->
+<main class="gb-main">
+
+<!-- ═══════════════ 1. БРЕНД ═══════════════ -->
+<div class="gb-sec" id="brand">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">01 — Бренд</div>
+    <h2 class="gb-sec-title">Идентичность и позиционирование</h2>
+    <p class="gb-sec-desc">KIM AI School — школа AI-мышления для подростков 12–17 лет. Визуальная система строится на трёх принципах: экспертность KIM.agency, технологичность AI, доверие для родителей.</p>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Название и домен</div>
+    <div class="gb-demo">
+      <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px">
+        <span style="font-size:22px;font-weight:800;color:var(--t)">KIM <span style="color:var(--red)">AI</span> School</span>
+        <span style="font-size:13px;color:var(--ts)">ai.kim.agency</span>
+      </div>
+      <p style="font-size:14px;color:var(--tm);max-width:480px;line-height:1.6">«AI» в названии выделяется красным (#cb172c) — фирменный акцент KIM.agency. Слово School в логотипе пишется с заглавной буквы, подчёркивая серьёзность проекта.</p>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Позиционирование</div>
+    <div class="gb-demo">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+        <div style="padding:16px;background:var(--bg);border-radius:8px">
+          <div style="font-size:18px;margin-bottom:8px">🎓</div>
+          <div style="font-size:13px;font-weight:700;color:var(--t);margin-bottom:4px">Школа, не курс</div>
+          <div style="font-size:12px;color:var(--tm);line-height:1.5">Методология, артефакты, финальная защита проекта</div>
+        </div>
+        <div style="padding:16px;background:var(--bg);border-radius:8px">
+          <div style="font-size:18px;margin-bottom:8px">🧠</div>
+          <div style="font-size:13px;font-weight:700;color:var(--t);margin-bottom:4px">AI-мышление, не промпты</div>
+          <div style="font-size:12px;color:var(--tm);line-height:1.5">Думать, проверять, создавать и защищать</div>
+        </div>
+        <div style="padding:16px;background:var(--bg);border-radius:8px">
+          <div style="font-size:18px;margin-bottom:8px">🛡</div>
+          <div style="font-size:13px;font-weight:700;color:var(--t);margin-bottom:4px">Безопасно для родителей</div>
+          <div style="font-size:12px;color:var(--tm);line-height:1.5">Не учим списывать. Этика, данные, критическое мышление</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Что НЕ мы</div>
+    <div class="gb-demo">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px">
+          <span style="color:var(--red);font-weight:700">✗</span>
+          <span style="color:var(--tm)">Геймифицированный детский курс про нейросети</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px">
+          <span style="color:var(--red);font-weight:700">✗</span>
+          <span style="color:var(--tm)">Инфобизнес-лендинг с «результатом за 7 дней»</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px">
+          <span style="color:var(--red);font-weight:700">✗</span>
+          <span style="color:var(--tm)">Помощник в написании домашних заданий</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px">
+          <span style="color:var(--red);font-weight:700">✗</span>
+          <span style="color:var(--tm)">Кислотный, геймерский или мультяшный визуал</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 2. ЦВЕТА ═══════════════ -->
+<div class="gb-sec" id="colors">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">02 — Цвета</div>
+    <h2 class="gb-sec-title">Цветовая система</h2>
+    <p class="gb-sec-desc">Палитра из Figma KIM.agency. Кликните на свотч — скопируется hex. Все переменные определены в <code style="font-size:12px;background:#f0f0f0;padding:1px 5px;border-radius:3px">:root</code> файла index.html.</p>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Тёмная база</div>
+    <div class="swatch-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:24px">
+      <div class="swatch" onclick="copySwatch(this,'#16181b')">
+        <div class="swatch-color" style="background:#16181b"></div>
+        <div class="swatch-info"><div class="swatch-name">Dark</div><div class="swatch-hex">#16181b</div><div class="swatch-var">--d</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#1a1e24')">
+        <div class="swatch-color" style="background:#1a1e24"></div>
+        <div class="swatch-info"><div class="swatch-name">Dark 2</div><div class="swatch-hex">#1a1e24</div><div class="swatch-var">--d2</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#0e1014')">
+        <div class="swatch-color" style="background:#0e1014"></div>
+        <div class="swatch-info"><div class="swatch-name">Darkest</div><div class="swatch-hex">#0e1014</div><div class="swatch-var">--d3</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#252830')">
+        <div class="swatch-color" style="background:#252830"></div>
+        <div class="swatch-info"><div class="swatch-name">Dark Border</div><div class="swatch-hex">#252830</div><div class="swatch-var">--db</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Акцентные цвета</div>
+    <div class="swatch-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:24px">
+      <div class="swatch" onclick="copySwatch(this,'#cb172c')">
+        <div class="swatch-color" style="background:#cb172c"></div>
+        <div class="swatch-info"><div class="swatch-name">Red KIM</div><div class="swatch-hex">#cb172c</div><div class="swatch-var">--red · Главный CTA</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#b01225')">
+        <div class="swatch-color" style="background:#b01225"></div>
+        <div class="swatch-info"><div class="swatch-name">Red Hover</div><div class="swatch-hex">#b01225</div><div class="swatch-var">--rh · hover state</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#22d3ee')">
+        <div class="swatch-color" style="background:#22d3ee"></div>
+        <div class="swatch-info"><div class="swatch-name">Cyan AI</div><div class="swatch-hex">#22d3ee</div><div class="swatch-var">--cy · AI-акцент</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#80cb17')">
+        <div class="swatch-color" style="background:#80cb17"></div>
+        <div class="swatch-info"><div class="swatch-name">Lime</div><div class="swatch-hex">#80cb17</div><div class="swatch-var">--lime · до 5% UI</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Светлая база и текст</div>
+    <div class="swatch-grid" style="grid-template-columns:repeat(5,1fr);margin-bottom:24px">
+      <div class="swatch" onclick="copySwatch(this,'#ffffff')">
+        <div class="swatch-color" style="background:#fff;border-bottom:1px solid #e5e7eb"></div>
+        <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#ffffff</div><div class="swatch-var">--w</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#f5f6f8')">
+        <div class="swatch-color" style="background:#f5f6f8"></div>
+        <div class="swatch-info"><div class="swatch-name">BG Alt</div><div class="swatch-hex">#f5f6f8</div><div class="swatch-var">--bg</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#111318')">
+        <div class="swatch-color" style="background:#111318"></div>
+        <div class="swatch-info"><div class="swatch-name">Text</div><div class="swatch-hex">#111318</div><div class="swatch-var">--t</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#6b7280')">
+        <div class="swatch-color" style="background:#6b7280"></div>
+        <div class="swatch-info"><div class="swatch-name">Muted</div><div class="swatch-hex">#6b7280</div><div class="swatch-var">--tm</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+      <div class="swatch" onclick="copySwatch(this,'#9ca3af')">
+        <div class="swatch-color" style="background:#9ca3af"></div>
+        <div class="swatch-info"><div class="swatch-name">Subtle</div><div class="swatch-hex">#9ca3af</div><div class="swatch-var">--ts</div><div class="swatch-copied">Скопировано!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Текст на тёмном фоне</div>
+    <div class="gb-demo dark" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+      <div style="text-align:center">
+        <div style="font-size:15px;font-weight:600;color:#f1f2f4;margin-bottom:4px">Заголовки</div>
+        <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a4d54">#f1f2f4</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:15px;color:#d1d5db;margin-bottom:4px">Основной текст</div>
+        <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a4d54">#d1d5db · --od</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:15px;color:#8d9198;margin-bottom:4px">Вторичный текст</div>
+        <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a4d54">#8d9198 · --om</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:15px;color:#4a4d54;margin-bottom:4px">Плейсхолдер</div>
+        <div style="font-size:11px;font-family:'JetBrains Mono',monospace;color:#4a4d54">#4a4d54 · --os</div>
+      </div>
+    </div>
+    <div class="gb-note warn" style="margin-top:12px">Никогда не используйте #575757 или похожие тёмно-серые на тёмном фоне — недостаточный контраст. Минимум — #8d9198.</div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Правила использования цвета</div>
+    <div class="gb-demo">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="width:16px;height:16px;border-radius:3px;background:var(--red);flex-shrink:0;margin-top:2px"></div>
+          <div><span style="font-weight:700;font-size:13px;color:var(--t)">Красный (#cb172c)</span> — <span style="font-size:13px;color:var(--tm)">только CTA-кнопки, «Популярный» бейдж, маркеры проблем (border-left), звёзды отзывов, кружок шага диагностики</span></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="width:16px;height:16px;border-radius:3px;background:var(--cy);flex-shrink:0;margin-top:2px"></div>
+          <div><span style="font-weight:700;font-size:13px;color:var(--t)">Cyan (#22d3ee)</span> — <span style="font-size:13px;color:var(--tm)">AI-метки (hero-pill, nav-live), номера шагов в AI-карточке, иконки проверки, кнопки ценового блока, ссылки в гайдбуке</span></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="width:16px;height:16px;border-radius:3px;background:var(--lime);flex-shrink:0;margin-top:2px"></div>
+          <div><span style="font-weight:700;font-size:13px;color:var(--t)">Лайм (#80cb17)</span> — <span style="font-size:13px;color:var(--tm)">только чекмарки блока «Безопасность» и финальные шаги таймлайна. Максимум 5% UI.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 3. ТИПОГРАФИКА ═══════════════ -->
+<div class="gb-sec" id="typography">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">03 — Типографика</div>
+    <h2 class="gb-sec-title">Шрифт и масштаб</h2>
+    <p class="gb-sec-desc">Единственный шрифт — <strong>Inter</strong>. Грузится с Google Fonts (400, 500, 600, 700, 800, 900). Никаких serif, никаких display-шрифтов — только Inter.</p>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Шкала размеров</div>
+    <div class="gb-demo" style="padding:0 28px">
+      <div class="typo-row">
+        <div class="typo-meta"><div class="typo-size">H1 Hero</div><div class="typo-spec">clamp(38,5vw,68px)<br>900 / -2px / lh 1.04</div></div>
+        <div class="typo-sample" style="font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-1.5px;line-height:1.04;color:var(--t)">Школа AI-мышления</div>
+      </div>
+      <div class="typo-row">
+        <div class="typo-meta"><div class="typo-size">H2 Section</div><div class="typo-spec">clamp(28,3vw,42px)<br>800 / -0.6px / lh 1.1</div></div>
+        <div class="typo-sample" style="font-size:clamp(22px,2.5vw,32px);font-weight:800;letter-spacing:-.4px;line-height:1.1">Выберите программу</div>
+      </div>
+      <div class="typo-row">
+        <div class="typo-meta"><div class="typo-size">Body Large</div><div class="typo-spec">17px / 400 / lh 1.78</div></div>
+        <div class="typo-sample" style="font-size:16px;color:var(--tm);line-height:1.78">Учим не просто пользоваться нейросетями, а думать, проверять, создавать проекты и безопасно работать с ИИ.</div>
+      </div>
+      <div class="typo-row">
+        <div class="typo-meta"><div class="typo-size">Body Base</div><div class="typo-spec">16px / 400 / lh 1.75</div></div>
+        <div class="typo-sample" style="font-size:15px;color:var(--tm)">Начните с бесплатной диагностики — уточним уровень, цели и подберём формат.</div>
+      </div>
+      <div class="typo-row">
+        <div class="typo-meta"><div class="typo-size">Card Text</div><div class="typo-spec">13–14px / 400-600 / lh 1.5</div></div>
+        <div class="typo-sample" style="font-size:13px;color:var(--tm)">Копируют ответы ИИ целиком, не разбирая логику и не формируя собственного мышления.</div>
+      </div>
+      <div class="typo-row">
+        <div class="typo-meta"><div class="typo-size">Label</div><div class="typo-spec">11px / 700 / UPPERCASE<br>letter-spacing 1.6px</div></div>
+        <div class="typo-sample" style="font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--tm)">Методология</div>
+      </div>
+      <div class="typo-row">
+        <div class="typo-meta"><div class="typo-size">Micro</div><div class="typo-spec">10–11px / 600-700<br>uppercase tags, badges</div></div>
+        <div class="typo-sample" style="font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--ts)">Артефакт · Занятие 2</div>
+      </div>
+    </div>
+    <div class="gb-note info">Все заголовки секций используют класс <code style="font-size:11px">.h2</code>. Hero H1 имеет собственный класс <code style="font-size:11px">.hero-h1</code> с gradient-text для «AI».</div>
+  </div>
+</div>
+
+<!-- ═══════════════ 4. ОТСТУПЫ ═══════════════ -->
+<div class="gb-sec" id="spacing">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">04 — Отступы и радиусы</div>
+    <h2 class="gb-sec-title">Пространство и скругления</h2>
+    <p class="gb-sec-desc">Система основана на 4px-сетке. Основная ширина контента — 1160px (переменная <code style="font-size:12px;background:#f0f0f0;padding:1px 5px;border-radius:3px">--max</code>).</p>
+  </div>
+  <div class="gb-sub">
+    <div class="gb-sub-title">Ключевые значения</div>
+    <div class="gb-demo">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div style="padding:14px;background:var(--bg);border-radius:8px"><div style="font-size:22px;font-weight:800;color:var(--t);margin-bottom:4px">96px</div><div style="font-size:12px;color:var(--tm)">Padding секции (desktop)</div></div>
+        <div style="padding:14px;background:var(--bg);border-radius:8px"><div style="font-size:22px;font-weight:800;color:var(--t);margin-bottom:4px">64px</div><div style="font-size:12px;color:var(--tm)">Padding секции (mobile)</div></div>
+        <div style="padding:14px;background:var(--bg);border-radius:8px"><div style="font-size:22px;font-weight:800;color:var(--t);margin-bottom:4px">28px</div><div style="font-size:12px;color:var(--tm)">Padding контейнера по бокам</div></div>
+        <div style="padding:14px;background:var(--bg);border-radius:8px"><div style="font-size:22px;font-weight:800;color:var(--t);margin-bottom:4px">8px</div><div style="font-size:12px;color:var(--tm)"><code>--r</code> · основной радиус карточек</div></div>
+        <div style="padding:14px;background:var(--bg);border-radius:8px"><div style="font-size:22px;font-weight:800;color:var(--t);margin-bottom:4px">5px</div><div style="font-size:12px;color:var(--tm)"><code>--rs</code> · кнопки, инпуты</div></div>
+        <div style="padding:14px;background:var(--bg);border-radius:8px"><div style="font-size:22px;font-weight:800;color:var(--t);margin-bottom:4px">20px</div><div style="font-size:12px;color:var(--tm)">Радиус ценовых карточек</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 5. КНОПКИ ═══════════════ -->
+<div class="gb-sec" id="buttons">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">05 — Кнопки</div>
+    <h2 class="gb-sec-title">Все варианты кнопок</h2>
+    <p class="gb-sec-desc">5 вариантов. Красная кнопка — единственный первичный CTA. Hover на всех кнопках даёт translateY(-2px) для ощущения нажатия.</p>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Кнопки для светлого и тёмного фона</div>
+    <div class="gb-demo center" style="background:var(--d);gap:16px;flex-wrap:wrap">
+      <div>
+        <div class="comp-label" style="color:#4a4d54">Первичный CTA</div>
+        <button class="btn btn-red">Записаться на диагностику</button>
+      </div>
+      <div>
+        <div class="comp-label" style="color:#4a4d54">Вторичный (тёмный фон)</div>
+        <button class="btn btn-ghost">Посмотреть программу →</button>
+      </div>
+      <div>
+        <div class="comp-label" style="color:#4a4d54">Nav CTA</div>
+        <span class="nav-cta-demo">Записаться</span>
+      </div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.btn.btn-red</span>   <span class="cmt">→ bg #cb172c, hover: translateY(-2px) + shadow</span>
+<span class="cls">.btn.btn-ghost</span> <span class="cmt">→ transparent, border #252830, dark bg only</span>
+<span class="cls">.nav-cta</span>       <span class="cmt">→ smaller (8px 18px), red, nav only</span></code></div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Кнопки ценового блока (glassmorphism)</div>
+    <div class="gb-demo dark center" style="gap:16px">
+      <div>
+        <div class="comp-label" style="color:#4a4d54">Pricing Primary</div>
+        <button class="pbtn-cy">Записаться</button>
+      </div>
+      <div>
+        <div class="comp-label" style="color:#4a4d54">Pricing Secondary</div>
+        <button class="pbtn-gl">Записаться</button>
+      </div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.pbtn.cy</span>  <span class="cmt">→ bg var(--cy), color #000. Popular card + Полная программа</span>
+<span class="cls">.pbtn.gl</span>  <span class="cmt">→ glassmorphism white/10, Стартовый и Личное</span></code></div>
+    <div class="gb-note">Кнопки ценового блока имеют border-radius 12px (шире стандартных 5px) для соответствия стилю glassmorphism-карточек.</div>
+  </div>
+</div>
+
+<!-- ═══════════════ 6. МЕТКИ ═══════════════ -->
+<div class="gb-sec" id="badges">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">06 — Метки и бейджи</div>
+    <h2 class="gb-sec-title">Labels, pills и статусы</h2>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Section Labels</div>
+    <div class="gb-demo center" style="gap:28px;flex-wrap:wrap">
+      <div><div class="comp-label">Светлый фон</div><span class="lbl-demo">Методология</span></div>
+      <div style="background:var(--d);padding:14px;border-radius:8px"><div class="comp-label" style="color:#3a3c40">Тёмный фон (cyan)</div><span class="lbl-demo lbl-cy">AI-акцент</span></div>
+      <div style="background:var(--d);padding:14px;border-radius:8px"><div class="comp-label" style="color:#3a3c40">Тёмный фон (dim)</div><span class="lbl-demo lbl-dim">Наставник</span></div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.lbl</span>       <span class="cmt">→ 11px, 700, uppercase, --tm (светлый фон)</span>
+<span class="cls">.lbl.cy</span>    <span class="cmt">→ cyan, тёмный фон, AI-секции</span>
+<span class="cls">.lbl.dim</span>   <span class="cmt">→ --om, тёмный фон, нейтральные секции</span></code></div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Hero Pill</div>
+    <div class="gb-demo dark center">
+      <span class="hero-pill-demo">Для школьников 12–17 лет</span>
+    </div>
+    <div class="gb-code"><code><span class="cls">.hero-pill</span>  <span class="cmt">→ cyan bg/border, пульсирующая точка ::before, только на hero</span></code></div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Модульные бейджи (программа)</div>
+    <div class="gb-demo center" style="gap:12px">
+      <span class="mod-badge-r">Стартовый</span>
+      <span class="mod-badge-g">Полная</span>
+      <span style="background:var(--cy);color:#000;font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;letter-spacing:.5px">Популярный</span>
+    </div>
+    <div class="gb-code"><code><span class="cls">.mod-badge.starter</span>  <span class="cmt">→ красный bg/10, текст red</span>
+<span class="cls">.mod-badge.full</span>     <span class="cmt">→ серый bg/7%, текст --tm</span>
+<span class="cls">.pop-badge</span>          <span class="cmt">→ bg var(--cy), color #000, absolute top:-14px</span></code></div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Media badges (наставник)</div>
+    <div class="gb-demo dark" style="display:flex;flex-wrap:wrap;gap:8px">
+      <span class="mbadge-demo">Москва 24</span>
+      <span class="mbadge-demo">РБК</span>
+      <span class="mbadge-demo">Сбер Про Медиа</span>
+      <span class="mbadge-demo">Sostav</span>
+      <span class="mbadge-demo">Т-Бизнес</span>
+      <span class="mbadge-demo">Шмаркетинг</span>
+    </div>
+    <div class="gb-code"><code><span class="cls">.mbadge</span>  <span class="cmt">→ border --db, bg white/2%, hover: border white/15%</span></code></div>
+  </div>
+</div>
+
+<!-- ═══════════════ 7. КАРТОЧКИ ═══════════════ -->
+<div class="gb-sec" id="cards">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">07 — Карточки</div>
+    <h2 class="gb-sec-title">Все типы карточек</h2>
+    <p class="gb-sec-desc">7 типов карточек для разных контекстов. Hover на карточках — translateY(-3...-6px) + shadow. Pricing-карточки имеют glassmorphism.</p>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Problem Cards · .pc (светлый фон)</div>
+    <div class="gb-demo alt grid2">
+      <div class="pc-demo"><h3>Списывают без понимания</h3><p>Копируют ответы ИИ целиком, не разбирая логику.</p></div>
+      <div class="pc-demo"><h3>Доверяют ошибкам ИИ</h3><p>Не проверяют факты, не распознают галлюцинации.</p></div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.pc</span>  <span class="cmt">→ border-left 3px var(--red), box-shadow 0 1px 6px rgba(0,0,0,.04)</span></code></div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Artifact Cards · .art-card (светлый фон)</div>
+    <div class="gb-demo alt grid3">
+      <div class="art-card-demo"><div class="art-top-r"></div><div class="art-body-demo"><div class="art-ico-demo">🗺</div><div class="art-title-demo">Prompt-карта</div><div class="art-desc-demo">Шаблоны запросов под задачи</div><div class="art-tag-demo">Артефакт · Занятие 2</div></div></div>
+      <div class="art-card-demo"><div class="art-top-c"></div><div class="art-body-demo"><div class="art-ico-demo">🔬</div><div class="art-title-demo">Мини-исследование</div><div class="art-desc-demo">Тема + проверенные источники</div><div class="art-tag-demo">Артефакт · Занятие 4</div></div></div>
+      <div class="art-card-demo"><div class="art-top-d"></div><div class="art-body-demo"><div class="art-ico-demo">🚀</div><div class="art-title-demo">AI-проект</div><div class="art-desc-demo">Проект на тему интересов</div><div class="art-tag-demo">Артефакт · Занятие 8</div></div></div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.art-card</span>    <span class="cmt">→ border --bd, overflow hidden, hover translateY(-4px)</span>
+<span class="cls">.art-top.r</span>   <span class="cmt">→ 6px red bar</span>
+<span class="cls">.art-top.c</span>   <span class="cmt">→ 6px cyan bar</span>
+<span class="cls">.art-top.d</span>   <span class="cmt">→ 6px dark bar</span></code></div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Use Case Cards · .uc-card (тёмный фон)</div>
+    <div class="gb-demo dark grid3">
+      <div class="uc-card-demo"><div class="uc-ico-demo">📚</div><div class="uc-title-demo">Учёба</div></div>
+      <div class="uc-card-demo"><div class="uc-ico-demo">🎨</div><div class="uc-title-demo">Творчество</div></div>
+      <div class="uc-card-demo"><div class="uc-ico-demo">⚡</div><div class="uc-title-demo">Эффективность</div></div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.uc-card</span>  <span class="cmt">→ border --db, bg white/3%, hover: border cyan/25%, bg cyan/4%</span>
+<span class="cls">.uc-ico</span>   <span class="cmt">→ 40×40, border-radius 8px, bg cyan/8%, border cyan/15%</span></code></div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Module Cards · .mod (программа)</div>
+    <div class="gb-demo grid2">
+      <div class="mod-demo"><div class="mod-head-demo"><span class="mod-num-demo">01</span><span class="mod-title-demo">Как работает ИИ</span><span class="mod-badge-r">Стартовый</span></div><div style="font-size:12px;color:var(--tm)">Что такое нейросети простыми словами</div></div>
+      <div class="mod-demo" style="opacity:.55"><div class="mod-head-demo"><span class="mod-num-demo">05</span><span class="mod-title-demo">Презентации и проекты</span><span class="mod-badge-g">Полная</span></div><div style="font-size:12px;color:var(--tm)">Структура проекта с ИИ</div></div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.mod</span>         <span class="cmt">→ border --bd, hover box-shadow</span>
+<span class="cls">.mod.locked</span>  <span class="cmt">→ opacity .55 (модули только полной программы)</span></code></div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Pricing Cards · .pcard (ценовой блок, WebGL секция)</div>
+    <div class="gb-demo dark" style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+      <div class="pcard-demo" style="flex:1;min-width:160px">
+        <div class="pcard-name-demo">Стартовый</div>
+        <div class="pcard-desc-demo">Базовая AI-грамотность</div>
+        <div style="display:flex;align-items:baseline;gap:6px"><span class="pcard-num-demo">4</span><span class="pcard-unit-demo">занятия</span></div>
+      </div>
+      <div class="pcard-demo pcard-pop-demo" style="flex:1;min-width:160px;margin-top:-8px">
+        <div class="pop-badge-demo">Популярный</div>
+        <div class="pcard-name-demo">Полная</div>
+        <div class="pcard-desc-demo">Навык + AI-проект с защитой</div>
+        <div style="display:flex;align-items:baseline;gap:6px"><span class="pcard-num-demo">8</span><span class="pcard-unit-demo">занятий</span></div>
+      </div>
+      <div class="pcard-demo" style="flex:1;min-width:160px">
+        <div class="pcard-name-demo">Личное</div>
+        <div class="pcard-desc-demo">Индивидуальная траектория</div>
+        <div><span class="pcard-name-demo" style="font-size:18px">По запросу</span></div>
+      </div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.pcard</span>      <span class="cmt">→ backdrop-blur 16px, gradient from white/9%, border white/10%</span>
+<span class="cls">.pcard.pop</span>  <span class="cmt">→ border cyan/28%, from white/18%, ring cyan/15%, scale(1.05)</span>
+<span class="cls">.pop-badge</span>  <span class="cmt">→ absolute top:-14px right:22px, bg --cy, color #000</span></code></div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Stat Cards · .mstat (блок наставника)</div>
+    <div class="gb-demo dark grid2">
+      <div class="mstat-demo"><div class="mstat-n-demo">200+</div><div class="mstat-l-demo">Проектов агентства</div></div>
+      <div class="mstat-demo"><div class="mstat-n-demo">2015</div><div class="mstat-l-demo">Год основания</div></div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.mstat</span>  <span class="cmt">→ border --db, padding 14px, числа 20px/800/white</span></code></div>
+  </div>
+</div>
+
+<!-- ═══════════════ 8. ФОРМЫ ═══════════════ -->
+<div class="gb-sec" id="forms">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">08 — Формы</div>
+    <h2 class="gb-sec-title">Инпуты и форма заявки</h2>
+  </div>
+  <div class="gb-sub">
+    <div class="gb-sub-title">Input (тёмный фон)</div>
+    <div class="gb-demo dark" style="display:flex;flex-direction:column;gap:8px;max-width:400px">
+      <input class="inp-demo" type="text" placeholder="Имя родителя">
+      <input class="inp-demo" type="text" placeholder="Телефон или Telegram">
+      <input class="inp-demo" type="text" value="14 лет, 8 класс" style="color:#e2e4e8">
+    </div>
+    <div class="gb-code"><code><span class="cls">.cta-inp</span>  <span class="cmt">→ bg #161a21, border --db, color #e2e4e8, focus: border #4a4d54</span>
+<span class="cmt">              placeholder: #333740 (специально тёмный, не мешает)</span></code></div>
+    <div class="gb-note">Форма всегда на тёмном фоне (#16181b). Инпуты не должны появляться на светлых секциях.</div>
+  </div>
+</div>
+
+<!-- ═══════════════ 9. ТАЙМЛАЙН ═══════════════ -->
+<div class="gb-sec" id="timeline">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">09 — Таймлайн</div>
+    <h2 class="gb-sec-title">Вертикальный таймлайн шагов</h2>
+  </div>
+  <div class="gb-sub">
+    <div class="gb-sub-title">Варианты кружков шагов</div>
+    <div class="gb-demo" style="display:flex;flex-direction:column;max-width:400px">
+      <div class="tli-demo"><div class="tli-c-demo">1</div><div><div class="tli-title-demo">Заявка от родителя</div><div class="tli-sub-demo">Стандартный шаг · .tli-c</div></div></div>
+      <div class="tli-demo"><div class="tli-c-demo tli-c-r">3</div><div><div class="tli-title-demo">Вводная диагностика</div><div class="tli-sub-demo">Ключевой шаг · .tli-c.r (красный)</div></div></div>
+      <div class="tli-demo"><div class="tli-c-demo tli-c-a">6</div><div><div class="tli-title-demo">AI-проект ребёнка</div><div class="tli-sub-demo">Результат · .tli-c.a (lime)</div></div></div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.tli-c</span>    <span class="cmt">→ bg --d (графит), border 3px white (маскирует вертикальную линию)</span>
+<span class="cls">.tli-c.r</span>  <span class="cmt">→ bg --red · диагностика и ключевые шаги</span>
+<span class="cls">.tli-c.a</span>  <span class="cmt">→ bg #111318, color --lime · финальные результирующие шаги</span></code></div>
+  </div>
+</div>
+
+<!-- ═══════════════ 10. FAQ ═══════════════ -->
+<div class="gb-sec" id="faq">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">10 — FAQ-аккордеон</div>
+    <h2 class="gb-sec-title">Раскрывающиеся вопросы</h2>
+  </div>
+  <div class="gb-sub">
+    <div class="gb-sub-title">Состояния: закрыт / открыт</div>
+    <div class="gb-demo" style="display:flex;flex-direction:column;gap:8px;max-width:600px">
+      <div class="fq-demo"><div class="fq-q-demo"><span>Это курс программирования?</span><div class="fq-ico-demo">+</div></div></div>
+      <div class="fq-demo"><div class="fq-q-demo" style="background:#fafafa"><span>Ребёнок будет делать домашку через ИИ?</span><div class="fq-ico-demo fq-ico-open">+</div></div><div class="fq-a-demo">Мы специально разбираем разницу между «ИИ сделал за меня» и «ИИ помог мне сделать лучше». Это один из ключевых блоков программы.</div></div>
+    </div>
+    <div class="gb-code"><code><span class="cls">.fq</span>         <span class="cmt">→ border --bd, overflow hidden</span>
+<span class="cls">.fq-ico</span>     <span class="cmt">→ round dark button "+"</span>
+<span class="cls">.fq.open .fq-ico</span>  <span class="cmt">→ rotate(45deg), bg --red</span>
+<span class="cls">.fq.open .fq-a</span>    <span class="cmt">→ display:block (hidden by default)</span></code></div>
+  </div>
+</div>
+
+<!-- ═══════════════ 11. СЕКЦИИ ═══════════════ -->
+<div class="gb-sec" id="sections">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">11 — Секции</div>
+    <h2 class="gb-sec-title">Фоны и чередование секций</h2>
+    <p class="gb-sec-desc">Страница чередует 4 типа фона. Ритм: hero dark → white → gray → dark → white → gray → dark → gray → white → gray → white → gray → dark → darkest (footer).</p>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">4 типа фона</div>
+    <div class="gb-demo" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div class="sec-pattern">
+        <div class="sec-pattern-preview white" style="padding:20px">
+          <span style="font-size:13px;color:var(--tm)">Белый контент</span>
+        </div>
+        <div class="sec-pattern-info">
+          <div class="sec-pattern-name">.sec (белый)</div>
+          <div class="sec-pattern-use">Программа, методология, таймлайн, отзывы</div>
+        </div>
+      </div>
+      <div class="sec-pattern">
+        <div class="sec-pattern-preview alt" style="padding:20px">
+          <span style="font-size:13px;color:var(--tm)">Серый контент</span>
+        </div>
+        <div class="sec-pattern-info">
+          <div class="sec-pattern-name">.sec.alt (#f5f6f8)</div>
+          <div class="sec-pattern-use">Проблема, артефакты, наставник, FAQ</div>
+        </div>
+      </div>
+      <div class="sec-pattern">
+        <div class="sec-pattern-preview dark" style="padding:20px">
+          <div class="gbg-preview"></div>
+          <span style="font-size:13px;color:var(--om);position:relative;z-index:1">Тёмный + .gbg грид</span>
+        </div>
+        <div class="sec-pattern-info">
+          <div class="sec-pattern-name">.sec.dark.gbg (#16181b)</div>
+          <div class="sec-pattern-use">Hero, «Почему запустил», use cases, наставник, CTA</div>
+        </div>
+      </div>
+      <div class="sec-pattern">
+        <div class="sec-pattern-preview pricing" style="padding:20px">
+          <div class="gbg-preview"></div>
+          <div style="position:relative;z-index:1;padding:12px 14px;backdrop-filter:blur(10px);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:10px;font-size:12px;color:rgba(255,255,255,.7)">Glassmorphism</div>
+        </div>
+        <div class="sec-pattern-info">
+          <div class="sec-pattern-name">.pricing-sec (dark + WebGL)</div>
+          <div class="sec-pattern-use">Только ценовой блок</div>
+        </div>
+      </div>
+    </div>
+    <div class="gb-note info">Класс <code style="font-size:11px">.gbg</code> добавляет сетку 44×44 через ::before. Используется на всех тёмных секциях для визуальной глубины.</div>
+  </div>
+</div>
+
+<!-- ═══════════════ 12. СЕТКИ ═══════════════ -->
+<div class="gb-sec" id="grids">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">12 — Сетки</div>
+    <h2 class="gb-sec-title">Grid-системы компонентов</h2>
+  </div>
+  <div class="gb-sub">
+    <div class="gb-sub-title">Обзор сеток на странице</div>
+    <div class="gb-demo">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Hero</div>
+          <div style="font-size:13px;color:var(--t)">grid <strong>55% / 45%</strong> → mobile: 1 col</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Trust bar</div>
+          <div style="font-size:13px;color:var(--t)">grid <strong>repeat(4, 1fr)</strong> → mobile: 2×2</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Проблемы</div>
+          <div style="font-size:13px;color:var(--t)">grid <strong>1fr / 1fr</strong> → mobile: 1 col</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Методология</div>
+          <div style="font-size:13px;color:var(--t)">grid <strong>repeat(5, 1fr)</strong> + линия ::before → mobile: 1 col</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Артефакты</div>
+          <div style="font-size:13px;color:var(--t)">grid <strong>repeat(4, 1fr)</strong> → tablet: 2×2, mobile: 1 col</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Use cases</div>
+          <div style="font-size:13px;color:var(--t)">grid <strong>repeat(3, 1fr)</strong> → mobile: 1 col</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Программа</div>
+          <div style="font-size:13px;color:var(--t)">grid <strong>1fr / 1fr</strong> → mobile: 1 col</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Наставник</div>
+          <div style="font-size:13px;color:var(--t)">grid <strong>1fr / 1fr</strong> (фото + контент) → mobile: 1 col</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Отзывы</div>
+          <div style="font-size:13px;color:var(--t)">grid <strong>repeat(3, 1fr)</strong> → mobile: 1 col</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg);border-radius:6px">
+          <div style="font-size:11px;font-weight:700;color:var(--ts);width:160px;letter-spacing:.5px">Pricing</div>
+          <div style="font-size:13px;color:var(--t)">flex с gap 28px, max-width 308px per card → mobile: column</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 13. АНИМАЦИИ ═══════════════ -->
+<div class="gb-sec" id="animations">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">13 — Анимации</div>
+    <h2 class="gb-sec-title">Все анимации сайта</h2>
+    <p class="gb-sec-desc">Принцип: анимации усиливают смысл, не отвлекают. Нет бесполезного motion, нет тяжёлых библиотек.</p>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Scroll Reveal</div>
+    <div class="gb-demo" style="display:flex;flex-direction:column;gap:10px">
+      <div class="reveal-box" id="reveal-demo">Этот блок появляется при скролле (opacity + translateY)</div>
+      <button onclick="demoReveal()" class="btn btn-red" style="width:fit-content;font-size:13px;padding:10px 18px">Показать анимацию</button>
+    </div>
+    <div class="gb-code"><code><span class="cls">.reveal</span>     <span class="cmt">→ opacity:0, translateY(22px)</span>
+<span class="cls">.reveal.in</span>  <span class="cmt">→ opacity:1, translateY(0), transition .65s ease</span>
+<span class="cls">.reveal.d1</span>  <span class="cmt">→ transition-delay .1s</span>
+<span class="cls">.reveal.d2</span>  <span class="cmt">→ transition-delay .2s</span>
+<span class="cls">.reveal.d3</span>  <span class="cmt">→ transition-delay .3s (используется для stagger)</span></code></div>
+    <div class="gb-note info">IntersectionObserver добавляет класс <code style="font-size:11px">.in</code> когда элемент входит во viewport (threshold 0.12). Каждый элемент раскрывается один раз.</div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">AI Card — typing animation</div>
+    <div class="gb-demo dark">
+      <div class="anim-row">
+        <div class="anim-name"><div class="anim-name-title">Typing text</div><div class="anim-name-cls">JS · requestAnimationFrame</div></div>
+        <div class="anim-desc">Текст запроса в AI-карточке hero появляется по символам с рандомной задержкой 55–90ms. Запускается при входе hero-секции в viewport.</div>
+      </div>
+      <div class="anim-row">
+        <div class="anim-name"><div class="anim-name-title">Blinking cursor</div><div class="anim-name-cls">@keyframes blink</div></div>
+        <div class="anim-desc">Мигающий курсор 0.8s step-end. Скрывается после завершения набора текста.</div>
+      </div>
+      <div class="anim-row">
+        <div class="anim-name"><div class="anim-name-title">Check reveals</div><div class="anim-name-cls">.ai-chk → .ai-chk.show</div></div>
+        <div class="anim-desc">Чекмарки появляются последовательно через 600ms и 1100ms после завершения печати. opacity:0 + translateX(-6px) → opacity:1 + translateX(0).</div>
+      </div>
+      <div class="anim-row">
+        <div class="anim-name"><div class="anim-name-title">Result fade</div><div class="anim-name-cls">.ai-res → .ai-res.show</div></div>
+        <div class="anim-desc">Карточка результата плавно появляется через 1800ms. opacity:0 → opacity:1, transition .5s.</div>
+      </div>
+      <div class="anim-row" style="border:none">
+        <div class="anim-name"><div class="anim-name-title">Live dot pulse</div><div class="anim-name-cls">@keyframes pulse-dot</div></div>
+        <div class="anim-desc">Пульсирующее свечение зелёной точки «Онлайн» — box-shadow 0→5px, 2s infinite.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">WebGL шейдер (ценовой блок)</div>
+    <div class="gb-demo dark">
+      <div style="font-size:14px;color:var(--om);line-height:1.7;max-width:600px">
+        <p>Порт React-компонента <code style="font-size:12px;background:#1a1e24;padding:2px 6px;border-radius:3px">animated-glassy-pricing</code> на нативный JS+WebGL.</p>
+        <br>
+        <p style="margin-bottom:8px"><strong style="color:#f1f2f4">Как работает:</strong> GLSL фрагментный шейдер рисует три концентрические анимированные окружности с вращающимися цветами. Фон — #16181b в нормализованных значениях RGB [0.086, 0.094, 0.106].</p>
+        <p><strong style="color:#f1f2f4">Оптимизация:</strong> Canvas рендерится только когда секция видна на экране (IntersectionObserver). requestAnimationFrame останавливается при уходе секции из viewport.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Hover-эффекты карточек</div>
+    <div class="gb-code"><code><span class="cls">.art-card:hover</span>    <span class="cmt">→ translateY(-4px), shadow 0 12px 32px rgba(0,0,0,.08)</span>
+<span class="cls">.pcard:hover</span>       <span class="cmt">→ translateY(-6px), shadow 0 28px 56px rgba(0,0,0,.4)</span>
+<span class="cls">.pcard.pop:hover</span>   <span class="cmt">→ scale(1.05) translateY(-6px)</span>
+<span class="cls">.uc-card:hover</span>     <span class="cmt">→ border cyan/25%, bg cyan/4%</span>
+<span class="cls">.mstep:hover .num</span>  <span class="cmt">→ border-color red, bg #fff8f8</span>
+<span class="cls">.btn-red:hover</span>     <span class="cmt">→ translateY(-2px), box-shadow 0 6px 24px red/32%</span></code></div>
+  </div>
+</div>
+
+<!-- ═══════════════ 14. ТОН ТЕКСТА ═══════════════ -->
+<div class="gb-sec" id="tone">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">14 — Тон и текст</div>
+    <h2 class="gb-sec-title">Голос бренда</h2>
+    <p class="gb-sec-desc">KIM AI School говорит как умный практик — уверенно, конкретно, без пафоса. Аудитория: родители (доверие + польза) и подростки (современно + не скучно).</p>
+  </div>
+  <div class="gb-sub">
+    <div class="gb-sub-title">Принципы текста</div>
+    <div class="gb-demo">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:12px;align-items:center;padding:10px;background:#f9fafb;border-radius:6px">
+          <span style="color:var(--cy);font-size:16px;font-weight:700">✓</span>
+          <div style="font-size:13px;font-weight:600;color:var(--t)">"Учим думать вместе с ИИ"</div>
+          <div style="font-size:12px;color:var(--tm)">Глагол действия + суть</div>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:12px;align-items:center;padding:10px;background:#fff5f5;border-radius:6px">
+          <span style="color:var(--red);font-size:16px;font-weight:700">✗</span>
+          <div style="font-size:13px;font-weight:600;color:var(--t)">"Лучший курс по нейросетям!"</div>
+          <div style="font-size:12px;color:var(--tm)">Избыточный суперлатив</div>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:12px;align-items:center;padding:10px;background:#f9fafb;border-radius:6px">
+          <span style="color:var(--cy);font-size:16px;font-weight:700">✓</span>
+          <div style="font-size:13px;font-weight:600;color:var(--t)">"Проект готов к защите"</div>
+          <div style="font-size:12px;color:var(--tm)">Конкретный результат, авторство ребёнка</div>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:12px;align-items:center;padding:10px;background:#fff5f5;border-radius:6px">
+          <span style="color:var(--red);font-size:16px;font-weight:700">✗</span>
+          <div style="font-size:13px;font-weight:600;color:var(--t)">"Исследовательская работа готова"</div>
+          <div style="font-size:12px;color:var(--tm)">Звучит как "сделали за ребёнка"</div>
+        </div>
+        <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:12px;align-items:center;padding:10px;background:#f9fafb;border-radius:6px">
+          <span style="color:var(--cy);font-size:16px;font-weight:700">✓</span>
+          <div style="font-size:13px;font-weight:600;color:var(--t)">"Мы не учим списывать"</div>
+          <div style="font-size:12px;color:var(--tm)">Прямое отрицание возражения родителя</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Запрещённые формулировки</div>
+    <div class="gb-demo">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><span style="color:var(--red)">✗</span><span style="color:var(--t)"><strong>«Исследовательская работа готова к сдаче»</strong> — конфликт с позиционированием "не помогаем списывать"</span></div>
+        <div style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><span style="color:var(--red)">✗</span><span style="color:var(--t)"><strong>Любые выдуманные отзывы или цифры</strong> — только реальные факты KIM.agency</span></div>
+        <div style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><span style="color:var(--red)">✗</span><span style="color:var(--t)"><strong>«Гарантируем результат» / «100% эффект»</strong> — инфобизнес-паттерны</span></div>
+        <div style="display:flex;gap:8px;align-items:flex-start;font-size:13px"><span style="color:var(--red)">✗</span><span style="color:var(--t)"><strong>«ИИ сделает за ребёнка»</strong> — противоречит методологии</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ 15. ДОБАВИТЬ СЕКЦИЮ ═══════════════ -->
+<div class="gb-sec" id="checklist">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">15 — Добавить секцию</div>
+    <h2 class="gb-sec-title">Чеклист добавления новой секции</h2>
+    <p class="gb-sec-desc">Пошаговый процесс добавления любой новой секции в index.html без нарушения дизайн-системы.</p>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Шаги</div>
+    <div class="gb-demo">
+      <div class="checklist-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Определить тип фона</div>
+          <div class="step-desc">Светлая (white), серая (.sec.alt) или тёмная (.sec.dark.gbg)? Следуйте ритму чередования — не ставьте два тёмных блока подряд.</div>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num r">2</div>
+        <div class="step-body">
+          <div class="step-title">Выбрать тип label</div>
+          <div class="step-desc">Светлый фон → <code>.lbl</code>. Тёмный фон + AI-тема → <code>.lbl.cy</code>. Тёмный фон + нейтральная тема → <code>.lbl.dim</code>.</div>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Использовать .h2 и .sub</div>
+          <div class="step-desc">Заголовок секции: <code>.h2</code> (светлый фон) или <code>.h2.lt</code> (тёмный). Подзаголовок: <code>.sub</code> или <code>.sub.lt</code>.</div>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Добавить .reveal к элементам</div>
+          <div class="step-desc">Каждый смысловой блок или карточка — добавить <code>.reveal</code>. Для stagger: <code>.reveal.d1</code>, <code>.reveal.d2</code>, <code>.reveal.d3</code>.</div>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Добавить якорь id и ссылку в nav</div>
+          <div class="step-desc">Секция: <code>&lt;section id="якорь"&gt;</code>. В nav-links: <code>&lt;li&gt;&lt;a href="#якорь"&gt;Название&lt;/a&gt;&lt;/li&gt;</code>. В mobile nav тоже.</div>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <div class="step-title">Проверить контраст на тёмном фоне</div>
+          <div class="step-desc">Основной текст → минимум #d1d5db. Вторичный → минимум #8d9198. Никогда не #575757 или темнее на #16181b фоне.</div>
+        </div>
+      </div>
+      <div class="checklist-step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <div class="step-title">Задеплоить и обновить скриншоты</div>
+          <div class="step-desc">Пуш в main → GitHub Actions автоматически обновит screenshots/ через Playwright. Если нет — запустить workflow вручную.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Шаблон секции</div>
+    <div class="gb-code"><code><span class="cmt">&lt;!-- НАЗВАНИЕ СЕКЦИИ --&gt;</span>
+&lt;<span class="cls">section</span> <span class="prop">class</span>=<span class="val">"sec [alt|dark gbg]"</span> <span class="prop">id</span>=<span class="val">"якорь"</span>&gt;
+  &lt;<span class="cls">div</span> <span class="prop">class</span>=<span class="val">"wrap"</span>&gt;
+    &lt;<span class="cls">div</span> <span class="prop">class</span>=<span class="val">"reveal"</span>&gt;&lt;<span class="cls">span</span> <span class="prop">class</span>=<span class="val">"lbl [cy|dim]"</span>&gt;МЕТКА&lt;/<span class="cls">span</span>&gt;&lt;/<span class="cls">div</span>&gt;
+    &lt;<span class="cls">div</span> <span class="prop">class</span>=<span class="val">"reveal d1"</span>&gt;&lt;<span class="cls">h2</span> <span class="prop">class</span>=<span class="val">"h2 [lt]"</span>&gt;Заголовок&lt;/<span class="cls">h2</span>&gt;&lt;/<span class="cls">div</span>&gt;
+    &lt;<span class="cls">div</span> <span class="prop">class</span>=<span class="val">"reveal d2"</span>&gt;&lt;<span class="cls">p</span> <span class="prop">class</span>=<span class="val">"sub [lt]"</span>&gt;Подзаголовок&lt;/<span class="cls">p</span>&gt;&lt;/<span class="cls">div</span>&gt;
+    <span class="cmt">&lt;!-- контент с .reveal.d1, .d2, .d3 --&gt;</span>
+  &lt;/<span class="cls">div</span>&gt;
+&lt;/<span class="cls">section</span>&gt;</code></div>
+  </div>
+</div>
+
+<!-- ═══════════════ 16. ЧТО МОЖНО / НЕЛЬЗЯ ═══════════════ -->
+<div class="gb-sec" id="dos">
+  <div class="gb-sec-head">
+    <div class="gb-sec-num">16 — Что можно / нельзя</div>
+    <h2 class="gb-sec-title">Правила дизайн-системы</h2>
+  </div>
+  <div class="gb-sub">
+    <div class="gb-sub-title">Дизайн</div>
+    <div class="gb-demo" style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div style="padding:20px;border-right:1px solid var(--bd)">
+        <div style="font-size:12px;font-weight:700;color:#059669;letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px">✓ Можно</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--tm)">
+          <div>Добавлять новые карточки по существующим паттернам</div>
+          <div>Использовать cyan (#22d3ee) для AI/tech меток</div>
+          <div>Добавлять тёмные секции с .gbg</div>
+          <div>Масштабировать шрифт через clamp()</div>
+          <div>Использовать glassmorphism только в pricing</div>
+          <div>Добавлять анимацию через .reveal</div>
+        </div>
+      </div>
+      <div style="padding:20px">
+        <div style="font-size:12px;font-weight:700;color:var(--red);letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px">✗ Нельзя</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--tm)">
+          <div>Добавлять новые цвета без обновления гайдбука</div>
+          <div>Использовать лайм (#80cb17) широко</div>
+          <div>Ставить два тёмных блока подряд</div>
+          <div>Менять --red на другой оттенок</div>
+          <div>Вставлять внешние иконочные библиотеки</div>
+          <div>Нарушать типографическую иерархию</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gb-sub">
+    <div class="gb-sub-title">Контент</div>
+    <div class="gb-demo" style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div style="padding:20px;border-right:1px solid var(--bd)">
+        <div style="font-size:12px;font-weight:700;color:#059669;letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px">✓ Можно</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--tm)">
+          <div>Использовать реальные факты KIM.agency</div>
+          <div>Описывать процесс обучения через методологию</div>
+          <div>Говорить о конкретных артефактах</div>
+          <div>Упоминать реальные медиа (Москва 24, РБК...)</div>
+        </div>
+      </div>
+      <div style="padding:20px">
+        <div style="font-size:12px;font-weight:700;color:var(--red);letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px">✗ Нельзя</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--tm)">
+          <div>Выдумывать отзывы до реальных клиентов</div>
+          <div>Использовать «сделаем за ребёнка» риторику</div>
+          <div>Обещать конкретные результаты без оснований</div>
+          <div>Добавлять несуществующие факты</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main><!-- /gb-main -->
+</div><!-- /gb-layout -->
+
+<script>
+// Scrollspy — highlight active nav item
+const sections = document.querySelectorAll('.gb-sec[id]');
+const navItems = document.querySelectorAll('.gb-nav-item');
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navItems.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(s => spy.observe(s));
+
+// Smooth nav click
+navItems.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Copy swatch hex
+function copySwatch(el, hex) {
+  navigator.clipboard?.writeText(hex).catch(() => {});
+  el.classList.add('just-copied');
+  setTimeout(() => el.classList.remove('just-copied'), 1500);
+}
+
+// Reveal demo
+function demoReveal() {
+  const box = document.getElementById('reveal-demo');
+  box.classList.remove('in');
+  void box.offsetWidth; // reflow
+  setTimeout(() => box.classList.add('in'), 50);
+}
+document.getElementById('reveal-demo').classList.add('in');
+</script>
+</body>
+</html>
