@@ -293,6 +293,55 @@ footer{background:var(--d3);border-top:1px solid var(--db);padding:28px 0}
 .reveal.d3{transition-delay:.3s}
 .reveal.d4{transition-delay:.4s}
 
+/* ── PRICING ── */
+.pricing-sec{position:relative;overflow:hidden;background:var(--d);padding:96px 0}
+#pricing-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;opacity:.65}
+.pricing-in{position:relative;z-index:1}
+.pricing-grid{display:flex;gap:28px;justify-content:center;align-items:stretch;flex-wrap:wrap;margin-top:52px}
+.pcard{
+  flex:1;min-width:256px;max-width:308px;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:linear-gradient(145deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,.04) 100%);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;padding:32px 28px;
+  display:flex;flex-direction:column;
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+  position:relative;
+}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 28px 56px rgba(0,0,0,.4);border-color:rgba(255,255,255,.18)}
+.pcard.pop{
+  border-color:rgba(34,211,238,.28);
+  background:linear-gradient(145deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.08) 100%);
+  box-shadow:0 0 0 1px rgba(34,211,238,.15),0 24px 48px rgba(0,0,0,.35);
+  transform:scale(1.05);
+}
+.pcard.pop:hover{transform:scale(1.05) translateY(-6px);box-shadow:0 0 0 1px rgba(34,211,238,.25),0 32px 64px rgba(0,0,0,.45)}
+.pop-badge{
+  position:absolute;top:-14px;right:22px;
+  background:var(--cy);color:#000;
+  font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  padding:4px 14px;border-radius:20px;
+}
+.pcard-name{font-size:32px;font-weight:300;letter-spacing:-.5px;color:#f1f2f4;margin-bottom:6px;line-height:1}
+.pcard-desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.55;margin-bottom:22px}
+.pcard-amount{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+.pcard-num{font-size:52px;font-weight:300;letter-spacing:-1px;color:#f1f2f4;line-height:1}
+.pcard-unit{font-size:13px;color:rgba(255,255,255,.45);padding-bottom:4px}
+.pcard-num.sm{font-size:26px;font-weight:400;padding-top:14px;padding-bottom:10px}
+.pcard-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14) 50%,transparent);margin:20px 0}
+.pcard-features{display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1}
+.pf{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,.8);line-height:1.45}
+.pf-icon{width:15px;height:15px;flex-shrink:0;margin-top:1px;color:var(--cy)}
+.pbtn{
+  width:100%;padding:13px;border-radius:12px;
+  font-size:14px;font-weight:600;border:none;cursor:pointer;
+  transition:all .2s;letter-spacing:.2px;
+}
+.pbtn.cy{background:var(--cy);color:#000}
+.pbtn.cy:hover{background:#38e4f5;transform:translateY(-1px);box-shadow:0 8px 24px rgba(34,211,238,.35)}
+.pbtn.gl{background:rgba(255,255,255,.1);color:#e2e4e8;border:1px solid rgba(255,255,255,.14)}
+.pbtn.gl:hover{background:rgba(255,255,255,.18);transform:translateY(-1px)}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1000px){
   .hero-in{grid-template-columns:1fr;padding:120px 28px 80px;gap:48px}
@@ -348,6 +397,7 @@ footer{background:var(--d3);border-top:1px solid var(--db);padding:28px 0}
       <ul class="nav-links">
         <li><a href="#методология">Методология</a></li>
         <li><a href="#программа">Программа</a></li>
+        <li><a href="#цены">Цены</a></li>
         <li><a href="#наставник">Наставник</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
@@ -563,6 +613,71 @@ footer{background:var(--d3);border-top:1px solid var(--db);padding:28px 0}
       <div class="mod"><div class="mod-head"><span class="mod-num">06</span><span class="mod-title">Тексты, изображения, идеи</span><span class="mod-badge full">Полная</span></div><ul class="mod-points"><li>Творческие задачи с ИИ</li><li>Midjourney и генерация изображений</li><li>Авторский голос vs ИИ-текст</li></ul></div>
       <div class="mod"><div class="mod-head"><span class="mod-num">07</span><span class="mod-title">Безопасность и этика</span><span class="mod-badge full">Полная</span></div><ul class="mod-points"><li>Что нельзя вводить в чат</li><li>Данные, приватность, цифровой след</li><li>Фейки и дипфейки: как не попасться</li></ul></div>
       <div class="mod"><div class="mod-head"><span class="mod-num">08</span><span class="mod-title">Финальный проект и защита</span><span class="mod-badge full">Полная</span></div><ul class="mod-points"><li>Собственный AI-проект на интересную тему</li><li>Ребёнок объясняет ход мысли</li><li>Отчёт родителю + карта навыков</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-sec" id="цены">
+  <canvas id="pricing-canvas"></canvas>
+  <div class="wrap pricing-in">
+    <div class="reveal"><span class="lbl cy">Стоимость</span></div>
+    <div class="reveal d1"><h2 class="h2 lt">Выберите программу</h2></div>
+    <div class="reveal d2"><p class="sub lt">Начните с бесплатной диагностики — уточним уровень, цели и подберём формат.</p></div>
+    <div class="pricing-grid">
+
+      <!-- Стартовый -->
+      <div class="pcard reveal">
+        <div class="pcard-name">Стартовый</div>
+        <div class="pcard-desc">Базовая AI-грамотность и первый результат уже после 4 занятий</div>
+        <div class="pcard-amount"><span class="pcard-num">4</span><span class="pcard-unit">занятия</span></div>
+        <div class="pcard-divider"></div>
+        <ul class="pcard-features">
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Вводная диагностика + карта развития</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Как работает ИИ и почему ошибается</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Запросы и промпты на практике</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>ИИ для учёбы без списывания</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Личная prompt-карта</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Отчёт родителю после каждого занятия</li>
+        </ul>
+        <button class="pbtn gl" onclick="document.getElementById('записаться').scrollIntoView({behavior:'smooth'})">Записаться</button>
+      </div>
+
+      <!-- Полная программа (popular) -->
+      <div class="pcard pop reveal d1">
+        <div class="pop-badge">Популярный</div>
+        <div class="pcard-name">Полная</div>
+        <div class="pcard-desc">Полный навык + собственный AI-проект с финальной защитой</div>
+        <div class="pcard-amount"><span class="pcard-num">8</span><span class="pcard-unit">занятий</span></div>
+        <div class="pcard-divider"></div>
+        <ul class="pcard-features">
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Всё из стартового пакета</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Проверка фактов и критическое мышление</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Презентации и исследовательские проекты</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Изображения, тексты, идеи с ИИ</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Безопасность, данные, цифровая этика</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Собственный AI-проект с защитой</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Карта навыков + расширенный отчёт</li>
+        </ul>
+        <button class="pbtn cy" onclick="document.getElementById('записаться').scrollIntoView({behavior:'smooth'})">Записаться</button>
+      </div>
+
+      <!-- Индивидуальное -->
+      <div class="pcard reveal d2">
+        <div class="pcard-name">Личное</div>
+        <div class="pcard-desc">Индивидуальная траектория для сильных и нестандартных учеников</div>
+        <div class="pcard-amount"><span class="pcard-num sm">По запросу</span></div>
+        <div class="pcard-divider"></div>
+        <ul class="pcard-features">
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Диагностика + личная карта целей</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Гибкое расписание и темп</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Наставничество 1-на-1</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Глубокий разбор интересов ребёнка</li>
+          <li class="pf"><svg class="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Полный отчёт + рекомендации по развитию</li>
+        </ul>
+        <button class="pbtn gl" onclick="document.getElementById('записаться').scrollIntoView({behavior:'smooth'})">Обсудить</button>
+      </div>
+
     </div>
   </div>
 </section>
@@ -788,6 +903,93 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
   if (heroEl) heroObs.observe(heroEl);
 
   setTimeout(run, 800);
+})();
+
+// Pricing section WebGL shader (ported from animated-glassy-pricing)
+(function() {
+  const canvas = document.getElementById('pricing-canvas');
+  if (!canvas) return;
+  const section = document.getElementById('цены');
+  const gl = canvas.getContext('webgl');
+  if (!gl) return;
+
+  const VS = `attribute vec2 aPosition; void main(){gl_Position=vec4(aPosition,0.,1.);}`;
+  const FS = `
+    precision highp float;
+    uniform float iTime;
+    uniform vec2 iResolution;
+    uniform vec3 uBg;
+    mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}
+    float vary(vec2 v1,vec2 v2,float str,float spd){return sin(dot(normalize(v1),normalize(v2))*str+iTime*spd)/100.;}
+    vec3 circle(vec2 uv,vec2 cen,float r,float w){
+      vec2 d=cen-uv; float l=length(d);
+      l+=vary(d,vec2(0.,1.),5.,2.);
+      l-=vary(d,vec2(1.,0.),5.,2.);
+      return vec3(smoothstep(r-w,r,l)-smoothstep(r,r+w,l));
+    }
+    void main(){
+      vec2 uv=gl_FragCoord.xy/iResolution.xy;
+      uv.x*=1.5; uv.x-=.25;
+      float mask=0.;
+      vec2 cen=vec2(.5);
+      mask+=circle(uv,cen,.35,.035).r;
+      mask+=circle(uv,cen,.332,.01).r;
+      mask+=circle(uv,cen,.368,.005).r;
+      vec2 v=rot(iTime)*uv;
+      vec3 fg=vec3(v.x,v.y,.7-v.y*v.x);
+      vec3 col=mix(uBg,fg,mask);
+      col=mix(col,vec3(1.),circle(uv,cen,.35,.003).r);
+      gl_FragColor=vec4(col,1.);
+    }`;
+
+  function mkShader(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s); return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, VS));
+  gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog); gl.useProgram(prog);
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+  const aPos = gl.getAttribLocation(prog, 'aPosition');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  const iTimeLoc = gl.getUniformLocation(prog, 'iTime');
+  const iResLoc  = gl.getUniformLocation(prog, 'iResolution');
+  const uBgLoc   = gl.getUniformLocation(prog, 'uBg');
+  // Dark bg matching #16181b
+  gl.uniform3fv(uBgLoc, new Float32Array([0.086, 0.094, 0.106]));
+
+  function resize() {
+    if (!section) return;
+    canvas.width  = section.offsetWidth;
+    canvas.height = section.offsetHeight;
+    gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  }
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+
+  let raf;
+  function render(t) {
+    gl.uniform1f(iTimeLoc, t * 0.001);
+    gl.uniform2f(iResLoc, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    raf = requestAnimationFrame(render);
+  }
+
+  // Start rendering only when section is visible (perf)
+  const pricingObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      if (!raf) raf = requestAnimationFrame(render);
+    } else {
+      cancelAnimationFrame(raf); raf = null;
+    }
+  }, {threshold: 0.01});
+  if (section) pricingObs.observe(section);
 })();
 </script>
 </body>
