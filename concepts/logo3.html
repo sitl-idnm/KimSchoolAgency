@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KIM AI School — Logo v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#1E335C; --ink2:#162848; --ink3:#0F1E3C;
+  --sand:#EFE7DA; --sand2:#E8DFCF; --sand3:#F7F3EE;
+  --teal:#2F8F83; --blue:#5B7CFF; --copper:#C78A53;
+  --fu:"Manrope",system-ui,sans-serif;
+  --fm:"IBM Plex Mono","Courier New",monospace;
+  --fs:"Source Serif 4",Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fu);background:#fff;color:#111;line-height:1.5}
+
+.topnav{display:flex;gap:8px;padding:20px 48px;border-bottom:1px solid #eee;background:#fafafa;flex-wrap:wrap;align-items:center}
+.topnav a{font-family:var(--fm);font-size:10px;color:#aaa;text-decoration:none;letter-spacing:.08em;transition:color .15s}
+.topnav a:hover{color:#333}
+.topnav a.cur{color:#1E335C;font-weight:500}
+.topnav span{font-size:10px;color:#ddd}
+
+.page-header{padding:56px 48px 44px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.ph-left h1{font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#aaa;font-weight:400}
+.ph-left .tagline{font-family:var(--fs);font-style:italic;font-size:15px;color:#888;margin-top:6px}
+.ph-right{font-family:var(--fm);font-size:10px;color:#ccc;text-align:right}
+
+/* Reference strip */
+.ref-strip{padding:32px 48px;background:#fafafa;border-bottom:1px solid #eee}
+.ref-strip-label{font-family:var(--fm);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:#bbb;margin-bottom:20px}
+.ref-row{display:flex;gap:48px;align-items:flex-end;flex-wrap:wrap}
+.ref-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.ref-item-name{font-family:var(--fm);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#bbb}
+
+/* Grid */
+.logo-grid{display:grid;grid-template-columns:1fr 1fr}
+.logo-card{padding:52px 48px;border-right:1px solid #eee;border-bottom:1px solid #eee}
+.logo-card:nth-child(even){border-right:none}
+
+.card-meta{display:flex;align-items:baseline;gap:10px;margin-bottom:36px}
+.c-num{font-family:var(--fm);font-size:10px;color:#ccc}
+.c-name{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#222}
+.c-hint{font-size:10px;color:#bbb;font-weight:400;margin-left:auto;font-family:var(--fm)}
+
+.display{display:flex;align-items:center;justify-content:center;height:188px;margin-bottom:28px}
+
+.colorways{display:flex;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+.cw{display:flex;flex-direction:column;align-items:center;gap:6px}
+.cw-lbl{font-family:var(--fm);font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#ccc}
+
+.lockup-box{padding:18px 20px;background:#f8f8f8;border-radius:8px}
+.lockup-box-label{font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#ccc;margin-bottom:10px}
+.lockup-inner{display:flex;align-items:center;gap:10px}
+
+footer{padding:36px 48px;background:#fafafa;border-top:1px solid #eee;display:flex;justify-content:space-between}
+footer span{font-family:var(--fm);font-size:10px;color:#ccc}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="v4.html">← Concept 4</a>
+  <span>·</span>
+  <a href="logo.html">Logo v1</a>
+  <span>·</span>
+  <a href="logo2.html">Logo v2</a>
+  <span>·</span>
+  <a href="logo3.html" class="cur">Logo v3</a>
+</nav>
+
+<header class="page-header">
+  <div class="ph-left">
+    <h1>KIM AI School — Logo System v3</h1>
+    <p class="tagline">Вдохновлено: Mistral · Ironhack · OpenAI · Anthropic</p>
+  </div>
+  <div class="ph-right">
+    school.kim.agency<br>
+    <span style="opacity:.5">6 концептов</span>
+  </div>
+</header>
+
+<!-- Reference logos -->
+<section class="ref-strip">
+  <p class="ref-strip-label">Референсы — паттерны AI и EdTech брендов</p>
+  <div class="ref-row">
+
+    <div class="ref-item">
+      <!-- Mistral: pixel M -->
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <rect x="2" y="2" width="9" height="9" rx="2" fill="#F74"/>
+        <rect x="2" y="13" width="9" height="9" rx="2" fill="#F74"/>
+        <rect x="2" y="24" width="9" height="9" rx="2" fill="#F74"/>
+        <rect x="2" y="35" width="9" height="9" rx="2" fill="#F74"/>
+        <rect x="13" y="2" width="9" height="9" rx="2" fill="#FA8"/>
+        <rect x="24" y="13" width="9" height="9" rx="2" fill="#FBB"/>
+        <rect x="35" y="2" width="9" height="9" rx="2" fill="#FDD"/>
+        <rect x="35" y="13" width="9" height="9" rx="2" fill="#FDD"/>
+        <rect x="35" y="24" width="9" height="9" rx="2" fill="#FDD"/>
+        <rect x="35" y="35" width="9" height="9" rx="2" fill="#FDD"/>
+      </svg>
+      <span class="ref-item-name">Mistral — pixel</span>
+    </div>
+
+    <div class="ref-item">
+      <!-- Ironhack: letter in hexagon -->
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" fill="#E8193C"/>
+        <text x="24" y="31" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="18" fill="white">I</text>
+      </svg>
+      <span class="ref-item-name">Ironhack — hex</span>
+    </div>
+
+    <div class="ref-item">
+      <!-- OpenAI: geometric spiral/polygon -->
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <path d="M24 5C33 5 42 11 43 21C44 29 39 36 33 39C27 42 19 40 15 35L7 38L10 30C6 25 6 17 11 12C16 7 19 5 24 5Z" stroke="#000" stroke-width="2.5" fill="none"/>
+        <path d="M24 12C30 12 36 17 36 24C36 31 30 36 24 36" stroke="#000" stroke-width="2" fill="none" opacity=".4"/>
+      </svg>
+      <span class="ref-item-name">OpenAI — neural</span>
+    </div>
+
+    <div class="ref-item">
+      <!-- Anthropic: pure wordmark -->
+      <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:13px;color:#333;letter-spacing:-.02em;padding:4px 0">anthropic</div>
+      <span class="ref-item-name">Anthropic — wordmark</span>
+    </div>
+
+    <div class="ref-item">
+      <!-- DeepMind: connected nodes -->
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <line x1="10" y1="10" x2="38" y2="24" stroke="#ddd" stroke-width="1.5"/>
+        <line x1="10" y1="38" x2="38" y2="24" stroke="#ddd" stroke-width="1.5"/>
+        <line x1="10" y1="10" x2="10" y2="38" stroke="#ddd" stroke-width="1.5"/>
+        <circle cx="10" cy="10" r="5" fill="#4285F4"/>
+        <circle cx="38" cy="24" r="5" fill="#EA4335"/>
+        <circle cx="10" cy="38" r="5" fill="#34A853"/>
+        <circle cx="10" cy="24" r="3" fill="#FBBC04"/>
+      </svg>
+      <span class="ref-item-name">DeepMind — graph</span>
+    </div>
+
+    <div class="ref-item">
+      <!-- Coursera: bold C lettermark -->
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="21" fill="#0056D2"/>
+        <path d="M33 17C30 13 25 11 20 13C15 15 12 20 13 26C14 32 20 36 26 35C29 35 32 33 34 31" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="ref-item-name">Coursera — C circle</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========== LOGO GRID =========== -->
+<section class="logo-grid">
+
+<!-- ===== 01 PIXEL ===== -->
+<div class="logo-card">
+  <div class="card-meta">
+    <span class="c-num">01</span>
+    <span class="c-name">PIXEL</span>
+    <span class="c-hint">Модульная сетка — как Mistral</span>
+  </div>
+
+  <div class="display">
+    <svg width="112" height="120" viewBox="0 0 112 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- К from 4-col × 6-row pixel grid. Block=16, step=19. x0=8 y0=4 -->
+      <!-- Spine: col 0 all rows -->
+      <rect x="8"  y="4"  width="16" height="16" rx="4" fill="#1E335C"/>
+      <rect x="8"  y="23" width="16" height="16" rx="4" fill="#1E335C"/>
+      <rect x="8"  y="42" width="16" height="16" rx="4" fill="#1E335C"/>
+      <rect x="8"  y="61" width="16" height="16" rx="4" fill="#1E335C"/>
+      <rect x="8"  y="80" width="16" height="16" rx="4" fill="#1E335C"/>
+      <rect x="8"  y="99" width="16" height="16" rx="4" fill="#1E335C"/>
+      <!-- Upper arm: r2c1, r1c2, r0c3 — Ink Blue -->
+      <rect x="27" y="42" width="16" height="16" rx="4" fill="#1E335C"/>
+      <rect x="46" y="23" width="16" height="16" rx="4" fill="#1E335C"/>
+      <rect x="65" y="4"  width="16" height="16" rx="4" fill="#1E335C"/>
+      <!-- AI accent pixel -->
+      <rect x="84" y="4"  width="16" height="16" rx="4" fill="#5B7CFF" opacity=".45"/>
+      <!-- Lower arm: r3c1, r4c2, r5c3 — Teal -->
+      <rect x="27" y="61" width="16" height="16" rx="4" fill="#2F8F83"/>
+      <rect x="46" y="80" width="16" height="16" rx="4" fill="#2F8F83"/>
+      <rect x="65" y="99" width="16" height="16" rx="4" fill="#2F8F83"/>
+      <rect x="84" y="99" width="16" height="16" rx="4" fill="#2F8F83" opacity=".35"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 112 120" fill="none">
+        <rect x="8"  y="4"  width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="23" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="42" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="61" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="80" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="99" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="27" y="42" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="46" y="23" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="65" y="4"  width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="27" y="61" width="16" height="16" rx="4" fill="#2F8F83"/>
+        <rect x="46" y="80" width="16" height="16" rx="4" fill="#2F8F83"/>
+        <rect x="65" y="99" width="16" height="16" rx="4" fill="#2F8F83"/>
+      </svg>
+      <span class="cw-lbl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 112 120" fill="none">
+        <rect width="112" height="120" rx="14" fill="#1E335C"/>
+        <rect x="8"  y="4"  width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="8"  y="23" width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="8"  y="42" width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="8"  y="61" width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="8"  y="80" width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="8"  y="99" width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="27" y="42" width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="46" y="23" width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="65" y="4"  width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="27" y="61" width="16" height="16" rx="4" fill="#2F8F83"/>
+        <rect x="46" y="80" width="16" height="16" rx="4" fill="#2F8F83"/>
+        <rect x="65" y="99" width="16" height="16" rx="4" fill="#2F8F83"/>
+      </svg>
+      <span class="cw-lbl">Night</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 112 120" fill="none">
+        <rect width="112" height="120" rx="14" fill="#2F8F83"/>
+        <rect x="8"  y="4"  width="16" height="16" rx="4" fill="white"/>
+        <rect x="8"  y="23" width="16" height="16" rx="4" fill="white"/>
+        <rect x="8"  y="42" width="16" height="16" rx="4" fill="white"/>
+        <rect x="8"  y="61" width="16" height="16" rx="4" fill="white"/>
+        <rect x="8"  y="80" width="16" height="16" rx="4" fill="white"/>
+        <rect x="8"  y="99" width="16" height="16" rx="4" fill="white"/>
+        <rect x="27" y="42" width="16" height="16" rx="4" fill="white"/>
+        <rect x="46" y="23" width="16" height="16" rx="4" fill="white"/>
+        <rect x="65" y="4"  width="16" height="16" rx="4" fill="white"/>
+        <rect x="27" y="61" width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="46" y="80" width="16" height="16" rx="4" fill="#EFE7DA"/>
+        <rect x="65" y="99" width="16" height="16" rx="4" fill="#EFE7DA"/>
+      </svg>
+      <span class="cw-lbl">Teal</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 112 120" fill="none">
+        <rect width="112" height="120" rx="14" fill="#EFE7DA"/>
+        <rect x="8"  y="4"  width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="23" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="42" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="61" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="80" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="99" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="27" y="42" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="46" y="23" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="65" y="4"  width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="27" y="61" width="16" height="16" rx="4" fill="#2F8F83"/>
+        <rect x="46" y="80" width="16" height="16" rx="4" fill="#2F8F83"/>
+        <rect x="65" y="99" width="16" height="16" rx="4" fill="#2F8F83"/>
+      </svg>
+      <span class="cw-lbl">Sand</span>
+    </div>
+  </div>
+
+  <div class="lockup-box">
+    <p class="lockup-box-label">Lockup</p>
+    <div class="lockup-inner">
+      <svg width="26" height="28" viewBox="0 0 112 120" fill="none">
+        <rect x="8"  y="4"  width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="23" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="42" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="61" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="80" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="8"  y="99" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="27" y="42" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="46" y="23" width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="65" y="4"  width="16" height="16" rx="4" fill="#1E335C"/>
+        <rect x="27" y="61" width="16" height="16" rx="4" fill="#2F8F83"/>
+        <rect x="46" y="80" width="16" height="16" rx="4" fill="#2F8F83"/>
+        <rect x="65" y="99" width="16" height="16" rx="4" fill="#2F8F83"/>
+      </svg>
+      <div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#1E335C;line-height:1.1">KIM <span style="color:#2F8F83">AI</span> School</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#bbb;margin-top:2px;letter-spacing:.08em">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 02 HEX ===== -->
+<div class="logo-card">
+  <div class="card-meta">
+    <span class="c-num">02</span>
+    <span class="c-name">HEX</span>
+    <span class="c-hint">К в шестиугольнике — как Ironhack</span>
+  </div>
+
+  <div class="display">
+    <svg width="148" height="148" viewBox="0 0 148 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="74,6 128,37 128,111 74,142 20,111 20,37" fill="#1E335C"/>
+      <polygon points="74,14 120,41 120,107 74,134 28,107 28,41" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <line x1="44" y1="44" x2="44" y2="104" stroke="#EFE7DA" stroke-width="10" stroke-linecap="round"/>
+      <line x1="44" y1="74" x2="94" y2="44" stroke="#EFE7DA" stroke-width="8.5" stroke-linecap="round"/>
+      <line x1="44" y1="74" x2="94" y2="104" stroke="#2F8F83" stroke-width="8.5" stroke-linecap="round"/>
+      <circle cx="44" cy="74" r="5.5" fill="#2F8F83"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 148 148" fill="none">
+        <polygon points="74,6 128,37 128,111 74,142 20,111 20,37" fill="#1E335C"/>
+        <line x1="44" y1="44" x2="44" y2="104" stroke="#EFE7DA" stroke-width="10" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="44" stroke="#EFE7DA" stroke-width="8.5" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="104" stroke="#2F8F83" stroke-width="8.5" stroke-linecap="round"/>
+      </svg>
+      <span class="cw-lbl">Ink</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 148 148" fill="none">
+        <polygon points="74,6 128,37 128,111 74,142 20,111 20,37" fill="#2F8F83"/>
+        <line x1="44" y1="44" x2="44" y2="104" stroke="white" stroke-width="10" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="44" stroke="white" stroke-width="8.5" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="104" stroke="#EFE7DA" stroke-width="8.5" stroke-linecap="round"/>
+      </svg>
+      <span class="cw-lbl">Teal</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 148 148" fill="none">
+        <polygon points="74,6 128,37 128,111 74,142 20,111 20,37" fill="none" stroke="#1E335C" stroke-width="5"/>
+        <line x1="44" y1="44" x2="44" y2="104" stroke="#1E335C" stroke-width="10" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="44" stroke="#1E335C" stroke-width="8.5" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="104" stroke="#2F8F83" stroke-width="8.5" stroke-linecap="round"/>
+      </svg>
+      <span class="cw-lbl">Outline</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 148 148" fill="none">
+        <polygon points="74,6 128,37 128,111 74,142 20,111 20,37" fill="#EFE7DA"/>
+        <line x1="44" y1="44" x2="44" y2="104" stroke="#1E335C" stroke-width="10" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="44" stroke="#1E335C" stroke-width="8.5" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="104" stroke="#2F8F83" stroke-width="8.5" stroke-linecap="round"/>
+      </svg>
+      <span class="cw-lbl">Sand</span>
+    </div>
+  </div>
+
+  <div class="lockup-box">
+    <p class="lockup-box-label">Lockup</p>
+    <div class="lockup-inner">
+      <svg width="30" height="30" viewBox="0 0 148 148" fill="none">
+        <polygon points="74,6 128,37 128,111 74,142 20,111 20,37" fill="#1E335C"/>
+        <line x1="44" y1="44" x2="44" y2="104" stroke="#EFE7DA" stroke-width="10" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="44" stroke="#EFE7DA" stroke-width="8.5" stroke-linecap="round"/>
+        <line x1="44" y1="74" x2="94" y2="104" stroke="#2F8F83" stroke-width="8.5" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#1E335C;line-height:1.1">KIM <span style="color:#2F8F83">AI</span> School</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#bbb;margin-top:2px;letter-spacing:.08em">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 03 NEURAL ===== -->
+<div class="logo-card">
+  <div class="card-meta">
+    <span class="c-num">03</span>
+    <span class="c-name">NEURAL</span>
+    <span class="c-hint">К как нейросеть — узлы и рёбра</span>
+  </div>
+
+  <div class="display">
+    <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background faint connections -->
+      <line x1="34" y1="16" x2="106" y2="16" stroke="#1E335C" stroke-width=".8" opacity=".1"/>
+      <line x1="34" y1="124" x2="106" y2="124" stroke="#2F8F83" stroke-width=".8" opacity=".1"/>
+      <line x1="70" y1="40" x2="70" y2="100" stroke="#5B7CFF" stroke-width=".8" stroke-dasharray="3 3" opacity=".2"/>
+      <!-- Spine segments -->
+      <line x1="34" y1="16" x2="34" y2="70" stroke="#1E335C" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+      <line x1="34" y1="70" x2="34" y2="124" stroke="#2F8F83" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+      <!-- Upper arm -->
+      <line x1="34" y1="70" x2="70" y2="40" stroke="#1E335C" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
+      <line x1="70" y1="40" x2="106" y2="16" stroke="#1E335C" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>
+      <!-- Lower arm -->
+      <line x1="34" y1="70" x2="70" y2="100" stroke="#2F8F83" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
+      <line x1="70" y1="100" x2="106" y2="124" stroke="#2F8F83" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- AI assist connection -->
+      <line x1="106" y1="16" x2="106" y2="124" stroke="#5B7CFF" stroke-width=".8" stroke-dasharray="2 4" opacity=".2"/>
+
+      <!-- Nodes: draw last so they're on top -->
+      <!-- Spine top -->
+      <circle cx="34" cy="16" r="7" fill="#1E335C"/>
+      <circle cx="34" cy="16" r="3" fill="#EFE7DA"/>
+      <!-- Elbow — biggest, marks the K junction -->
+      <circle cx="34" cy="70" r="11" fill="#1E335C"/>
+      <circle cx="34" cy="70" r="5.5" fill="#2F8F83"/>
+      <!-- Spine bottom -->
+      <circle cx="34" cy="124" r="7" fill="#2F8F83"/>
+      <circle cx="34" cy="124" r="3" fill="white"/>
+      <!-- Upper arm mid + end -->
+      <circle cx="70" cy="40" r="5" fill="#1E335C" opacity=".6"/>
+      <circle cx="106" cy="16" r="7" fill="#1E335C"/>
+      <circle cx="106" cy="16" r="3" fill="#EFE7DA"/>
+      <!-- Lower arm mid + end -->
+      <circle cx="70" cy="100" r="5" fill="#2F8F83" opacity=".7"/>
+      <circle cx="106" cy="124" r="7" fill="#2F8F83"/>
+      <circle cx="106" cy="124" r="3" fill="white"/>
+      <!-- AI floating node -->
+      <circle cx="106" cy="70" r="4.5" fill="#5B7CFF" opacity=".55"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 140 140" fill="none">
+        <line x1="34" y1="16" x2="34" y2="124" stroke="#1E335C" stroke-width="3"/>
+        <line x1="34" y1="70" x2="106" y2="16" stroke="#1E335C" stroke-width="2.5"/>
+        <line x1="34" y1="70" x2="106" y2="124" stroke="#2F8F83" stroke-width="2.5"/>
+        <circle cx="34" cy="70" r="10" fill="#1E335C"/><circle cx="34" cy="70" r="5" fill="#2F8F83"/>
+        <circle cx="106" cy="16" r="6" fill="#1E335C"/>
+        <circle cx="106" cy="124" r="6" fill="#2F8F83"/>
+        <circle cx="34" cy="16" r="5" fill="#1E335C"/>
+        <circle cx="34" cy="124" r="5" fill="#2F8F83"/>
+      </svg>
+      <span class="cw-lbl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 140 140" fill="none">
+        <rect width="140" height="140" rx="14" fill="#0F1E3C"/>
+        <line x1="34" y1="16" x2="34" y2="124" stroke="#EFE7DA" stroke-width="3" opacity=".8"/>
+        <line x1="34" y1="70" x2="106" y2="16" stroke="#EFE7DA" stroke-width="2.5" opacity=".7"/>
+        <line x1="34" y1="70" x2="106" y2="124" stroke="#2F8F83" stroke-width="2.5"/>
+        <circle cx="34" cy="70" r="10" fill="#EFE7DA"/><circle cx="34" cy="70" r="5" fill="#2F8F83"/>
+        <circle cx="106" cy="16" r="6" fill="#EFE7DA" opacity=".7"/>
+        <circle cx="106" cy="124" r="6" fill="#2F8F83"/>
+        <circle cx="106" cy="70" r="4" fill="#5B7CFF" opacity=".7"/>
+      </svg>
+      <span class="cw-lbl">Dark</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 140 140" fill="none">
+        <line x1="34" y1="16" x2="34" y2="124" stroke="#1E335C" stroke-width="3"/>
+        <line x1="34" y1="70" x2="106" y2="16" stroke="#1E335C" stroke-width="2.5"/>
+        <line x1="34" y1="70" x2="106" y2="124" stroke="#2F8F83" stroke-width="2.5"/>
+        <circle cx="34" cy="70" r="10" fill="white" stroke="#1E335C" stroke-width="2.5"/>
+        <circle cx="34" cy="70" r="4.5" fill="#2F8F83"/>
+        <circle cx="106" cy="16" r="6" fill="white" stroke="#1E335C" stroke-width="2"/>
+        <circle cx="106" cy="124" r="6" fill="white" stroke="#2F8F83" stroke-width="2"/>
+        <circle cx="34" cy="16" r="5" fill="white" stroke="#1E335C" stroke-width="2"/>
+        <circle cx="34" cy="124" r="5" fill="white" stroke="#2F8F83" stroke-width="2"/>
+      </svg>
+      <span class="cw-lbl">Outline</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 140 140" fill="none">
+        <rect width="140" height="140" rx="14" fill="#EFE7DA"/>
+        <line x1="34" y1="16" x2="34" y2="124" stroke="#1E335C" stroke-width="3"/>
+        <line x1="34" y1="70" x2="106" y2="16" stroke="#1E335C" stroke-width="2.5"/>
+        <line x1="34" y1="70" x2="106" y2="124" stroke="#2F8F83" stroke-width="2.5"/>
+        <circle cx="34" cy="70" r="10" fill="#1E335C"/><circle cx="34" cy="70" r="5" fill="#2F8F83"/>
+        <circle cx="106" cy="16" r="6" fill="#1E335C"/>
+        <circle cx="106" cy="124" r="6" fill="#2F8F83"/>
+      </svg>
+      <span class="cw-lbl">Sand</span>
+    </div>
+  </div>
+
+  <div class="lockup-box">
+    <p class="lockup-box-label">Lockup</p>
+    <div class="lockup-inner">
+      <svg width="28" height="28" viewBox="0 0 140 140" fill="none">
+        <line x1="34" y1="16" x2="34" y2="70" stroke="#1E335C" stroke-width="4"/>
+        <line x1="34" y1="70" x2="34" y2="124" stroke="#2F8F83" stroke-width="4"/>
+        <line x1="34" y1="70" x2="106" y2="16" stroke="#1E335C" stroke-width="3"/>
+        <line x1="34" y1="70" x2="106" y2="124" stroke="#2F8F83" stroke-width="3"/>
+        <circle cx="34" cy="70" r="11" fill="#1E335C"/><circle cx="34" cy="70" r="5.5" fill="#2F8F83"/>
+        <circle cx="106" cy="16" r="7" fill="#1E335C"/>
+        <circle cx="106" cy="124" r="7" fill="#2F8F83"/>
+      </svg>
+      <div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#1E335C;line-height:1.1">KIM <span style="color:#2F8F83">AI</span> School</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#bbb;margin-top:2px;letter-spacing:.08em">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 04 TYPEMARK ===== -->
+<div class="logo-card">
+  <div class="card-meta">
+    <span class="c-num">04</span>
+    <span class="c-name">TYPEMARK</span>
+    <span class="c-hint">Только буквы — как Anthropic</span>
+  </div>
+
+  <div class="display" style="flex-direction:column;gap:4px">
+    <div style="line-height:1;text-align:center">
+      <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:64px;color:#1E335C;letter-spacing:-.03em;line-height:.88">KIM</div>
+      <div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:26px;color:#2F8F83;letter-spacing:.06em;line-height:1.3">AI SCHOOL</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#bbb;letter-spacing:.18em;margin-top:5px;text-transform:uppercase">school.kim.agency</div>
+    </div>
+  </div>
+
+  <div class="colorways" style="gap:20px;flex-wrap:wrap">
+    <div class="cw" style="align-items:flex-start">
+      <div style="background:#1E335C;padding:10px 14px;border-radius:8px;min-width:90px">
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;color:#EFE7DA;letter-spacing:-.02em;line-height:1">KIM<span style="color:#2F8F83"> AI</span></div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:500;font-size:8px;color:rgba(239,231,218,.4);letter-spacing:.22em;text-transform:uppercase;margin-top:3px">SCHOOL</div>
+      </div>
+      <span class="cw-lbl">Night</span>
+    </div>
+    <div class="cw" style="align-items:flex-start">
+      <div style="padding:10px 14px;border:2px solid #1E335C;border-radius:8px;min-width:90px">
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;color:#1E335C;letter-spacing:-.02em;line-height:1">KIM<span style="color:#2F8F83"> AI</span></div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:500;font-size:8px;color:#aaa;letter-spacing:.22em;text-transform:uppercase;margin-top:3px">SCHOOL</div>
+      </div>
+      <span class="cw-lbl">Outline</span>
+    </div>
+    <div class="cw" style="align-items:flex-start">
+      <div style="background:#EFE7DA;padding:10px 14px;border-radius:8px;min-width:90px">
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;color:#1E335C;letter-spacing:-.02em;line-height:1">KIM<span style="color:#2F8F83"> AI</span></div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:500;font-size:8px;color:#8A9BB0;letter-spacing:.22em;text-transform:uppercase;margin-top:3px">SCHOOL</div>
+      </div>
+      <span class="cw-lbl">Sand</span>
+    </div>
+  </div>
+
+  <div class="lockup-box">
+    <p class="lockup-box-label">Горизонтальный lockup</p>
+    <div style="display:flex;align-items:baseline;gap:4px;font-family:'Manrope',sans-serif">
+      <span style="font-weight:800;font-size:22px;color:#1E335C;letter-spacing:-.02em">KIM</span>
+      <span style="font-weight:700;font-size:22px;color:#2F8F83;letter-spacing:-.01em"> AI </span>
+      <span style="font-weight:500;font-size:22px;color:#1E335C">School</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#ccc;margin-left:6px">/ kim.agency</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 05 SLASH ===== -->
+<div class="logo-card">
+  <div class="card-meta">
+    <span class="c-num">05</span>
+    <span class="c-name">SLASH</span>
+    <span class="c-hint">К + диагональ — скорость, прогресс</span>
+  </div>
+
+  <div class="display">
+    <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="150" height="150" rx="22" fill="#F7F3EE"/>
+      <!-- Slash: bold diagonal from top-right to bottom-left -->
+      <line x1="110" y1="18" x2="68" y2="132" stroke="#2F8F83" stroke-width="6" stroke-linecap="round" opacity=".28"/>
+      <!-- К mark -->
+      <line x1="34" y1="22" x2="34" y2="128" stroke="#1E335C" stroke-width="11" stroke-linecap="round"/>
+      <line x1="34" y1="75" x2="96" y2="22" stroke="#1E335C" stroke-width="9"  stroke-linecap="round"/>
+      <line x1="34" y1="75" x2="96" y2="128" stroke="#2F8F83" stroke-width="9"  stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 150 150" fill="none">
+        <rect width="150" height="150" rx="18" fill="#F7F3EE"/>
+        <line x1="110" y1="18" x2="68" y2="132" stroke="#2F8F83" stroke-width="6" opacity=".28"/>
+        <line x1="34" y1="22" x2="34" y2="128" stroke="#1E335C" stroke-width="11" stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="22" stroke="#1E335C" stroke-width="9"  stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="128" stroke="#2F8F83" stroke-width="9"  stroke-linecap="round"/>
+      </svg>
+      <span class="cw-lbl">Sand</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 150 150" fill="none">
+        <rect width="150" height="150" rx="18" fill="#1E335C"/>
+        <line x1="110" y1="18" x2="68" y2="132" stroke="#2F8F83" stroke-width="6" opacity=".3"/>
+        <line x1="34" y1="22" x2="34" y2="128" stroke="#EFE7DA" stroke-width="11" stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="22" stroke="#EFE7DA" stroke-width="9"  stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="128" stroke="#2F8F83" stroke-width="9"  stroke-linecap="round"/>
+      </svg>
+      <span class="cw-lbl">Night</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 150 150" fill="none">
+        <line x1="110" y1="18" x2="68" y2="132" stroke="#2F8F83" stroke-width="5" opacity=".25"/>
+        <line x1="34" y1="22" x2="34" y2="128" stroke="#1E335C" stroke-width="11" stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="22" stroke="#1E335C" stroke-width="9"  stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="128" stroke="#2F8F83" stroke-width="9"  stroke-linecap="round"/>
+      </svg>
+      <span class="cw-lbl">Clean</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 150 150" fill="none">
+        <rect width="150" height="150" rx="18" fill="#2F8F83"/>
+        <line x1="110" y1="18" x2="68" y2="132" stroke="rgba(255,255,255,.22)" stroke-width="6"/>
+        <line x1="34" y1="22" x2="34" y2="128" stroke="white"   stroke-width="11" stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="22" stroke="white"   stroke-width="9"  stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="128" stroke="#EFE7DA" stroke-width="9"  stroke-linecap="round"/>
+      </svg>
+      <span class="cw-lbl">Teal</span>
+    </div>
+  </div>
+
+  <div class="lockup-box">
+    <p class="lockup-box-label">Lockup</p>
+    <div class="lockup-inner">
+      <svg width="30" height="30" viewBox="0 0 150 150" fill="none">
+        <rect width="150" height="150" rx="18" fill="#F7F3EE"/>
+        <line x1="34" y1="22" x2="34" y2="128" stroke="#1E335C" stroke-width="11" stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="22" stroke="#1E335C" stroke-width="9"  stroke-linecap="round"/>
+        <line x1="34" y1="75" x2="96" y2="128" stroke="#2F8F83" stroke-width="9"  stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#1E335C;line-height:1.1">KIM <span style="color:#2F8F83">AI</span> School</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#bbb;margin-top:2px;letter-spacing:.08em">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 06 ORBIT ===== -->
+<div class="logo-card">
+  <div class="card-meta">
+    <span class="c-num">06</span>
+    <span class="c-name">ORBIT</span>
+    <span class="c-hint">К с орбитой — AI как планетарная система</span>
+  </div>
+
+  <div class="display">
+    <svg width="156" height="156" viewBox="0 0 156 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Orbit ellipses around the K junction -->
+      <ellipse cx="78" cy="78" rx="62" ry="22"
+        stroke="#2F8F83" stroke-width="1.5" fill="none" opacity=".25"
+        transform="rotate(-35 78 78)"/>
+      <ellipse cx="78" cy="78" rx="52" ry="16"
+        stroke="#5B7CFF" stroke-width="1" fill="none" opacity=".15"
+        transform="rotate(25 78 78)"/>
+      <!-- К mark — centered -->
+      <line x1="40" y1="24" x2="40" y2="132" stroke="#1E335C" stroke-width="10.5" stroke-linecap="round"/>
+      <line x1="40" y1="78" x2="108" y2="24" stroke="#1E335C"  stroke-width="9"    stroke-linecap="round"/>
+      <line x1="40" y1="78" x2="108" y2="132" stroke="#2F8F83" stroke-width="9"    stroke-linecap="round"/>
+      <!-- Junction node -->
+      <circle cx="40" cy="78" r="8.5" fill="#1E335C"/>
+      <circle cx="40" cy="78" r="4" fill="#2F8F83"/>
+      <!-- Orbiting body 1 (Electric Blue — AI) -->
+      <circle cx="128" cy="52" r="6" fill="#5B7CFF" opacity=".75"/>
+      <!-- Orbiting body 2 (Teal) -->
+      <circle cx="24" cy="104" r="4" fill="#2F8F83" opacity=".4"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 156 156" fill="none">
+        <ellipse cx="78" cy="78" rx="60" ry="20" stroke="#2F8F83" stroke-width="1.5" fill="none" opacity=".3" transform="rotate(-35 78 78)"/>
+        <line x1="40" y1="24" x2="40" y2="132" stroke="#1E335C" stroke-width="10.5" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="24" stroke="#1E335C"  stroke-width="9" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="132" stroke="#2F8F83" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="40" cy="78" r="8" fill="#1E335C"/><circle cx="40" cy="78" r="4" fill="#2F8F83"/>
+        <circle cx="128" cy="52" r="5.5" fill="#5B7CFF" opacity=".7"/>
+      </svg>
+      <span class="cw-lbl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 156 156" fill="none">
+        <rect width="156" height="156" rx="14" fill="#0F1E3C"/>
+        <ellipse cx="78" cy="78" rx="60" ry="20" stroke="#2F8F83" stroke-width="1.5" fill="none" opacity=".45" transform="rotate(-35 78 78)"/>
+        <ellipse cx="78" cy="78" rx="48" ry="14" stroke="#5B7CFF" stroke-width="1" fill="none" opacity=".3" transform="rotate(25 78 78)"/>
+        <line x1="40" y1="24" x2="40" y2="132" stroke="#EFE7DA" stroke-width="10.5" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="24" stroke="#EFE7DA"  stroke-width="9" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="132" stroke="#2F8F83" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="40" cy="78" r="8" fill="#EFE7DA"/><circle cx="40" cy="78" r="4" fill="#2F8F83"/>
+        <circle cx="128" cy="52" r="5.5" fill="#5B7CFF"/>
+      </svg>
+      <span class="cw-lbl">Dark</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 156 156" fill="none">
+        <rect width="156" height="156" rx="14" fill="#EFE7DA"/>
+        <ellipse cx="78" cy="78" rx="60" ry="20" stroke="#2F8F83" stroke-width="1.5" fill="none" opacity=".35" transform="rotate(-35 78 78)"/>
+        <line x1="40" y1="24" x2="40" y2="132" stroke="#1E335C" stroke-width="10.5" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="24" stroke="#1E335C"  stroke-width="9" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="132" stroke="#2F8F83" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="40" cy="78" r="8" fill="#1E335C"/><circle cx="40" cy="78" r="4" fill="#2F8F83"/>
+        <circle cx="128" cy="52" r="5.5" fill="#5B7CFF" opacity=".6"/>
+      </svg>
+      <span class="cw-lbl">Sand</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 156 156" fill="none">
+        <rect width="156" height="156" rx="14" fill="#1E335C"/>
+        <ellipse cx="78" cy="78" rx="60" ry="20" stroke="#5B7CFF" stroke-width="1.5" fill="none" opacity=".4" transform="rotate(-35 78 78)"/>
+        <ellipse cx="78" cy="78" rx="48" ry="14" stroke="#2F8F83" stroke-width="1" fill="none" opacity=".3" transform="rotate(25 78 78)"/>
+        <line x1="40" y1="24" x2="40" y2="132" stroke="#EFE7DA" stroke-width="10.5" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="24" stroke="#EFE7DA"  stroke-width="9" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="132" stroke="#2F8F83" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="40" cy="78" r="8" fill="#EFE7DA"/><circle cx="40" cy="78" r="4" fill="#5B7CFF"/>
+        <circle cx="128" cy="52" r="5.5" fill="#5B7CFF"/>
+      </svg>
+      <span class="cw-lbl">Blue</span>
+    </div>
+  </div>
+
+  <div class="lockup-box">
+    <p class="lockup-box-label">Lockup</p>
+    <div class="lockup-inner">
+      <svg width="30" height="30" viewBox="0 0 156 156" fill="none">
+        <ellipse cx="78" cy="78" rx="60" ry="20" stroke="#2F8F83" stroke-width="2" fill="none" opacity=".35" transform="rotate(-35 78 78)"/>
+        <line x1="40" y1="24" x2="40" y2="132" stroke="#1E335C" stroke-width="10.5" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="24" stroke="#1E335C"  stroke-width="9" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="108" y2="132" stroke="#2F8F83" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="40" cy="78" r="8" fill="#1E335C"/><circle cx="40" cy="78" r="4" fill="#2F8F83"/>
+        <circle cx="128" cy="52" r="5.5" fill="#5B7CFF" opacity=".7"/>
+      </svg>
+      <div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#1E335C;line-height:1.1">KIM <span style="color:#2F8F83">AI</span> School</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:#bbb;margin-top:2px;letter-spacing:.08em">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<footer>
+  <span>Logo System v3 · 6 новых концептов</span>
+  <span>school.kim.agency · KIM.agency</span>
+</footer>
+
+</body>
+</html>
