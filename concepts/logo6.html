@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KIM AI School — Logo v6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#F5F3EF;font-family:'Manrope',sans-serif}
+
+.nav{display:flex;gap:10px;padding:18px 52px;border-bottom:1px solid #E2DEDB}
+.nav a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#AFA89E;text-decoration:none;letter-spacing:.08em}
+.nav a:hover{color:#333}
+.nav a.cur{color:#1E335C;font-weight:500}
+.nav span{color:#D8D3CE;font-size:10px}
+
+.header{padding:56px 52px 44px;display:flex;justify-content:space-between;align-items:flex-end}
+.header h1{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#AFA89E;font-weight:400;margin-bottom:10px}
+.header p{font-family:'DM Serif Display',serif;font-size:28px;color:#1E335C}
+.header aside{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C5C0B8;text-align:right;line-height:2}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #E2DEDB}
+.card{background:#fff;padding:48px 52px 44px;border-right:1px solid #E2DEDB;border-bottom:1px solid #E2DEDB}
+.card:nth-child(even){border-right:none}
+
+.meta{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C5C0B8}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#2F8F83;font-weight:500}
+.name{font-family:'DM Serif Display',serif;font-size:28px;color:#1E335C;margin-bottom:5px;line-height:1}
+.note{font-size:11px;color:#AFA89E;line-height:1.6;margin-bottom:34px}
+
+.display{height:220px;display:flex;align-items:center;justify-content:center;background:#F9F8F6;border-radius:4px;margin-bottom:26px}
+
+.cws{display:flex;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.cw{display:flex;flex-direction:column;align-items:center;gap:5px}
+.cwl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#C5C0B8}
+
+.lockup{background:#F5F3EF;border-radius:6px;padding:15px 18px;display:flex;align-items:center;gap:11px}
+.lkt .brand{font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#1E335C;line-height:1.15}
+.lkt .sub{font-family:'IBM Plex Mono',monospace;font-size:8px;color:#C5C0B8;margin-top:2px;letter-spacing:.06em}
+
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);height:76px}
+.sw{display:flex;align-items:flex-end;padding:0 0 13px 16px}
+.sw span{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;line-height:1.7}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="v4.html">← Concept 4</a>
+  <span>·</span>
+  <a href="logo5.html">v5</a>
+  <span>·</span>
+  <a href="logo6.html" class="cur">v6 — 6 разных типов</a>
+</nav>
+
+<header class="header">
+  <div>
+    <h1>Logo Exploration v6</h1>
+    <p>Разные типы — не только буква К</p>
+  </div>
+  <aside>
+    school.kim.agency<br>
+    KIM · Ink Blue · Teal · Sand
+  </aside>
+</header>
+
+<div class="grid">
+
+<!-- ══════════════════════════════
+     01 — WORDMARK  (KIM как слово)
+════════════════════════════════ -->
+<div class="card">
+  <div class="meta"><span class="num">01</span><span class="tag">Wordmark</span></div>
+  <div class="name">KIM</div>
+  <div class="note">Всё имя — логотип. Три буквы как единый знак. Уверенность без символа.</div>
+
+  <div class="display">
+    <!-- KIM custom geometric letterforms: K+I+M -->
+    <svg width="240" height="84" viewBox="0 0 280 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- K -->
+      <rect x="0" y="0" width="20" height="98" fill="#1E335C"/>
+      <polygon points="20,0 88,0 64,30 20,49" fill="#1E335C"/>
+      <polygon points="20,49 64,68 88,98 20,98" fill="#2F8F83"/>
+      <!-- I -->
+      <rect x="100" y="0" width="16" height="98" fill="#1E335C"/>
+      <!-- M -->
+      <polygon points="124,98 124,0 144,0 202,66 260,0 280,0 280,98" fill="#1E335C"/>
+    </svg>
+  </div>
+
+  <div class="cws">
+    <!-- Ink on white -->
+    <div class="cw">
+      <svg width="56" height="20" viewBox="0 0 280 98" fill="none">
+        <rect x="0" y="0" width="20" height="98" fill="#1E335C"/>
+        <polygon points="20,0 88,0 64,30 20,49" fill="#1E335C"/>
+        <polygon points="20,49 64,68 88,98 20,98" fill="#2F8F83"/>
+        <rect x="100" y="0" width="16" height="98" fill="#1E335C"/>
+        <polygon points="124,98 124,0 144,0 202,66 260,0 280,0 280,98" fill="#1E335C"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <!-- Sand on Ink Blue -->
+    <div class="cw">
+      <svg width="56" height="20" viewBox="0 0 280 98" fill="none">
+        <rect x="0" y="0" width="20" height="98" fill="#EFE7DA"/>
+        <polygon points="20,0 88,0 64,30 20,49" fill="#EFE7DA"/>
+        <polygon points="20,49 64,68 88,98 20,98" fill="#2F8F83"/>
+        <rect x="100" y="0" width="16" height="98" fill="#EFE7DA"/>
+        <polygon points="124,98 124,0 144,0 202,66 260,0 280,0 280,98" fill="#EFE7DA"/>
+      </svg>
+      <span class="cwl">Night</span>
+    </div>
+    <!-- Ink Blue only (1-color) -->
+    <div class="cw">
+      <svg width="56" height="20" viewBox="0 0 280 98" fill="none">
+        <rect x="0" y="0" width="20" height="98" fill="#1E335C"/>
+        <polygon points="20,0 88,0 64,30 20,49" fill="#1E335C"/>
+        <polygon points="20,49 64,68 88,98 20,98" fill="#1E335C"/>
+        <rect x="100" y="0" width="16" height="98" fill="#1E335C"/>
+        <polygon points="124,98 124,0 144,0 202,66 260,0 280,0 280,98" fill="#1E335C"/>
+      </svg>
+      <span class="cwl">Mono</span>
+    </div>
+    <!-- Teal lower accent only -->
+    <div class="cw">
+      <svg width="56" height="20" viewBox="0 0 280 98" fill="none">
+        <rect x="0" y="0" width="20" height="98" fill="#1E335C"/>
+        <polygon points="20,0 88,0 64,30 20,49" fill="#1E335C"/>
+        <polygon points="20,49 64,68 88,98 20,98" fill="#2F8F83"/>
+        <rect x="100" y="0" width="16" height="1E335C" fill="#1E335C"/>
+        <rect x="100" y="0" width="16" height="98" fill="#1E335C"/>
+        <polygon points="124,98 124,0 144,0 202,66 260,0 280,0 280,98" fill="#1E335C"/>
+      </svg>
+      <span class="cwl">Accent</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="52" height="18" viewBox="0 0 280 98" fill="none">
+      <rect x="0" y="0" width="20" height="98" fill="#1E335C"/>
+      <polygon points="20,0 88,0 64,30 20,49" fill="#1E335C"/>
+      <polygon points="20,49 64,68 88,98 20,98" fill="#2F8F83"/>
+      <rect x="100" y="0" width="16" height="98" fill="#1E335C"/>
+      <polygon points="124,98 124,0 144,0 202,66 260,0 280,0 280,98" fill="#1E335C"/>
+    </svg>
+    <div class="lkt">
+      <div class="brand"><span style="color:#2F8F83">AI</span> School</div>
+      <div class="sub">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     02 — SPARK  (Абстрактная звезда)
+════════════════════════════════ -->
+<div class="card">
+  <div class="meta"><span class="num">02</span><span class="tag">Abstract Symbol</span></div>
+  <div class="name">Spark</div>
+  <div class="note">Четырёхконечная звезда — вспышка интеллекта. Не буква, а идея. Apple Intelligence использует этот символ для AI.</div>
+
+  <div class="display">
+    <svg width="130" height="130" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- 4-pointed star: two overlapping diamonds -->
+      <!-- Vertical diamond (tall) -->
+      <polygon points="100,6 124,100 100,194 76,100" fill="#1E335C"/>
+      <!-- Horizontal diamond left half -->
+      <polygon points="6,100 100,76 100,124" fill="#1E335C"/>
+      <!-- Horizontal diamond right half — Teal -->
+      <polygon points="194,100 100,76 100,124" fill="#2F8F83"/>
+    </svg>
+  </div>
+
+  <div class="cws">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <polygon points="100,6 124,100 100,194 76,100" fill="#1E335C"/>
+        <polygon points="6,100 100,76 100,124" fill="#1E335C"/>
+        <polygon points="194,100 100,76 100,124" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="14" fill="#1E335C"/>
+        <polygon points="100,18 120,100 100,182 80,100" fill="#EFE7DA"/>
+        <polygon points="18,100 100,80 100,120" fill="#EFE7DA"/>
+        <polygon points="182,100 100,80 100,120" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Night</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="100" fill="#2F8F83"/>
+        <polygon points="100,18 120,100 100,182 80,100" fill="white"/>
+        <polygon points="18,100 100,80 100,120" fill="white"/>
+        <polygon points="182,100 100,80 100,120" fill="#EFE7DA"/>
+      </svg>
+      <span class="cwl">Teal bg</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="14" fill="#EFE7DA"/>
+        <polygon points="100,6 124,100 100,194 76,100" fill="#1E335C"/>
+        <polygon points="6,100 100,76 100,124" fill="#1E335C"/>
+        <polygon points="194,100 100,76 100,124" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Sand</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="28" height="28" viewBox="0 0 200 200" fill="none">
+      <polygon points="100,6 124,100 100,194 76,100" fill="#1E335C"/>
+      <polygon points="6,100 100,76 100,124" fill="#1E335C"/>
+      <polygon points="194,100 100,76 100,124" fill="#2F8F83"/>
+    </svg>
+    <div class="lkt">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="sub">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     03 — MONOGRAM  (K·I·M слитные)
+════════════════════════════════ -->
+<div class="card">
+  <div class="meta"><span class="num">03</span><span class="tag">Monogram</span></div>
+  <div class="name">KIM ·</div>
+  <div class="note">Три буквы слиты в один знак без пробелов. Буква K касается I, I касается M. Плотный монолитный блок.</div>
+
+  <div class="display">
+    <!-- KIM tight monogram: letters share x-boundaries, no gaps -->
+    <svg width="240" height="84" viewBox="0 0 260 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- K: spine 0-20, arms to x=82 -->
+      <rect x="0" y="0" width="20" height="92" fill="#1E335C"/>
+      <polygon points="20,0 82,0 60,28 20,46" fill="#1E335C"/>
+      <polygon points="20,46 60,64 82,92 20,92" fill="#2F8F83"/>
+      <!-- I: immediately at x=82 (touching K arm ends), width=14 -->
+      <rect x="82" y="0" width="14" height="92" fill="#1E335C"/>
+      <!-- M: immediately at x=96 (touching I), spans to x=260 -->
+      <polygon points="96,92 96,0 116,0 178,62 240,0 260,0 260,92" fill="#1E335C"/>
+    </svg>
+  </div>
+
+  <div class="cws">
+    <div class="cw">
+      <svg width="54" height="20" viewBox="0 0 260 92" fill="none">
+        <rect x="0" y="0" width="20" height="92" fill="#1E335C"/>
+        <polygon points="20,0 82,0 60,28 20,46" fill="#1E335C"/>
+        <polygon points="20,46 60,64 82,92 20,92" fill="#2F8F83"/>
+        <rect x="82" y="0" width="14" height="92" fill="#1E335C"/>
+        <polygon points="96,92 96,0 116,0 178,62 240,0 260,0 260,92" fill="#1E335C"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="20" viewBox="0 0 260 92" fill="none">
+        <rect x="0" y="0" width="20" height="92" fill="#EFE7DA"/>
+        <polygon points="20,0 82,0 60,28 20,46" fill="#EFE7DA"/>
+        <polygon points="20,46 60,64 82,92 20,92" fill="#2F8F83"/>
+        <rect x="82" y="0" width="14" height="92" fill="#EFE7DA"/>
+        <polygon points="96,92 96,0 116,0 178,62 240,0 260,0 260,92" fill="#EFE7DA"/>
+      </svg>
+      <span class="cwl">Sand</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="20" viewBox="0 0 260 92" fill="none">
+        <rect x="0" y="0" width="20" height="92" fill="#1E335C"/>
+        <polygon points="20,0 82,0 60,28 20,46" fill="#1E335C"/>
+        <polygon points="20,46 60,64 82,92 20,92" fill="#1E335C"/>
+        <rect x="82" y="0" width="14" height="92" fill="#1E335C"/>
+        <polygon points="96,92 96,0 116,0 178,62 240,0 260,0 260,92" fill="#1E335C"/>
+      </svg>
+      <span class="cwl">Mono</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="20" viewBox="0 0 260 92" fill="none">
+        <defs><linearGradient id="gkm" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1E335C"/><stop offset="100%" stop-color="#2F8F83"/></linearGradient></defs>
+        <rect x="0" y="0" width="20" height="92" fill="url(#gkm)"/>
+        <polygon points="20,0 82,0 60,28 20,46" fill="url(#gkm)"/>
+        <polygon points="20,46 60,64 82,92 20,92" fill="url(#gkm)"/>
+        <rect x="82" y="0" width="14" height="92" fill="url(#gkm)"/>
+        <polygon points="96,92 96,0 116,0 178,62 240,0 260,0 260,92" fill="url(#gkm)"/>
+      </svg>
+      <span class="cwl">Gradient</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="50" height="17" viewBox="0 0 260 92" fill="none">
+      <rect x="0" y="0" width="20" height="92" fill="#1E335C"/>
+      <polygon points="20,0 82,0 60,28 20,46" fill="#1E335C"/>
+      <polygon points="20,46 60,64 82,92 20,92" fill="#2F8F83"/>
+      <rect x="82" y="0" width="14" height="92" fill="#1E335C"/>
+      <polygon points="96,92 96,0 116,0 178,62 240,0 260,0 260,92" fill="#1E335C"/>
+    </svg>
+    <div class="lkt">
+      <div class="brand"><span style="color:#2F8F83">AI</span> School</div>
+      <div class="sub">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     04 — BRIDGE  (Концепция связи)
+════════════════════════════════ -->
+<div class="card">
+  <div class="meta"><span class="num">04</span><span class="tag">Concept Symbol</span></div>
+  <div class="name">Bridge</div>
+  <div class="note">Три узла на дуге: ученик → процесс → результат. Личная траектория. Не буква — нарратив.</div>
+
+  <div class="display">
+    <svg width="160" height="130" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Arc trajectory (curved path going up-right) -->
+      <path d="M 28,132 C 28,72 172,88 172,28" stroke="#1E335C" stroke-width="2.5" fill="none" opacity=".3"/>
+      <!-- Start node: large, Ink Blue (student) -->
+      <circle cx="28" cy="132" r="20" fill="#1E335C"/>
+      <!-- Inner ring / eye detail -->
+      <circle cx="28" cy="132" r="8" fill="white" opacity=".25"/>
+      <!-- Mid node: process/AI node -->
+      <circle cx="100" cy="80" r="11" fill="none" stroke="#1E335C" stroke-width="2.5"/>
+      <circle cx="100" cy="80" r="4.5" fill="#1E335C"/>
+      <!-- End node: large, Teal (achievement/goal) -->
+      <circle cx="172" cy="28" r="20" fill="#2F8F83"/>
+      <circle cx="172" cy="28" r="8" fill="white" opacity=".25"/>
+    </svg>
+  </div>
+
+  <div class="cws">
+    <div class="cw">
+      <svg width="54" height="44" viewBox="0 0 200 160" fill="none">
+        <path d="M 28,132 C 28,72 172,88 172,28" stroke="#1E335C" stroke-width="2.5" fill="none" opacity=".3"/>
+        <circle cx="28" cy="132" r="20" fill="#1E335C"/>
+        <circle cx="100" cy="80" r="11" fill="none" stroke="#1E335C" stroke-width="2.5"/>
+        <circle cx="100" cy="80" r="4.5" fill="#1E335C"/>
+        <circle cx="172" cy="28" r="20" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="44" viewBox="0 0 200 160" fill="none">
+        <rect width="200" height="160" rx="12" fill="#1E335C"/>
+        <path d="M 28,132 C 28,72 172,88 172,28" stroke="#EFE7DA" stroke-width="2.5" fill="none" opacity=".3"/>
+        <circle cx="28" cy="132" r="20" fill="#EFE7DA"/>
+        <circle cx="100" cy="80" r="11" fill="none" stroke="#EFE7DA" stroke-width="2.5"/>
+        <circle cx="100" cy="80" r="4.5" fill="#EFE7DA"/>
+        <circle cx="172" cy="28" r="20" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Dark</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="44" viewBox="0 0 200 160" fill="none">
+        <rect width="200" height="160" rx="12" fill="#EFE7DA"/>
+        <path d="M 28,132 C 28,72 172,88 172,28" stroke="#1E335C" stroke-width="2.5" fill="none" opacity=".4"/>
+        <circle cx="28" cy="132" r="20" fill="#1E335C"/>
+        <circle cx="100" cy="80" r="11" fill="none" stroke="#1E335C" stroke-width="2.5"/>
+        <circle cx="100" cy="80" r="4.5" fill="#1E335C"/>
+        <circle cx="172" cy="28" r="20" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Sand</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="44" viewBox="0 0 200 160" fill="none">
+        <rect width="200" height="160" rx="12" fill="#2F8F83"/>
+        <path d="M 28,132 C 28,72 172,88 172,28" stroke="white" stroke-width="2.5" fill="none" opacity=".4"/>
+        <circle cx="28" cy="132" r="20" fill="white"/>
+        <circle cx="100" cy="80" r="11" fill="none" stroke="white" stroke-width="2.5"/>
+        <circle cx="100" cy="80" r="4.5" fill="white"/>
+        <circle cx="172" cy="28" r="20" fill="#EFE7DA"/>
+      </svg>
+      <span class="cwl">Teal</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="42" height="34" viewBox="0 0 200 160" fill="none">
+      <path d="M 28,132 C 28,72 172,88 172,28" stroke="#1E335C" stroke-width="2.5" fill="none" opacity=".3"/>
+      <circle cx="28" cy="132" r="20" fill="#1E335C"/>
+      <circle cx="100" cy="80" r="11" fill="none" stroke="#1E335C" stroke-width="2.5"/>
+      <circle cx="100" cy="80" r="4.5" fill="#1E335C"/>
+      <circle cx="172" cy="28" r="20" fill="#2F8F83"/>
+    </svg>
+    <div class="lkt">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="sub">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     05 — AXIS  (Ассиметричный крест)
+════════════════════════════════ -->
+<div class="card">
+  <div class="meta"><span class="num">05</span><span class="tag">Geometric Mark</span></div>
+  <div class="name">Axis</div>
+  <div class="note">Асимметричный крест. Вертикаль — основа знаний. Горизонталь — вектор движения вперёд. Два цвета, два смысла.</div>
+
+  <div class="display">
+    <svg width="130" height="130" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Vertical bar: Ink Blue, centered, full height -->
+      <rect x="90" y="16" width="20" height="168" fill="#1E335C"/>
+      <!-- Horizontal bar: Teal, asymmetric (longer to the right) -->
+      <rect x="38" y="90" width="138" height="20" fill="#2F8F83"/>
+      <!-- Overlap square in center: darkens to show layering -->
+      <rect x="90" y="90" width="20" height="20" fill="#162848"/>
+    </svg>
+  </div>
+
+  <div class="cws">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect x="90" y="16" width="20" height="168" fill="#1E335C"/>
+        <rect x="38" y="90" width="138" height="20" fill="#2F8F83"/>
+        <rect x="90" y="90" width="20" height="20" fill="#162848"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="14" fill="#1E335C"/>
+        <rect x="90" y="16" width="20" height="168" fill="#EFE7DA"/>
+        <rect x="38" y="90" width="138" height="20" fill="#2F8F83"/>
+        <rect x="90" y="90" width="20" height="20" fill="#268077"/>
+      </svg>
+      <span class="cwl">Night</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <!-- Both bars same Ink Blue (1-color version) -->
+        <rect x="90" y="16" width="20" height="168" fill="#1E335C"/>
+        <rect x="38" y="90" width="138" height="20" fill="#1E335C"/>
+      </svg>
+      <span class="cwl">Mono</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="100" fill="#F7F3EE" stroke="#1E335C" stroke-width="3"/>
+        <rect x="90" y="16" width="20" height="168" fill="#1E335C"/>
+        <rect x="38" y="90" width="138" height="20" fill="#2F8F83"/>
+        <rect x="90" y="90" width="20" height="20" fill="#162848"/>
+      </svg>
+      <span class="cwl">Circle</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="28" height="28" viewBox="0 0 200 200" fill="none">
+      <rect x="90" y="16" width="20" height="168" fill="#1E335C"/>
+      <rect x="38" y="90" width="138" height="20" fill="#2F8F83"/>
+      <rect x="90" y="90" width="20" height="20" fill="#162848"/>
+    </svg>
+    <div class="lkt">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="sub">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     06 — KA  (Лигатура K+A = AI)
+════════════════════════════════ -->
+<div class="card">
+  <div class="meta"><span class="num">06</span><span class="tag">Ligature</span></div>
+  <div class="name">K·AI</div>
+  <div class="note">Буква K + стрелка = K-AI. Нижняя рука превращается в A. Одна форма, два прочтения: имя бренда и его суть.</div>
+
+  <div class="display">
+    <svg width="180" height="130" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- K spine -->
+      <rect x="12" y="8" width="20" height="144" fill="#1E335C"/>
+      <!-- K upper arm -->
+      <line x1="32" y1="80" x2="118" y2="8" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+      <!-- Lower arm BECOMES the left leg of A (Teal, diagonal going down-right) -->
+      <line x1="32" y1="80" x2="120" y2="152" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+      <!-- A right leg (continues from where K lower arm ends, mirrored) -->
+      <line x1="208" y1="152" x2="120" y2="8" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+      <!-- A crossbar (Teal) -->
+      <line x1="74" y1="104" x2="162" y2="104" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/>
+      <!-- I (thin bar after the A) -->
+      <rect x="224" y="8" width="14" height="144" fill="#1E335C"/>
+    </svg>
+  </div>
+
+  <div class="cws">
+    <div class="cw">
+      <svg width="54" height="38" viewBox="0 0 240 160" fill="none">
+        <rect x="12" y="8" width="20" height="144" fill="#1E335C"/>
+        <line x1="32" y1="80" x2="118" y2="8" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="32" y1="80" x2="120" y2="152" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="208" y1="152" x2="120" y2="8" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="74" y1="104" x2="162" y2="104" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/>
+        <rect x="224" y="8" width="14" height="144" fill="#1E335C"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="38" viewBox="0 0 240 160" fill="none">
+        <rect width="240" height="160" rx="12" fill="#1E335C"/>
+        <rect x="12" y="8" width="20" height="144" fill="#EFE7DA"/>
+        <line x1="32" y1="80" x2="118" y2="8" stroke="#EFE7DA" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="32" y1="80" x2="120" y2="152" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="208" y1="152" x2="120" y2="8" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="74" y1="104" x2="162" y2="104" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/>
+        <rect x="224" y="8" width="14" height="144" fill="#EFE7DA"/>
+      </svg>
+      <span class="cwl">Night</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="38" viewBox="0 0 240 160" fill="none">
+        <rect width="240" height="160" rx="12" fill="#EFE7DA"/>
+        <rect x="12" y="8" width="20" height="144" fill="#1E335C"/>
+        <line x1="32" y1="80" x2="118" y2="8" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="32" y1="80" x2="120" y2="152" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="208" y1="152" x2="120" y2="8" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="74" y1="104" x2="162" y2="104" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/>
+        <rect x="224" y="8" width="14" height="144" fill="#1E335C"/>
+      </svg>
+      <span class="cwl">Sand</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="38" viewBox="0 0 240 160" fill="none">
+        <rect x="12" y="8" width="20" height="144" fill="#1E335C"/>
+        <line x1="32" y1="80" x2="118" y2="8" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="32" y1="80" x2="120" y2="152" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="208" y1="152" x2="120" y2="8" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="74" y1="104" x2="162" y2="104" stroke="#1E335C" stroke-width="11" stroke-linecap="round"/>
+        <rect x="224" y="8" width="14" height="144" fill="#1E335C"/>
+      </svg>
+      <span class="cwl">Mono</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="44" height="32" viewBox="0 0 240 160" fill="none">
+      <rect x="12" y="8" width="20" height="144" fill="#1E335C"/>
+      <line x1="32" y1="80" x2="118" y2="8" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+      <line x1="32" y1="80" x2="120" y2="152" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+      <line x1="208" y1="152" x2="120" y2="8" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+      <line x1="74" y1="104" x2="162" y2="104" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/>
+      <rect x="224" y="8" width="14" height="144" fill="#1E335C"/>
+    </svg>
+    <div class="lkt">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="sub">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /grid -->
+
+<div class="swatches">
+  <div class="sw" style="background:#1E335C"><span style="color:#EFE7DA">INK BLUE<br>#1E335C</span></div>
+  <div class="sw" style="background:#2F8F83"><span style="color:rgba(255,255,255,.85)">TEAL<br>#2F8F83</span></div>
+  <div class="sw" style="background:#5B7CFF"><span style="color:rgba(255,255,255,.9)">ELECTRIC BLUE<br>#5B7CFF</span></div>
+  <div class="sw" style="background:#EFE7DA"><span style="color:#8A9BB0">SAND<br>#EFE7DA</span></div>
+</div>
+
+</body>
+</html>
