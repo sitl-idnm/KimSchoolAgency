@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KIM AI School — Brand Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Manrope',system-ui,sans-serif;
+  background:#F4F3F0;
+  min-height:100vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:48px 24px;
+}
+.sheet{
+  background:#F4F3F0;
+  width:1200px;
+  max-width:100%;
+}
+
+/* ── SECTION LABEL ── */
+.sec-label{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#9A9490;
+  margin-bottom:12px;
+}
+.sec-label::after{
+  content:'';display:block;
+  width:28px;height:2px;
+  background:#C4BFB8;margin-top:7px;
+}
+
+/* ── PRIMARY SECTION ── */
+.primary-section{
+  padding:64px 80px 80px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.logo-wrap{
+  margin-top:52px;
+  display:flex;
+  align-items:flex-end;
+  gap:0;
+}
+.wordmark-svg{
+  display:block;
+  width:760px;
+  max-width:100%;
+  height:auto;
+}
+
+/* ── DIVIDER ── */
+.divider{
+  border:none;
+  border-top:1px solid #D8D3CC;
+  margin:0 80px;
+}
+
+/* ── BOTTOM ROW ── */
+.bottom-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  border-top:none;
+}
+.panel{
+  padding:52px 52px 56px;
+  border-right:1px solid #D8D3CC;
+}
+.panel:last-child{border-right:none}
+
+/* ── ICON PANEL ── */
+.icon-display{
+  margin-top:36px;
+  display:flex;
+  align-items:flex-end;
+  gap:32px;
+}
+
+/* ── AVATAR PANEL ── */
+.avatar-display{
+  margin-top:36px;
+  display:flex;
+  gap:24px;
+  align-items:flex-end;
+}
+.avatar-item{display:flex;flex-direction:column;align-items:center;gap:10px}
+.avatar-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:8px;letter-spacing:.1em;
+  text-transform:uppercase;color:#AFAAA3;
+}
+
+/* ── ESSENCE PANEL ── */
+.essence-list{
+  margin-top:28px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.essence-item{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+}
+.essence-icon{
+  width:28px;height:28px;
+  flex-shrink:0;
+  margin-top:2px;
+}
+.essence-title{
+  font-size:12px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:#1E335C;
+  line-height:1;margin-bottom:3px;
+}
+.essence-sub{
+  font-size:11px;color:#9A9490;font-weight:400;line-height:1.4;
+}
+
+/* ── COLOR STRIP ── */
+.color-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  margin-top:0;
+  height:88px;
+}
+.swatch{
+  display:flex;align-items:flex-end;
+  padding:0 0 14px 18px;
+}
+.swatch-text{
+  font-size:9px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  line-height:1.5;
+}
+
+/* ── NAV ── */
+.topnav{
+  display:flex;gap:8px;margin-bottom:0;
+  padding:18px 80px;
+  border-bottom:1px solid #D8D3CC;
+  flex-wrap:wrap;
+}
+.topnav a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#AFAAA3;text-decoration:none;letter-spacing:.08em}
+.topnav a:hover{color:#333}
+.topnav a.cur{color:#1E335C;font-weight:500}
+.topnav span{font-size:10px;color:#D8D3CC}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<nav class="topnav">
+  <a href="v4.html">← Concept 4</a>
+  <span>·</span>
+  <a href="logo2.html">Logo v2</a>
+  <span>·</span>
+  <a href="logo3.html">Logo v3</a>
+  <span>·</span>
+  <a href="logo4.html" class="cur">Logo v4 — Brand Sheet</a>
+</nav>
+
+<!-- ═══════════ PRIMARY LOGO ═══════════ -->
+<section class="primary-section">
+  <div class="sec-label">Primary Logo</div>
+
+  <div class="logo-wrap">
+    <!--
+      ViewBox: "0 -95 760 470"
+        y = -95 … 375
+        Letters occupy y=0…300
+        Pixels occupy y=-95…0
+        "AI SCHOOL" at y≈370
+
+      K  : x=0   arms to x=256
+      gap: 22
+      I  : x=278 … 332
+      gap: 22
+      M  : x=354 … 654
+    -->
+    <svg class="wordmark-svg" viewBox="0 -95 760 470"
+      xmlns="http://www.w3.org/2000/svg" overflow="visible">
+
+      <!-- ── K letterform ── -->
+      <rect  x="0"  y="0"  width="54" height="300" fill="#1E335C"/>
+      <polygon points="54,0 256,0 196,66 54,146"   fill="#1E335C"/>
+      <polygon points="54,154 196,234 256,300 54,300" fill="#1E335C"/>
+
+      <!-- ── Pixel scatter (above K upper arm) ── -->
+      <!-- px1: large — embedded right at arm inner corner, teal on ink -->
+      <rect x="163" y="4"  width="44" height="44" rx="6.5" fill="#2F8F83"/>
+      <!-- px2: floats just above arm top -->
+      <rect x="213" y="-30" width="32" height="32" rx="5"   fill="#5B7CFF" opacity=".82"/>
+      <!-- px3 -->
+      <rect x="248" y="-55" width="22" height="22" rx="3.5" fill="#2F8F83"  opacity=".70"/>
+      <!-- px4 -->
+      <rect x="272" y="-72" width="15" height="15" rx="2.5" fill="#5B7CFF"  opacity=".55"/>
+      <!-- px5 -->
+      <rect x="289" y="-85" width="10" height="10" rx="2"   fill="#2F8F83"  opacity=".40"/>
+
+      <!-- ── I letterform ── -->
+      <rect x="278" y="0" width="54" height="300" fill="#1E335C"/>
+
+      <!-- ── M letterform ── -->
+      <!-- polygon traces outer silhouette with inner V notch -->
+      <polygon
+        points="354,300 354,0 408,0 504,212 600,0 654,0 654,300"
+        fill="#1E335C"/>
+
+      <!-- ── "AI SCHOOL" subtitle ── -->
+      <text y="374"
+        font-family="'Manrope',sans-serif"
+        font-size="66"
+        font-weight="700"
+        letter-spacing="3">
+        <tspan x="278" fill="#2F8F83">AI</tspan><tspan fill="#1E335C"> SCHOOL</tspan>
+      </text>
+
+      <!-- ── school.kim.agency annotation ── -->
+      <text x="654" y="386"
+        text-anchor="end"
+        font-family="'IBM Plex Mono',monospace"
+        font-size="11" fill="#AFAAA3" letter-spacing=".5">school.kim.agency</text>
+    </svg>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ BOTTOM ROW ═══════════ -->
+<div class="bottom-row">
+
+  <!-- ── ICON VARIANT ── -->
+  <div class="panel">
+    <div class="sec-label">Icon Variant</div>
+    <div class="icon-display">
+
+      <!-- Large K icon -->
+      <svg width="148" height="148" viewBox="0 -60 256 360"
+        xmlns="http://www.w3.org/2000/svg" overflow="visible">
+        <rect  x="0"  y="0"  width="54" height="300" fill="#1E335C"/>
+        <polygon points="54,0 256,0 196,66 54,146"      fill="#1E335C"/>
+        <polygon points="54,154 196,234 256,300 54,300"  fill="#1E335C"/>
+        <rect x="163" y="4"  width="44" height="44" rx="6.5" fill="#2F8F83"/>
+        <rect x="213" y="-28" width="32" height="32" rx="5"   fill="#5B7CFF" opacity=".82"/>
+        <rect x="248" y="-52" width="22" height="22" rx="3.5" fill="#2F8F83"  opacity=".70"/>
+        <rect x="272" y="-70" width="14" height="14" rx="2.5" fill="#5B7CFF"  opacity=".55"/>
+      </svg>
+
+      <!-- Small K icon -->
+      <svg width="72" height="72" viewBox="0 -60 256 360"
+        xmlns="http://www.w3.org/2000/svg" overflow="visible">
+        <rect  x="0"  y="0"  width="54" height="300" fill="#1E335C"/>
+        <polygon points="54,0 256,0 196,66 54,146"      fill="#1E335C"/>
+        <polygon points="54,154 196,234 256,300 54,300"  fill="#1E335C"/>
+        <rect x="163" y="4"  width="44" height="44" rx="6.5" fill="#2F8F83"/>
+        <rect x="213" y="-28" width="32" height="32" rx="5"   fill="#5B7CFF" opacity=".82"/>
+        <rect x="248" y="-52" width="22" height="22" rx="3.5" fill="#2F8F83"  opacity=".70"/>
+      </svg>
+
+      <!-- Micro K icon -->
+      <svg width="40" height="40" viewBox="0 -50 256 350"
+        xmlns="http://www.w3.org/2000/svg" overflow="visible">
+        <rect  x="0"  y="0"  width="54" height="300" fill="#1E335C"/>
+        <polygon points="54,0 256,0 196,66 54,146"      fill="#1E335C"/>
+        <polygon points="54,154 196,234 256,300 54,300"  fill="#1E335C"/>
+        <rect x="163" y="4"  width="44" height="44" rx="6.5" fill="#2F8F83"/>
+        <rect x="213" y="-28" width="32" height="32" rx="5"   fill="#5B7CFF" opacity=".82"/>
+      </svg>
+
+    </div>
+  </div>
+
+  <!-- ── APP / SOCIAL AVATAR ── -->
+  <div class="panel">
+    <div class="sec-label">App / Social Avatar</div>
+    <div class="avatar-display">
+
+      <!-- Dark Ink Blue square -->
+      <div class="avatar-item">
+        <svg width="120" height="120" viewBox="0 0 120 120"
+          xmlns="http://www.w3.org/2000/svg" overflow="visible" style="display:block">
+          <rect width="120" height="120" rx="22" fill="#1E335C"/>
+          <!-- K inside, Sand/White color -->
+          <!-- Scale K into 24-96 area (72×72) -->
+          <g transform="translate(24,24) scale(0.28)">
+            <rect  x="0"  y="0"  width="54" height="300" fill="#EFE7DA"/>
+            <polygon points="54,0 256,0 196,66 54,146"      fill="#EFE7DA"/>
+            <polygon points="54,154 196,234 256,300 54,300"  fill="#EFE7DA"/>
+            <!-- Teal pixel in arm — brighter on dark bg -->
+            <rect x="163" y="4"  width="44" height="44" rx="6.5" fill="#2F8F83"/>
+            <!-- Blue pixel above -->
+            <rect x="213" y="-28" width="32" height="32" rx="5"   fill="#5B7CFF" opacity=".9"/>
+            <rect x="248" y="-52" width="22" height="22" rx="3.5" fill="#2F8F83"  opacity=".8"/>
+            <rect x="272" y="-70" width="14" height="14" rx="2.5" fill="#5B7CFF"  opacity=".65"/>
+          </g>
+        </svg>
+        <span class="avatar-label">Dark / App</span>
+      </div>
+
+      <!-- Teal square -->
+      <div class="avatar-item">
+        <svg width="96" height="96" viewBox="0 0 120 120"
+          xmlns="http://www.w3.org/2000/svg" overflow="visible" style="display:block">
+          <rect width="120" height="120" rx="22" fill="#2F8F83"/>
+          <g transform="translate(24,24) scale(0.28)">
+            <rect  x="0"  y="0"  width="54" height="300" fill="white"/>
+            <polygon points="54,0 256,0 196,66 54,146"      fill="white"/>
+            <polygon points="54,154 196,234 256,300 54,300"  fill="white"/>
+            <rect x="163" y="4"  width="44" height="44" rx="6.5" fill="#EFE7DA"/>
+            <rect x="213" y="-28" width="32" height="32" rx="5"   fill="#5B7CFF" opacity=".9"/>
+            <rect x="248" y="-52" width="22" height="22" rx="3.5" fill="#EFE7DA"  opacity=".8"/>
+          </g>
+        </svg>
+        <span class="avatar-label">Brand / Teal</span>
+      </div>
+
+      <!-- Sand square -->
+      <div class="avatar-item">
+        <svg width="72" height="72" viewBox="0 0 120 120"
+          xmlns="http://www.w3.org/2000/svg" overflow="visible" style="display:block">
+          <rect width="120" height="120" rx="20" fill="#EFE7DA"/>
+          <g transform="translate(24,24) scale(0.28)">
+            <rect  x="0"  y="0"  width="54" height="300" fill="#1E335C"/>
+            <polygon points="54,0 256,0 196,66 54,146"      fill="#1E335C"/>
+            <polygon points="54,154 196,234 256,300 54,300"  fill="#1E335C"/>
+            <rect x="163" y="4"  width="44" height="44" rx="6.5" fill="#2F8F83"/>
+            <rect x="213" y="-28" width="32" height="32" rx="5"   fill="#5B7CFF" opacity=".85"/>
+          </g>
+        </svg>
+        <span class="avatar-label">Light / Sand</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── BRAND ESSENCE ── -->
+  <div class="panel">
+    <div class="sec-label">Brand Essence</div>
+    <div class="essence-list">
+
+      <!-- 1. MENTOR -->
+      <div class="essence-item">
+        <svg class="essence-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="8" r="4.5" stroke="#1E335C" stroke-width="2" fill="none"/>
+          <circle cx="7"  cy="8" r="3"   stroke="#2F8F83" stroke-width="1.5" fill="none" opacity=".6"/>
+          <path d="M4 22c0-4 4.5-6 10-6s10 2 10 6" stroke="#1E335C" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M1.5 21c0-3 2.5-4.5 5.5-4.5" stroke="#2F8F83" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
+        </svg>
+        <div>
+          <div class="essence-title">Mentor</div>
+          <div class="essence-sub">Живой наставник, человеческое доверие</div>
+        </div>
+      </div>
+
+      <!-- 2. AI NATIVE -->
+      <div class="essence-item">
+        <svg class="essence-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Grid of pixels like AI chip -->
+          <rect x="3"  y="3"  width="8" height="8" rx="2" fill="#5B7CFF" opacity=".9"/>
+          <rect x="13" y="3"  width="8" height="8" rx="2" fill="#5B7CFF" opacity=".6"/>
+          <rect x="3"  y="13" width="8" height="8" rx="2" fill="#5B7CFF" opacity=".6"/>
+          <rect x="13" y="13" width="8" height="8" rx="2" fill="#5B7CFF" opacity=".35"/>
+          <!-- Dot accent -->
+          <rect x="23" y="3"  width="3" height="3" rx=".8" fill="#2F8F83"/>
+          <rect x="23" y="8"  width="3" height="3" rx=".8" fill="#2F8F83" opacity=".5"/>
+        </svg>
+        <div>
+          <div class="essence-title">AI Native</div>
+          <div class="essence-sub">Безопасный AI, умные инструменты</div>
+        </div>
+      </div>
+
+      <!-- 3. TRAJECTORY -->
+      <div class="essence-item">
+        <svg class="essence-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="4"  cy="22" r="3"   fill="#2F8F83"/>
+          <circle cx="14" cy="14" r="3"   fill="#2F8F83"/>
+          <circle cx="24" cy="6"  r="3"   fill="#1E335C"/>
+          <line x1="4" y1="22" x2="14" y2="14" stroke="#2F8F83" stroke-width="1.5" stroke-dasharray="2 2"/>
+          <line x1="14" y1="14" x2="24" y2="6"  stroke="#1E335C"  stroke-width="2"/>
+          <!-- Arrow at end -->
+          <line x1="24" y1="6" x2="20" y2="4"   stroke="#1E335C" stroke-width="2" stroke-linecap="round"/>
+          <line x1="24" y1="6" x2="26" y2="10"  stroke="#1E335C" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div class="essence-title">Trajectory</div>
+          <div class="essence-sub">Личный путь каждого ребёнка</div>
+        </div>
+      </div>
+
+      <!-- 4. PROJECT -->
+      <div class="essence-item">
+        <svg class="essence-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Flag / milestone -->
+          <line x1="6" y1="4" x2="6" y2="26" stroke="#1E335C" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M6 5 L22 9 L6 15 Z" fill="#C78A53"/>
+          <circle cx="22" cy="22" r="4" fill="#2F8F83" opacity=".15" stroke="#2F8F83" stroke-width="1.5"/>
+          <path d="M20 22 L21.5 23.5 L24.5 20" stroke="#2F8F83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <div>
+          <div class="essence-title">Project</div>
+          <div class="essence-sub">Реальный проект на выходе</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /bottom-row -->
+
+<!-- ═══════════ COLOR STRIP ═══════════ -->
+<div class="color-strip">
+  <div class="swatch" style="background:#1E335C">
+    <div class="swatch-text" style="color:#EFE7DA">
+      INK BLUE<br>#1E335C
+    </div>
+  </div>
+  <div class="swatch" style="background:#2F8F83">
+    <div class="swatch-text" style="color:rgba(255,255,255,.85)">
+      TEAL<br>#2F8F83
+    </div>
+  </div>
+  <div class="swatch" style="background:#5B7CFF">
+    <div class="swatch-text" style="color:rgba(255,255,255,.9)">
+      ELECTRIC BLUE<br>#5B7CFF
+    </div>
+  </div>
+  <div class="swatch" style="background:#EFE7DA">
+    <div class="swatch-text" style="color:#8A9BB0">
+      SAND<br>#EFE7DA
+    </div>
+  </div>
+</div>
+
+</div><!-- /sheet -->
+</body>
+</html>
