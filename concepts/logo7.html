@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIM AI School — KIM Path</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ink:  #1E335C;
+  --teal: #2F8F83;
+  --blue: #5B7CFF;
+  --sand: #EFE7DA;
+}
+body {
+  background: #DDD8CF;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* ── Sheet ── */
+.sheet {
+  width: min(900px, 100%);
+  background: var(--sand);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.inner { padding: 52px 64px 0; }
+
+/* ── Header ── */
+.hdr { margin-bottom: 56px; }
+.hdr-lbl {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+.hdr-rule { margin-top: 9px; width: 44px; height: 2px; background: var(--teal); }
+
+/* ── Main logo area ── */
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 64px;
+}
+.wordmark { width: 100%; max-width: 540px; overflow: visible; }
+
+/* AI SCHOOL subtitle */
+.sub {
+  display: flex;
+  align-items: baseline;
+  gap: 28px;
+  margin-top: 22px;
+}
+.sub span {
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+}
+.sub-ai    { color: var(--teal); }
+.sub-sch   { color: var(--ink); }
+
+/* ── Divider ── */
+.rule { height: 1px; background: rgba(30,51,92,0.13); }
+
+/* ── Two-up bottom ── */
+.two-up {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 52px 0 60px;
+}
+.col-l {
+  padding-right: 52px;
+  border-right: 1px solid rgba(30,51,92,0.13);
+}
+.col-r {
+  padding-left: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Timeline ── */
+.timeline { display: flex; gap: 22px; align-items: flex-start; }
+.tl-svgcol { flex-shrink: 0; }
+.tl-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 214px;
+}
+.tl-row { display: flex; align-items: center; flex: 1; }
+.tl-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 3px;
+}
+.tl-desc { font-size: 12.5px; color: var(--ink); opacity: 0.65; }
+
+/* ── Icon badge ── */
+.badge {
+  width: 184px;
+  height: 184px;
+  background: var(--ink);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.badge-lbl {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.38;
+}
+
+/* ── Footer ── */
+.footer {
+  background: rgba(30,51,92,0.07);
+  padding: 22px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bwords { display: flex; align-items: center; }
+.bw {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.42;
+  padding: 0 18px;
+  border-right: 1px solid rgba(30,51,92,0.16);
+}
+.bw:first-child { padding-left: 0; }
+.bw:last-child  { border-right: none; }
+.dots { display: flex; gap: 9px; }
+.dot  { width: 22px; height: 22px; border-radius: 50%; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="inner">
+
+    <!-- Header -->
+    <div class="hdr">
+      <div class="hdr-lbl">Concept 1 — KIM Path</div>
+      <div class="hdr-rule"></div>
+    </div>
+
+    <!-- Main logo -->
+    <div class="logo-area">
+
+      <!--
+        viewBox: 0 0 455 215
+        K  : stem center x=12, arms meet at y=107
+        I  : node chain, center x=192
+        M  : stems at x=252 and x=432, V at y=120
+      -->
+      <svg class="wordmark" viewBox="0 0 455 215" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- ══ K ══ -->
+        <line x1="12"  y1="7"   x2="12"  y2="207" stroke="#1E335C" stroke-width="24" stroke-linecap="square"/>
+        <line x1="24"  y1="107" x2="138" y2="7"   stroke="#1E335C" stroke-width="22" stroke-linecap="butt"/>
+        <line x1="24"  y1="107" x2="138" y2="207" stroke="#1E335C" stroke-width="22" stroke-linecap="butt"/>
+
+        <!-- ══ NODE I  (center x=192) ══ -->
+        <!-- top node -->
+        <circle cx="192" cy="30"  r="14" fill="none" stroke="#2F8F83" stroke-width="4.5"/>
+        <line   x1="192" y1="44"  x2="192" y2="97" stroke="#2F8F83" stroke-width="4.5"/>
+        <!-- mid node (slightly smaller) -->
+        <circle cx="192" cy="107" r="10" fill="none" stroke="#2F8F83" stroke-width="4.5"/>
+        <line   x1="192" y1="117" x2="192" y2="170" stroke="#2F8F83" stroke-width="4.5"/>
+        <!-- bottom node -->
+        <circle cx="192" cy="184" r="14" fill="none" stroke="#2F8F83" stroke-width="4.5"/>
+
+        <!-- ══ M ══ -->
+        <!-- left stem -->
+        <line x1="252" y1="7"   x2="252" y2="207" stroke="#1E335C" stroke-width="24" stroke-linecap="square"/>
+        <!-- left diagonal — starts from inner edge of left stem, sweeps to V -->
+        <line x1="240" y1="7"   x2="342" y2="127" stroke="#1E335C" stroke-width="22" stroke-linecap="butt"/>
+        <!-- right diagonal -->
+        <line x1="342" y1="127" x2="444" y2="7"   stroke="#1E335C" stroke-width="22" stroke-linecap="butt"/>
+        <!-- right stem -->
+        <line x1="432" y1="7"   x2="432" y2="207" stroke="#1E335C" stroke-width="24" stroke-linecap="square"/>
+
+      </svg>
+
+      <!-- Subtitle -->
+      <div class="sub">
+        <span class="sub-ai">AI</span>
+        <span class="sub-sch">SCHOOL</span>
+      </div>
+    </div><!-- /logo-area -->
+
+    <div class="rule"></div>
+
+    <!-- Bottom two columns -->
+    <div class="two-up">
+
+      <!-- LEFT: learning path concept -->
+      <div class="col-l">
+        <div class="timeline">
+          <div class="tl-svgcol">
+            <svg width="34" height="214" viewBox="0 0 34 214">
+              <!-- top node -->
+              <circle cx="17" cy="17"  r="13" fill="none" stroke="#2F8F83" stroke-width="3.5"/>
+              <line   x1="17" y1="30"  x2="17" y2="94"   stroke="#2F8F83" stroke-width="3.5"/>
+              <!-- mid node -->
+              <circle cx="17" cy="107" r="9"  fill="none" stroke="#2F8F83" stroke-width="3.5"/>
+              <line   x1="17" y1="116" x2="17" y2="180"  stroke="#2F8F83" stroke-width="3.5"/>
+              <!-- bottom node -->
+              <circle cx="17" cy="197" r="13" fill="none" stroke="#2F8F83" stroke-width="3.5"/>
+            </svg>
+          </div>
+          <div class="tl-labels">
+            <div class="tl-row">
+              <div>
+                <div class="tl-title">AI Практик</div>
+                <div class="tl-desc">Строй. Запускай. Создавай.</div>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div>
+                <div class="tl-title">Рост навыков</div>
+                <div class="tl-desc">Учись. Применяй. Расти.</div>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div>
+                <div class="tl-title">Начало пути</div>
+                <div class="tl-desc">Старт с любопытства. Уверенно.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: icon version -->
+      <div class="col-r">
+        <div class="badge">
+          <!-- Same wordmark, white on ink, 148×80 display inside the badge -->
+          <svg width="148" height="80" viewBox="0 0 455 215">
+            <!-- K white -->
+            <line x1="12"  y1="7"   x2="12"  y2="207" stroke="white" stroke-width="24" stroke-linecap="square"/>
+            <line x1="24"  y1="107" x2="138" y2="7"   stroke="white" stroke-width="22" stroke-linecap="butt"/>
+            <line x1="24"  y1="107" x2="138" y2="207" stroke="white" stroke-width="22" stroke-linecap="butt"/>
+            <!-- Node teal -->
+            <circle cx="192" cy="30"  r="14" fill="none" stroke="#2F8F83" stroke-width="5"/>
+            <line   x1="192" y1="44"  x2="192" y2="97" stroke="#2F8F83" stroke-width="5"/>
+            <circle cx="192" cy="107" r="10" fill="none" stroke="#2F8F83" stroke-width="5"/>
+            <line   x1="192" y1="117" x2="192" y2="170" stroke="#2F8F83" stroke-width="5"/>
+            <circle cx="192" cy="184" r="14" fill="none" stroke="#2F8F83" stroke-width="5"/>
+            <!-- M white -->
+            <line x1="252" y1="7"   x2="252" y2="207" stroke="white" stroke-width="24" stroke-linecap="square"/>
+            <line x1="240" y1="7"   x2="342" y2="127" stroke="white" stroke-width="22" stroke-linecap="butt"/>
+            <line x1="342" y1="127" x2="444" y2="7"   stroke="white" stroke-width="22" stroke-linecap="butt"/>
+            <line x1="432" y1="7"   x2="432" y2="207" stroke="white" stroke-width="24" stroke-linecap="square"/>
+          </svg>
+        </div>
+        <div class="badge-lbl">Icon Version</div>
+      </div>
+
+    </div><!-- /two-up -->
+
+  </div><!-- /inner -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="bwords">
+      <span class="bw">Practical</span>
+      <span class="bw">Trustworthy</span>
+      <span class="bw">AI-Native</span>
+      <span class="bw">Result-Driven</span>
+    </div>
+    <div class="dots">
+      <div class="dot" style="background:#1E335C;"></div>
+      <div class="dot" style="background:#2F8F83;"></div>
+      <div class="dot" style="background:#5B7CFF;"></div>
+    </div>
+  </div>
+
+</div><!-- /sheet -->
+</body>
+</html>
