@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KIM AI School — Logo v5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#F7F5F1;font-family:'Manrope',sans-serif;color:#111}
+
+.nav{display:flex;gap:10px;align-items:center;padding:18px 56px;border-bottom:1px solid #E4E1DC}
+.nav a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#B0A99E;text-decoration:none;letter-spacing:.08em;transition:color .15s}
+.nav a:hover{color:#333}
+.nav a.cur{color:#1E335C;font-weight:500}
+.nav span{color:#DDD;font-size:10px}
+
+.header{padding:60px 56px 52px;display:flex;justify-content:space-between;align-items:flex-end}
+.header-left h1{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#B0A99E;font-weight:400}
+.header-left p{font-family:'DM Serif Display',serif;font-size:26px;color:#1E335C;margin-top:8px;font-weight:400}
+.header-right{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C8C3BB;text-align:right;line-height:1.8}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #E4E1DC}
+
+.card{
+  padding:52px 56px 48px;
+  border-right:1px solid #E4E1DC;
+  border-bottom:1px solid #E4E1DC;
+  background:#FFFFFF;
+}
+.card:nth-child(even){border-right:none}
+
+.c-meta{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.c-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C8C3BB;letter-spacing:.05em}
+.c-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#2F8F83}
+.c-name{font-family:'DM Serif Display',serif;font-size:30px;color:#1E335C;font-weight:400;margin-bottom:4px;line-height:1}
+.c-sub{font-size:11px;color:#B0A99E;line-height:1.5;margin-bottom:36px;font-weight:400}
+
+.display{
+  height:216px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:28px;
+  background:#FAFAF8;
+  border-radius:4px;
+}
+
+.colorways{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+.cw{display:flex;flex-direction:column;align-items:center;gap:6px}
+.cwl{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#C8C3BB}
+
+.lockup{
+  padding:16px 20px;
+  background:#F7F5F1;
+  border-radius:6px;
+  display:flex;align-items:center;gap:10px;
+}
+.lk-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#C8C3BB;display:block;margin-bottom:8px}
+.lk-text .brand{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#1E335C;line-height:1.1}
+.lk-text .url{font-family:'IBM Plex Mono',monospace;font-size:8px;color:#C8C3BB;margin-top:3px;letter-spacing:.06em}
+
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);height:80px;border-top:1px solid #E4E1DC}
+.sw{display:flex;align-items:flex-end;padding:0 0 14px 18px}
+.sw-txt{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;line-height:1.6}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="v4.html">← Concept 4</a>
+  <span>·</span>
+  <a href="logo2.html">v2</a>
+  <span>·</span>
+  <a href="logo3.html">v3</a>
+  <span>·</span>
+  <a href="logo4.html">v4</a>
+  <span>·</span>
+  <a href="logo5.html" class="cur">v5 — Exploration</a>
+</nav>
+
+<header class="header">
+  <div class="header-left">
+    <h1>Logo Exploration</h1>
+    <p>KIM AI School — 6 направлений</p>
+  </div>
+  <div class="header-right">
+    school.kim.agency<br>
+    Цвета: Ink Blue · Teal · Electric Blue · Sand
+  </div>
+</header>
+
+<div class="grid">
+
+<!-- ═══ 01 CONTRAST ═══ -->
+<div class="card">
+  <div class="c-meta"><span class="c-num">01</span><span class="c-tag">Editorial</span></div>
+  <div class="c-name">Contrast</div>
+  <div class="c-sub">Высококонтрастный K. Толстая основа, тонкая верхняя рука, засечки. Классика перечитанная через AI.</div>
+
+  <div class="display">
+    <svg width="160" height="160" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Thick spine -->
+      <rect x="48" y="28" width="20" height="144" fill="#1E335C"/>
+      <!-- Serif bracket top -->
+      <rect x="36" y="28" width="44" height="4" fill="#1E335C"/>
+      <!-- Serif bracket bottom -->
+      <rect x="36" y="168" width="44" height="4" fill="#1E335C"/>
+      <!-- Upper arm: ultra-thin -->
+      <line x1="68" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="3" stroke-linecap="round"/>
+      <!-- Lower arm: medium, Teal -->
+      <line x1="68" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="10" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <!-- Day -->
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect x="48" y="28" width="20" height="144" fill="#1E335C"/>
+        <rect x="36" y="28" width="44" height="4" fill="#1E335C"/>
+        <rect x="36" y="168" width="44" height="4" fill="#1E335C"/>
+        <line x1="68" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="3" stroke-linecap="round"/>
+        <line x1="68" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="10" stroke-linecap="round"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <!-- Night -->
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="12" fill="#1E335C"/>
+        <rect x="48" y="28" width="20" height="144" fill="#EFE7DA"/>
+        <rect x="36" y="28" width="44" height="4" fill="#EFE7DA"/>
+        <rect x="36" y="168" width="44" height="4" fill="#EFE7DA"/>
+        <line x1="68" y1="100" x2="158" y2="28" stroke="#EFE7DA" stroke-width="3" stroke-linecap="round"/>
+        <line x1="68" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="10" stroke-linecap="round"/>
+      </svg>
+      <span class="cwl">Night</span>
+    </div>
+    <!-- Teal -->
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="12" fill="#2F8F83"/>
+        <rect x="48" y="28" width="20" height="144" fill="white"/>
+        <rect x="36" y="28" width="44" height="4" fill="white"/>
+        <rect x="36" y="168" width="44" height="4" fill="white"/>
+        <line x1="68" y1="100" x2="158" y2="28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <line x1="68" y1="100" x2="158" y2="172" stroke="#EFE7DA" stroke-width="10" stroke-linecap="round"/>
+      </svg>
+      <span class="cwl">Teal</span>
+    </div>
+    <!-- Sand -->
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="12" fill="#EFE7DA"/>
+        <rect x="48" y="28" width="20" height="144" fill="#1E335C"/>
+        <rect x="36" y="28" width="44" height="4" fill="#1E335C"/>
+        <rect x="36" y="168" width="44" height="4" fill="#1E335C"/>
+        <line x1="68" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="3" stroke-linecap="round"/>
+        <line x1="68" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="10" stroke-linecap="round"/>
+      </svg>
+      <span class="cwl">Sand</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="26" height="26" viewBox="0 0 200 200" fill="none">
+      <rect x="48" y="28" width="20" height="144" fill="#1E335C"/>
+      <rect x="36" y="28" width="44" height="4" fill="#1E335C"/>
+      <rect x="36" y="168" width="44" height="4" fill="#1E335C"/>
+      <line x1="68" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="3" stroke-linecap="round"/>
+      <line x1="68" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="10" stroke-linecap="round"/>
+    </svg>
+    <div class="lk-text">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="url">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 02 INVERSE ═══ -->
+<div class="card">
+  <div class="c-meta"><span class="c-num">02</span><span class="c-tag">Negative Space</span></div>
+  <div class="c-name">Inverse</div>
+  <div class="c-sub">K как вырез из монолитного блока. Форма определяется отсутствием, а не присутствием.</div>
+
+  <div class="display">
+    <svg width="160" height="160" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" fill="#1E335C" d="
+        M 0,20 Q 0,0 20,0 H 180 Q 200,0 200,20 V 180 Q 200,200 180,200 H 20 Q 0,200 0,180 Z
+        M 38,32 H 162 L 126,68 L 68,100 L 126,132 L 162,168 H 38 Z
+      "/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <path fill-rule="evenodd" fill="#1E335C" d="M 0,20 Q 0,0 20,0 H 180 Q 200,0 200,20 V 180 Q 200,200 180,200 H 20 Q 0,200 0,180 Z M 38,32 H 162 L 126,68 L 68,100 L 126,132 L 162,168 H 38 Z"/>
+      </svg>
+      <span class="cwl">Ink</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <path fill-rule="evenodd" fill="#2F8F83" d="M 0,20 Q 0,0 20,0 H 180 Q 200,0 200,20 V 180 Q 200,200 180,200 H 20 Q 0,200 0,180 Z M 38,32 H 162 L 126,68 L 68,100 L 126,132 L 162,168 H 38 Z"/>
+      </svg>
+      <span class="cwl">Teal</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <path fill-rule="evenodd" fill="#EFE7DA" d="M 0,20 Q 0,0 20,0 H 180 Q 200,0 200,20 V 180 Q 200,200 180,200 H 20 Q 0,200 0,180 Z M 38,32 H 162 L 126,68 L 68,100 L 126,132 L 162,168 H 38 Z"/>
+      </svg>
+      <span class="cwl">Sand</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="16" fill="#1E335C"/>
+        <path fill-rule="evenodd" fill="#EFE7DA" d="M 0,20 Q 0,0 20,0 H 180 Q 200,0 200,20 V 180 Q 200,200 180,200 H 20 Q 0,200 0,180 Z M 38,32 H 162 L 126,68 L 68,100 L 126,132 L 162,168 H 38 Z"/>
+      </svg>
+      <span class="cwl">On Dark</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="26" height="26" viewBox="0 0 200 200" fill="none">
+      <path fill-rule="evenodd" fill="#1E335C" d="M 0,20 Q 0,0 20,0 H 180 Q 200,0 200,20 V 180 Q 200,200 180,200 H 20 Q 0,200 0,180 Z M 38,32 H 162 L 126,68 L 68,100 L 126,132 L 162,168 H 38 Z"/>
+    </svg>
+    <div class="lk-text">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="url">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 03 FLOW ═══ -->
+<div class="card">
+  <div class="c-meta"><span class="c-num">03</span><span class="c-tag">Organic</span></div>
+  <div class="c-name">Flow</div>
+  <div class="c-sub">Нижняя рука — кривая Безье. Буква течёт. Метафора живого пути ребёнка.</div>
+
+  <div class="display">
+    <svg width="160" height="160" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Spine -->
+      <rect x="48" y="28" width="18" height="144" fill="#1E335C"/>
+      <!-- Upper arm: straight, medium -->
+      <line x1="66" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="7" stroke-linecap="round"/>
+      <!-- Lower arm: curved, Teal -->
+      <path d="M 66,100 C 90,94 148,158 160,168" stroke="#2F8F83" stroke-width="10" stroke-linecap="round" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect x="48" y="28" width="18" height="144" fill="#1E335C"/>
+        <line x1="66" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 66,100 C 90,94 148,158 160,168" stroke="#2F8F83" stroke-width="10" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="12" fill="#1E335C"/>
+        <rect x="48" y="28" width="18" height="144" fill="#EFE7DA"/>
+        <line x1="66" y1="100" x2="158" y2="28" stroke="#EFE7DA" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 66,100 C 90,94 148,158 160,168" stroke="#2F8F83" stroke-width="10" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="cwl">Night</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="12" fill="#EFE7DA"/>
+        <rect x="48" y="28" width="18" height="144" fill="#1E335C"/>
+        <line x1="66" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 66,100 C 90,94 148,158 160,168" stroke="#2F8F83" stroke-width="10" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="cwl">Sand</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="12" fill="#0F1E3C"/>
+        <rect x="48" y="28" width="18" height="144" fill="#EFE7DA"/>
+        <line x1="66" y1="100" x2="158" y2="28" stroke="#EFE7DA" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 66,100 C 90,94 148,158 160,168" stroke="#2F8F83" stroke-width="10" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="cwl">Deep</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="24" height="24" viewBox="0 0 200 200" fill="none">
+      <rect x="48" y="28" width="18" height="144" fill="#1E335C"/>
+      <line x1="66" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 66,100 C 90,94 148,158 160,168" stroke="#2F8F83" stroke-width="10" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div class="lk-text">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="url">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 04 MONO ═══ -->
+<div class="card">
+  <div class="c-meta"><span class="c-num">04</span><span class="c-tag">Systematic</span></div>
+  <div class="c-name">Mono</div>
+  <div class="c-sub">Единая толщина штриха. Акцент на точке соединения. Язык систем и интерфейсов.</div>
+
+  <div class="display">
+    <svg width="160" height="160" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- All same weight: 6.5px -->
+      <!-- Spine -->
+      <line x1="62" y1="28" x2="62" y2="172" stroke="#1E335C" stroke-width="6.5" stroke-linecap="round"/>
+      <!-- Upper arm -->
+      <line x1="62" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="6.5" stroke-linecap="round"/>
+      <!-- Lower arm (Teal) -->
+      <line x1="62" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="6.5" stroke-linecap="round"/>
+      <!-- Junction node: prominent circle -->
+      <circle cx="62" cy="100" r="10" fill="#1E335C"/>
+      <circle cx="62" cy="100" r="4.5" fill="#2F8F83"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <line x1="62" y1="28" x2="62" y2="172" stroke="#1E335C" stroke-width="6.5" stroke-linecap="round"/>
+        <line x1="62" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="6.5" stroke-linecap="round"/>
+        <line x1="62" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="6.5" stroke-linecap="round"/>
+        <circle cx="62" cy="100" r="10" fill="#1E335C"/>
+        <circle cx="62" cy="100" r="4.5" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="12" fill="#1E335C"/>
+        <line x1="62" y1="28" x2="62" y2="172" stroke="#EFE7DA" stroke-width="6.5" stroke-linecap="round"/>
+        <line x1="62" y1="100" x2="158" y2="28" stroke="#EFE7DA" stroke-width="6.5" stroke-linecap="round"/>
+        <line x1="62" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="6.5" stroke-linecap="round"/>
+        <circle cx="62" cy="100" r="10" fill="#EFE7DA"/>
+        <circle cx="62" cy="100" r="4.5" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Night</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="12" fill="#EFE7DA"/>
+        <line x1="62" y1="28" x2="62" y2="172" stroke="#1E335C" stroke-width="6.5" stroke-linecap="round"/>
+        <line x1="62" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="6.5" stroke-linecap="round"/>
+        <line x1="62" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="6.5" stroke-linecap="round"/>
+        <circle cx="62" cy="100" r="10" fill="#1E335C"/>
+        <circle cx="62" cy="100" r="4.5" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Sand</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="12" fill="#2F8F83"/>
+        <line x1="62" y1="28" x2="62" y2="172" stroke="white" stroke-width="6.5" stroke-linecap="round"/>
+        <line x1="62" y1="100" x2="158" y2="28" stroke="white" stroke-width="6.5" stroke-linecap="round"/>
+        <line x1="62" y1="100" x2="158" y2="172" stroke="#EFE7DA" stroke-width="6.5" stroke-linecap="round"/>
+        <circle cx="62" cy="100" r="10" fill="white"/>
+        <circle cx="62" cy="100" r="4.5" fill="#EFE7DA"/>
+      </svg>
+      <span class="cwl">Teal</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="24" height="24" viewBox="0 0 200 200" fill="none">
+      <line x1="62" y1="28" x2="62" y2="172" stroke="#1E335C" stroke-width="7" stroke-linecap="round"/>
+      <line x1="62" y1="100" x2="158" y2="28" stroke="#1E335C" stroke-width="7" stroke-linecap="round"/>
+      <line x1="62" y1="100" x2="158" y2="172" stroke="#2F8F83" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="62" cy="100" r="10" fill="#1E335C"/>
+      <circle cx="62" cy="100" r="4.5" fill="#2F8F83"/>
+    </svg>
+    <div class="lk-text">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="url">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 05 SHARP ═══ -->
+<div class="card">
+  <div class="c-meta"><span class="c-num">05</span><span class="c-tag">Geometric</span></div>
+  <div class="c-name">Sharp</div>
+  <div class="c-sub">Максимальный вес. Углы ровно 45°. Срезанные торцы — архитектурная точность.</div>
+
+  <div class="display">
+    <svg width="160" height="160" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Wide spine -->
+      <rect x="44" y="26" width="22" height="148" fill="#1E335C"/>
+      <!-- Upper arm: heavy, butt caps, 45° exact -->
+      <line x1="66" y1="100" x2="158" y2="26" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+      <!-- Lower arm: heavy, Teal, butt caps -->
+      <line x1="66" y1="100" x2="158" y2="174" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect x="44" y="26" width="22" height="148" fill="#1E335C"/>
+        <line x1="66" y1="100" x2="158" y2="26" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="66" y1="100" x2="158" y2="174" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="10" fill="#1E335C"/>
+        <rect x="44" y="26" width="22" height="148" fill="#EFE7DA"/>
+        <line x1="66" y1="100" x2="158" y2="26" stroke="#EFE7DA" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="66" y1="100" x2="158" y2="174" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+      </svg>
+      <span class="cwl">Night</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect x="44" y="26" width="22" height="148" fill="#2F8F83"/>
+        <line x1="66" y1="100" x2="158" y2="26" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="66" y1="100" x2="158" y2="174" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+      </svg>
+      <span class="cwl">Split</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="10" fill="#EFE7DA"/>
+        <rect x="44" y="26" width="22" height="148" fill="#1E335C"/>
+        <line x1="66" y1="100" x2="158" y2="26" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+        <line x1="66" y1="100" x2="158" y2="174" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+      </svg>
+      <span class="cwl">Sand</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="24" height="24" viewBox="0 0 200 200" fill="none">
+      <rect x="44" y="26" width="22" height="148" fill="#1E335C"/>
+      <line x1="66" y1="100" x2="158" y2="26" stroke="#1E335C" stroke-width="16" stroke-linecap="butt"/>
+      <line x1="66" y1="100" x2="158" y2="174" stroke="#2F8F83" stroke-width="16" stroke-linecap="butt"/>
+    </svg>
+    <div class="lk-text">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="url">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 06 CONTAINED ═══ -->
+<div class="card">
+  <div class="c-meta"><span class="c-num">06</span><span class="c-tag">Badge</span></div>
+  <div class="c-name">Contained</div>
+  <div class="c-sub">K вписан в идеальный круг. Институциональная уверенность. Печать школы.</div>
+
+  <div class="display">
+    <svg width="160" height="160" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer ring -->
+      <circle cx="100" cy="100" r="88" stroke="#1E335C" stroke-width="3" fill="none"/>
+      <!-- Inner ring (thin) -->
+      <circle cx="100" cy="100" r="80" stroke="#1E335C" stroke-width="0.75" fill="none" opacity=".2"/>
+      <!-- K inside circle, centered -->
+      <!-- Spine: x=52-70 (18px wide), y=42-158 (116px tall) -->
+      <rect x="52" y="42" width="18" height="116" fill="#1E335C"/>
+      <!-- Upper arm: from (70,100) to (148,42) -->
+      <polygon points="52,42 148,42 116,72 70,100" fill="#1E335C"/>
+      <!-- Lower arm: Teal, from (70,100) to (148,158) -->
+      <polygon points="70,100 116,128 148,158 52,158" fill="#2F8F83"/>
+    </svg>
+  </div>
+
+  <div class="colorways">
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="88" stroke="#1E335C" stroke-width="3" fill="none"/>
+        <rect x="52" y="42" width="18" height="116" fill="#1E335C"/>
+        <polygon points="52,42 148,42 116,72 70,100" fill="#1E335C"/>
+        <polygon points="70,100 116,128 148,158 52,158" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Day</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="88" fill="#1E335C"/>
+        <rect x="52" y="42" width="18" height="116" fill="#EFE7DA"/>
+        <polygon points="52,42 148,42 116,72 70,100" fill="#EFE7DA"/>
+        <polygon points="70,100 116,128 148,158 52,158" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Filled</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="88" stroke="#2F8F83" stroke-width="3" fill="none"/>
+        <rect x="52" y="42" width="18" height="116" fill="#1E335C"/>
+        <polygon points="52,42 148,42 116,72 70,100" fill="#1E335C"/>
+        <polygon points="70,100 116,128 148,158 52,158" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Teal ring</span>
+    </div>
+    <div class="cw">
+      <svg width="54" height="54" viewBox="0 0 200 200" fill="none">
+        <rect width="200" height="200" rx="100" fill="#1E335C"/>
+        <rect x="52" y="42" width="18" height="116" fill="#EFE7DA"/>
+        <polygon points="52,42 148,42 116,72 70,100" fill="#EFE7DA"/>
+        <polygon points="70,100 116,128 148,158 52,158" fill="#2F8F83"/>
+      </svg>
+      <span class="cwl">Round bg</span>
+    </div>
+  </div>
+
+  <div class="lockup">
+    <svg width="28" height="28" viewBox="0 0 200 200" fill="none">
+      <circle cx="100" cy="100" r="88" stroke="#1E335C" stroke-width="3" fill="none"/>
+      <rect x="52" y="42" width="18" height="116" fill="#1E335C"/>
+      <polygon points="52,42 148,42 116,72 70,100" fill="#1E335C"/>
+      <polygon points="70,100 116,128 148,158 52,158" fill="#2F8F83"/>
+    </svg>
+    <div class="lk-text">
+      <div class="brand">KIM <span style="color:#2F8F83">AI</span> School</div>
+      <div class="url">school.kim.agency</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /grid -->
+
+<!-- Color strip -->
+<div class="swatches">
+  <div class="sw" style="background:#1E335C">
+    <div class="sw-txt" style="color:#EFE7DA">INK BLUE<br>#1E335C</div>
+  </div>
+  <div class="sw" style="background:#2F8F83">
+    <div class="sw-txt" style="color:rgba(255,255,255,.85)">TEAL<br>#2F8F83</div>
+  </div>
+  <div class="sw" style="background:#5B7CFF">
+    <div class="sw-txt" style="color:rgba(255,255,255,.9)">ELECTRIC BLUE<br>#5B7CFF</div>
+  </div>
+  <div class="sw" style="background:#EFE7DA">
+    <div class="sw-txt" style="color:#8A9BB0">SAND<br>#EFE7DA</div>
+  </div>
+</div>
+
+</body>
+</html>
