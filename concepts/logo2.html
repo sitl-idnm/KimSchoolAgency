@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Логотип v2 — 6 концептов · KIM AI School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1E335C; --ink2:#162848;
+  --sand:#EFE7DA; --sand2:#F7F3EE;
+  --teal:#2F8F83; --copper:#C78A53;
+  --blue:#5B7CFF;
+  --tl:#151515; --tlm:#44546A; --tls:#8A9BB0;
+  --td:#F2EDE6; --tdm:#B8B0A6;
+  --bd:rgba(21,21,21,.09);
+  --fu:"Manrope",system-ui,sans-serif;
+  --fs:"Source Serif 4",Georgia,serif;
+  --fm:"IBM Plex Mono","Courier New",monospace;
+}
+body{font-family:var(--fu);background:#fff;color:var(--tl);-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:48px}
+.nav-brand{color:var(--tls);font-size:12px;font-weight:700;letter-spacing:.02em}
+.nav-links{display:flex;gap:4px}
+.nav-links a{color:var(--tlm);font-size:12px;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:6px;transition:all .2s}
+.nav-links a:hover{color:var(--tl);background:rgba(21,21,21,.05)}
+.nav-links a.on{color:#fff;background:var(--ink)}
+
+/* HEADER */
+.hdr{padding:72px 32px 56px;border-bottom:1px solid var(--bd)}
+.hdr-in{max-width:1160px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:32px}
+.hdr-lbl{font-family:var(--fm);font-size:10px;font-weight:500;color:var(--tls);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.hdr-h{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--tl)}
+.hdr-note{font-family:var(--fs);font-size:1rem;font-style:italic;color:var(--tlm);max-width:400px;line-height:1.65;text-align:right}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:1fr 1fr;max-width:1160px;margin:0 auto}
+
+/* CONCEPT CARD */
+.card{padding:56px 48px;border-right:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.card:nth-child(even){border-right:none}
+.card-num{font-family:var(--fm);font-size:9px;font-weight:500;color:var(--tls);letter-spacing:.1em;text-transform:uppercase;margin-bottom:32px}
+.card-mark{display:flex;justify-content:center;align-items:center;padding:48px 0;position:relative}
+.card-concept-name{font-size:11px;font-weight:800;color:var(--tls);letter-spacing:.1em;text-transform:uppercase;margin-top:20px;margin-bottom:6px}
+.card-tagline{font-family:var(--fs);font-size:1.0625rem;font-style:italic;color:var(--tlm);line-height:1.5;margin-bottom:28px}
+
+/* Colorway row */
+.cw-row{display:flex;gap:10px;align-items:center;margin-bottom:28px}
+.cw-lbl{font-family:var(--fm);font-size:9px;color:var(--tls);letter-spacing:.05em;text-transform:uppercase;width:48px;flex-shrink:0}
+
+/* Wordmark lockup */
+.wm{display:flex;align-items:center;gap:12px;padding:16px 20px;background:var(--sand2);border-radius:10px;border:1px solid rgba(21,21,21,.06)}
+.wm-dark{background:var(--ink)}
+.wm-text{display:flex;flex-direction:column;gap:2px}
+.wm-name{font-family:var(--fu);font-weight:800;font-size:17px;color:var(--ink);line-height:1;letter-spacing:-.01em}
+.wm-dark .wm-name{color:var(--td)}
+.wm-sub{font-family:var(--fu);font-size:9px;font-weight:600;color:var(--tls);letter-spacing:.12em;text-transform:uppercase;margin-top:1px}
+.wm-dark .wm-sub{color:rgba(255,255,255,.3)}
+.wm-domain{font-family:var(--fm);font-size:9px;color:var(--copper);margin-top:2px}
+
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr}
+  .card{border-right:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-brand">KIM AI School / Логотип v2</span>
+  <div class="nav-links">
+    <a href="v4.html">← Концепт 4</a>
+    <a href="logo.html">Лого v1</a>
+    <a href="logo2.html" class="on">Лого v2 ←</a>
+  </div>
+</nav>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div>
+      <div class="hdr-lbl">// logo_concepts_v2</div>
+      <h1 class="hdr-h">6 разных направлений<br>для фирменной К</h1>
+    </div>
+    <p class="hdr-note">Каждый концепт — своя визуальная философия. Не вариации одного подхода, а разные ответы на вопрос «что такое K».</p>
+  </div>
+</header>
+
+<div class="grid">
+
+  <!-- ══════════════════════════════════════════════
+       1. FORMA — Разрезанная К
+       ════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-num">01 / 06</div>
+    <div class="card-mark">
+      <!-- Main display: FORMA -->
+      <svg width="200" height="200" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+        <!-- Spine: Ink Blue vertical pill -->
+        <rect x="14" y="12" width="13" height="72" rx="6.5" fill="#1E335C"/>
+        <!-- Arms: Teal, separate from spine with gap -->
+        <line x1="33" y1="48" x2="76" y2="13" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/>
+        <line x1="33" y1="48" x2="76" y2="83" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="card-concept-name">FORMA — Двухсоставная К</div>
+    <div class="card-tagline">«Стержень и вектор — разные элементы, одна буква»</div>
+
+    <div class="cw-row">
+      <span class="cw-lbl">main</span>
+      <!-- main: sand bg -->
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#EFE7DA"/><rect x="14" y="12" width="13" height="72" rx="6.5" fill="#1E335C"/><line x1="33" y1="48" x2="76" y2="13" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/><line x1="33" y1="48" x2="76" y2="83" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/></svg>
+      <!-- white bg -->
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#fff" stroke="#e8e8e8" stroke-width="1"/><rect x="14" y="12" width="13" height="72" rx="6.5" fill="#1E335C"/><line x1="33" y1="48" x2="76" y2="13" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/><line x1="33" y1="48" x2="76" y2="83" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/></svg>
+      <!-- dark bg -->
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#1E335C"/><rect x="14" y="12" width="13" height="72" rx="6.5" fill="#EFE7DA"/><line x1="33" y1="48" x2="76" y2="13" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/><line x1="33" y1="48" x2="76" y2="83" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/></svg>
+      <!-- mono -->
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#fff" stroke="#e8e8e8" stroke-width="1"/><rect x="14" y="12" width="13" height="72" rx="6.5" fill="#151515"/><line x1="33" y1="48" x2="76" y2="13" stroke="#151515" stroke-width="11" stroke-linecap="round"/><line x1="33" y1="48" x2="76" y2="83" stroke="#151515" stroke-width="11" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="wm">
+      <svg width="36" height="36" viewBox="0 0 96 96"><rect width="96" height="96" rx="14" fill="#1E335C"/><rect x="14" y="12" width="13" height="72" rx="6.5" fill="#EFE7DA"/><line x1="33" y1="48" x2="76" y2="13" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/><line x1="33" y1="48" x2="76" y2="83" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/></svg>
+      <div class="wm-text">
+        <div class="wm-name">KIM <span style="color:#2F8F83">AI</span></div>
+        <div class="wm-sub">SCHOOL</div>
+        <div class="wm-domain">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       2. REVERSE — К в тёмном блоке
+       ════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-num">02 / 06</div>
+    <div class="card-mark">
+      <svg width="200" height="200" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+        <rect width="96" height="96" rx="18" fill="#1E335C"/>
+        <line x1="22" y1="14" x2="22" y2="82" stroke="#EFE7DA" stroke-width="13" stroke-linecap="round"/>
+        <line x1="22" y1="48" x2="75" y2="14" stroke="#EFE7DA" stroke-width="11" stroke-linecap="round"/>
+        <line x1="22" y1="48" x2="75" y2="82" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="card-concept-name">REVERSE — К в блоке, нижняя ветвь в Teal</div>
+    <div class="card-tagline">«Сильный знак для тёмных носителей. Нижняя ветвь — траектория»</div>
+
+    <div class="cw-row">
+      <span class="cw-lbl">main</span>
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#1E335C"/><line x1="22" y1="14" x2="22" y2="82" stroke="#EFE7DA" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="14" stroke="#EFE7DA" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="82" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/></svg>
+      <!-- on sand -->
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#EFE7DA"/><line x1="22" y1="14" x2="22" y2="82" stroke="#1E335C" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="14" stroke="#1E335C" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="82" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/></svg>
+      <!-- teal bg -->
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#2F8F83"/><line x1="22" y1="14" x2="22" y2="82" stroke="white" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="14" stroke="white" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="82" stroke="white" stroke-width="11" stroke-linecap="round"/></svg>
+      <!-- mono -->
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#151515"/><line x1="22" y1="14" x2="22" y2="82" stroke="white" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="14" stroke="white" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="82" stroke="white" stroke-width="11" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="wm wm-dark">
+      <svg width="36" height="36" viewBox="0 0 96 96"><rect width="96" height="96" rx="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.1)" stroke-width="1"/><line x1="22" y1="14" x2="22" y2="82" stroke="#EFE7DA" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="14" stroke="#EFE7DA" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="75" y2="82" stroke="#2F8F83" stroke-width="11" stroke-linecap="round"/></svg>
+      <div class="wm-text">
+        <div class="wm-name">KIM <span style="color:#2F8F83">AI</span></div>
+        <div class="wm-sub">SCHOOL</div>
+        <div class="wm-domain">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       3. GRADIENT — К с градиентом
+       ════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-num">03 / 06</div>
+    <div class="card-mark">
+      <svg width="200" height="200" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gBIG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#1E335C"/>
+            <stop offset="100%" stop-color="#2F8F83"/>
+          </linearGradient>
+        </defs>
+        <line x1="22" y1="13" x2="22" y2="83" stroke="url(#gBIG)" stroke-width="13" stroke-linecap="round"/>
+        <line x1="22" y1="48" x2="76" y2="13" stroke="url(#gBIG)" stroke-width="11" stroke-linecap="round"/>
+        <line x1="22" y1="48" x2="76" y2="83" stroke="url(#gBIG)" stroke-width="11" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="card-concept-name">GRADIENT — К как переход Ink → Teal</div>
+    <div class="card-tagline">«От авторитета к росту. Единый знак, живой цвет»</div>
+
+    <div class="cw-row">
+      <span class="cw-lbl">main</span>
+      <svg width="56" height="56" viewBox="0 0 96 96"><defs><linearGradient id="g1a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E335C"/><stop offset="100%" stop-color="#2F8F83"/></linearGradient></defs><rect width="96" height="96" rx="16" fill="#F7F3EE"/><line x1="22" y1="13" x2="22" y2="83" stroke="url(#g1a)" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="13" stroke="url(#g1a)" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="83" stroke="url(#g1a)" stroke-width="11" stroke-linecap="round"/></svg>
+      <svg width="56" height="56" viewBox="0 0 96 96"><defs><linearGradient id="g1b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E335C"/><stop offset="100%" stop-color="#2F8F83"/></linearGradient></defs><rect width="96" height="96" rx="16" fill="#fff" stroke="#e8e8e8" stroke-width="1"/><line x1="22" y1="13" x2="22" y2="83" stroke="url(#g1b)" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="13" stroke="url(#g1b)" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="83" stroke="url(#g1b)" stroke-width="11" stroke-linecap="round"/></svg>
+      <!-- reversed gradient -->
+      <svg width="56" height="56" viewBox="0 0 96 96"><defs><linearGradient id="g1c" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#EFE7DA"/><stop offset="60%" stop-color="#7ECFC4"/></linearGradient></defs><rect width="96" height="96" rx="16" fill="#1E335C"/><line x1="22" y1="13" x2="22" y2="83" stroke="url(#g1c)" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="13" stroke="url(#g1c)" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="83" stroke="url(#g1c)" stroke-width="11" stroke-linecap="round"/></svg>
+      <svg width="56" height="56" viewBox="0 0 96 96"><defs><linearGradient id="g1d" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#333"/><stop offset="100%" stop-color="#666"/></linearGradient></defs><rect width="96" height="96" rx="16" fill="#fff" stroke="#e8e8e8" stroke-width="1"/><line x1="22" y1="13" x2="22" y2="83" stroke="url(#g1d)" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="13" stroke="url(#g1d)" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="83" stroke="url(#g1d)" stroke-width="11" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="wm">
+      <svg width="36" height="36" viewBox="0 0 96 96"><defs><linearGradient id="g1e" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E335C"/><stop offset="100%" stop-color="#2F8F83"/></linearGradient></defs><rect width="96" height="96" rx="14" fill="#1E335C"/><line x1="22" y1="13" x2="22" y2="83" stroke="url(#g1e)" stroke-width="13" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="13" stroke="url(#g1e)" stroke-width="11" stroke-linecap="round"/><line x1="22" y1="48" x2="76" y2="83" stroke="url(#g1e)" stroke-width="11" stroke-linecap="round"/></svg>
+      <div class="wm-text">
+        <div class="wm-name">KIM <span style="color:#2F8F83">AI</span></div>
+        <div class="wm-sub">SCHOOL</div>
+        <div class="wm-domain">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       4. SLAB — Жирная К без украшений
+       ════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-num">04 / 06</div>
+    <div class="card-mark">
+      <!-- SLAB: ultra-bold K, no container, maximum weight -->
+      <svg width="200" height="200" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="11" x2="20" y2="85" stroke="#1E335C" stroke-width="18" stroke-linecap="round"/>
+        <line x1="20" y1="48" x2="78" y2="11" stroke="#1E335C" stroke-width="16" stroke-linecap="round"/>
+        <line x1="20" y1="48" x2="78" y2="85" stroke="#2F8F83" stroke-width="16" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="card-concept-name">SLAB — Максимальный вес. Ноль декора</div>
+    <div class="card-tagline">«Уверенность через вес. Нижняя ветвь — акцент цветом, не формой»</div>
+
+    <div class="cw-row">
+      <span class="cw-lbl">main</span>
+      <!-- no container versions for SLAB -->
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#EFE7DA"/><line x1="20" y1="11" x2="20" y2="85" stroke="#1E335C" stroke-width="18" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="11" stroke="#1E335C" stroke-width="16" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="85" stroke="#2F8F83" stroke-width="16" stroke-linecap="round"/></svg>
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#fff" stroke="#e8e8e8" stroke-width="1"/><line x1="20" y1="11" x2="20" y2="85" stroke="#1E335C" stroke-width="18" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="11" stroke="#1E335C" stroke-width="16" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="85" stroke="#2F8F83" stroke-width="16" stroke-linecap="round"/></svg>
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#1E335C"/><line x1="20" y1="11" x2="20" y2="85" stroke="#EFE7DA" stroke-width="18" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="11" stroke="#EFE7DA" stroke-width="16" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="85" stroke="#2F8F83" stroke-width="16" stroke-linecap="round"/></svg>
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="16" fill="#fff" stroke="#e8e8e8" stroke-width="1"/><line x1="20" y1="11" x2="20" y2="85" stroke="#151515" stroke-width="18" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="11" stroke="#151515" stroke-width="16" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="85" stroke="#151515" stroke-width="16" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="wm">
+      <svg width="36" height="36" viewBox="0 0 96 96"><rect width="96" height="96" rx="14" fill="#EFE7DA"/><line x1="20" y1="11" x2="20" y2="85" stroke="#1E335C" stroke-width="18" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="11" stroke="#1E335C" stroke-width="16" stroke-linecap="round"/><line x1="20" y1="48" x2="78" y2="85" stroke="#2F8F83" stroke-width="16" stroke-linecap="round"/></svg>
+      <div class="wm-text">
+        <div class="wm-name">KIM <span style="color:#2F8F83">AI</span></div>
+        <div class="wm-sub">SCHOOL</div>
+        <div class="wm-domain">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       5. CIRCLE — К в круговом знаке
+       ════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-num">05 / 06</div>
+    <div class="card-mark">
+      <svg width="200" height="200" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer circle -->
+        <circle cx="48" cy="48" r="44" fill="none" stroke="#1E335C" stroke-width="2.5"/>
+        <!-- Inner thin ring -->
+        <circle cx="48" cy="48" r="38" fill="none" stroke="#1E335C" stroke-width="0.75" opacity="0.25"/>
+        <!-- K centered inside circle -->
+        <line x1="24" y1="19" x2="24" y2="77" stroke="#1E335C" stroke-width="9" stroke-linecap="round"/>
+        <line x1="24" y1="48" x2="65" y2="19" stroke="#1E335C" stroke-width="7.5" stroke-linecap="round"/>
+        <line x1="24" y1="48" x2="65" y2="77" stroke="#2F8F83" stroke-width="7.5" stroke-linecap="round"/>
+        <!-- Text arc on top -->
+        <path id="arcT" d="M 9,48 A 39,39 0 0,1 87,48" fill="none"/>
+        <text font-size="6.5" fill="#1E335C" font-family="IBM Plex Mono, Courier New, monospace" letter-spacing="2.2" opacity="0.7">
+          <textPath href="#arcT" startOffset="5%">KIM · AI · SCHOOL</textPath>
+        </text>
+        <!-- Text arc on bottom -->
+        <path id="arcB" d="M 11,52 A 37,37 0 0,0 85,52" fill="none"/>
+        <text font-size="5.5" fill="#2F8F83" font-family="IBM Plex Mono, Courier New, monospace" letter-spacing="1.8" opacity="0.65">
+          <textPath href="#arcB" startOffset="8%">school.kim.agency</textPath>
+        </text>
+      </svg>
+    </div>
+    <div class="card-concept-name">CIRCLE — Институциональный знак</div>
+    <div class="card-tagline">«Образовательный авторитет. Круг как символ школы»</div>
+
+    <div class="cw-row">
+      <span class="cw-lbl">main</span>
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="50" fill="#F7F3EE"/><circle cx="48" cy="48" r="44" fill="none" stroke="#1E335C" stroke-width="2.5"/><line x1="24" y1="19" x2="24" y2="77" stroke="#1E335C" stroke-width="9" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="19" stroke="#1E335C" stroke-width="7.5" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="77" stroke="#2F8F83" stroke-width="7.5" stroke-linecap="round"/></svg>
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="50" fill="#1E335C"/><circle cx="48" cy="48" r="44" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2"/><line x1="24" y1="19" x2="24" y2="77" stroke="white" stroke-width="9" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="19" stroke="white" stroke-width="7.5" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="77" stroke="#2F8F83" stroke-width="7.5" stroke-linecap="round"/></svg>
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="50" fill="#2F8F83"/><circle cx="48" cy="48" r="44" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2"/><line x1="24" y1="19" x2="24" y2="77" stroke="white" stroke-width="9" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="19" stroke="white" stroke-width="7.5" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="77" stroke="white" stroke-width="7.5" stroke-linecap="round"/></svg>
+      <svg width="56" height="56" viewBox="0 0 96 96"><rect width="96" height="96" rx="50" fill="#fff" stroke="#151515" stroke-width="2"/><circle cx="48" cy="48" r="44" fill="none" stroke="#151515" stroke-width="2"/><line x1="24" y1="19" x2="24" y2="77" stroke="#151515" stroke-width="9" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="19" stroke="#151515" stroke-width="7.5" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="77" stroke="#151515" stroke-width="7.5" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="wm">
+      <svg width="40" height="40" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#1E335C"/><circle cx="48" cy="48" r="44" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2"/><line x1="24" y1="19" x2="24" y2="77" stroke="white" stroke-width="9" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="19" stroke="white" stroke-width="7.5" stroke-linecap="round"/><line x1="24" y1="48" x2="65" y2="77" stroke="#2F8F83" stroke-width="7.5" stroke-linecap="round"/></svg>
+      <div class="wm-text">
+        <div class="wm-name">KIM <span style="color:#2F8F83">AI</span></div>
+        <div class="wm-sub">SCHOOL</div>
+        <div class="wm-domain">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       6. WORDMARK — Только типографика
+       ════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-num">06 / 06</div>
+    <div class="card-mark" style="flex-direction:column;gap:24px;padding:32px 0">
+      <!-- Main wordmark display -->
+      <div style="text-align:center">
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:52px;letter-spacing:-.04em;line-height:1;color:#1E335C">KIM<span style="color:#2F8F83">AI</span></div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:500;font-size:13px;letter-spacing:.22em;color:#8A9BB0;text-transform:uppercase;margin-top:6px">SCHOOL</div>
+      </div>
+      <!-- Alternative: KIM · AI -->
+      <div style="text-align:center;border-top:1px solid rgba(21,21,21,.07);padding-top:20px">
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:38px;letter-spacing:-.02em;line-height:1;color:#1E335C">KIM <span style="color:#2F8F83;font-weight:300;letter-spacing:.02em">AI</span></div>
+        <div style="font-family:'IBM Plex Mono','Courier New',monospace;font-size:10px;color:#C78A53;margin-top:8px;letter-spacing:.05em">school.kim.agency</div>
+      </div>
+    </div>
+    <div class="card-concept-name">WORDMARK — Только типографика, без знака</div>
+    <div class="card-tagline">«Иногда сильное имя не нуждается в иконке»</div>
+
+    <div class="cw-row" style="flex-direction:column;gap:12px">
+      <!-- Light wordmark -->
+      <div style="background:#F7F3EE;border-radius:10px;padding:14px 20px;border:1px solid rgba(21,21,21,.07)">
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#1E335C;letter-spacing:-.02em">KIM <span style="color:#2F8F83">AI</span> <span style="font-weight:500;color:#8A9BB0;font-size:14px;letter-spacing:.1em;text-transform:uppercase;vertical-align:middle">SCHOOL</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C78A53;margin-top:3px">school.kim.agency</div>
+      </div>
+      <!-- Dark wordmark -->
+      <div style="background:#1E335C;border-radius:10px;padding:14px 20px">
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:#EFE7DA;letter-spacing:-.02em">KIM <span style="color:#2F8F83">AI</span> <span style="font-weight:500;color:rgba(255,255,255,.3);font-size:14px;letter-spacing:.1em;text-transform:uppercase;vertical-align:middle">SCHOOL</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#C78A53;margin-top:3px">school.kim.agency</div>
+      </div>
+    </div>
+
+    <div class="wm" style="margin-top:24px">
+      <div class="wm-text">
+        <div class="wm-name">KIM <span style="color:#2F8F83">AI</span></div>
+        <div class="wm-sub">SCHOOL</div>
+        <div class="wm-domain">school.kim.agency</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER NOTE -->
+<div style="padding:48px 32px;border-top:1px solid rgba(21,21,21,.08);max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+  <p style="font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:15px;color:#8A9BB0;line-height:1.6;max-width:560px">Во всех вариантах нижняя ветвь К выделена Teal — это константа. Верхняя ветвь — Ink Blue (авторитет). Нижняя ветвь — Teal (движение, рост, AI).</p>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#B8C5D4;line-height:1.8">
+    <div>#1E335C — Ink Blue</div>
+    <div>#2F8F83 — Teal</div>
+    <div>#EFE7DA — Sand</div>
+    <div>#C78A53 — Copper</div>
+  </div>
+</div>
+
+</body>
+</html>
