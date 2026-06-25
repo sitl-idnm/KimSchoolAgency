@@ -1,7 +1,7 @@
 /* Блок «О подходе» — sticky заголовок слева + текст/цитата справа. Точно по standoff §INTRO */
 export default function Intro() {
   return (
-    <section id="методология" style={{ maxWidth:1440, margin:'0 auto', padding:'104px clamp(20px,4vw,64px) 0' }}>
+    <section id="методология" style={{ maxWidth:1440, margin:'0 auto', padding:'104px var(--sp) 0' }}>
       <div className="intro-grid" style={{ display:'grid', gridTemplateColumns:'0.85fr 1.15fr', gap:64, alignItems:'start' }}>
 
         {/* Sticky left */}

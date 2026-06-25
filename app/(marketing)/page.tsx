@@ -37,7 +37,7 @@ export default function Home() {
         <CTA />
         {/* SEO-абзац */}
         <section style={{ background:'#FAFAFA' }}>
-          <div style={{ maxWidth:1000, margin:'0 auto', padding:'88px clamp(20px,4vw,64px)' }}>
+          <div style={{ maxWidth:1000, margin:'0 auto', padding:'88px var(--sp)' }}>
             <h2 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:26, letterSpacing:'-0.5px', color:'#16181B', margin:'0 0 24px' }}>
               KIM AI School — школа AI-мышления для подростков
             </h2>

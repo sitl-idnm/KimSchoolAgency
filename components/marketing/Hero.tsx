@@ -30,7 +30,7 @@ export default function Hero() {
 
   return (
     /* Точно по standoff: max-width 1440, padding 30px сверху, сетка 1.05fr / 0.95fr */
-    <section id="top" style={{ maxWidth:1440, margin:'0 auto', padding:'30px clamp(20px,4vw,64px) 0' }}>
+    <section id="top" style={{ maxWidth:1440, margin:'0 auto', padding:'30px var(--sp) 0' }}>
       {/* Breadcrumb */}
       <div style={{ display:'flex', alignItems:'center', gap:8, font:"500 13px/1 'Manrope'", color:'#9a9a9a', marginBottom:40 }}>
         <span>Онлайн-курс</span>
@@ -50,15 +50,15 @@ export default function Hero() {
           <p style={{ font:"400 19px/1.6 'Manrope'", color:'#52555b', margin:'0 0 36px', maxWidth:560 }}>
             Онлайн-курс для подростков: промпты, проверка фактов, собственный AI-проект и безопасная работа с нейросетями.
           </p>
-          <div style={{ display:'flex', flexWrap:'wrap', alignItems:'center', gap:16 }}>
-            <a href="#записаться"
+          <div className="btn-row-mobile" style={{ display:'flex', flexWrap:'wrap', alignItems:'center', gap:16 }}>
+            <a href="#записаться" className="btn-mobile-full"
               onClick={e => { e.preventDefault(); document.getElementById('записаться')?.scrollIntoView({ behavior:'smooth' }) }}
-              style={{ display:'inline-flex', alignItems:'center', padding:'18px 32px', borderRadius:8, background:'linear-gradient(-72deg,#CB172C,#E52D43)', color:'#FAFAFA', font:"500 17px/1 'Inter Tight'", textDecoration:'none' }}>
+              style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', padding:'18px 32px', borderRadius:8, background:'linear-gradient(-72deg,#CB172C,#E52D43)', color:'#FAFAFA', font:"500 17px/1 'Inter Tight'", textDecoration:'none' }}>
               Записаться на диагностику
             </a>
-            <a href="#программа"
+            <a href="#программа" className="btn-mobile-full"
               onClick={e => { e.preventDefault(); document.getElementById('программа')?.scrollIntoView({ behavior:'smooth' }) }}
-              style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'18px 30px', borderRadius:8, border:'1.5px solid #e2e2e2', color:'#16181B', font:"500 17px/1 'Inter Tight'", textDecoration:'none' }}
+              style={{ display:'inline-flex', alignItems:'center', justifyContent:'center', gap:8, padding:'18px 30px', borderRadius:8, border:'1.5px solid #e2e2e2', color:'#16181B', font:"500 17px/1 'Inter Tight'", textDecoration:'none' }}
               onMouseEnter={e => (e.currentTarget.style.borderColor='#16181B')}
               onMouseLeave={e => (e.currentTarget.style.borderColor='#e2e2e2')}
             >Программа курса</a>

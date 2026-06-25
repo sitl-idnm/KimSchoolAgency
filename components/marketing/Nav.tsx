@@ -19,7 +19,7 @@ export default function Nav() {
     <div className="mob-nav-wrap">
       {/* Desktop header — точно по standoff */}
       <header style={{ background:'rgba(255,255,255,0.86)', backdropFilter:'blur(14px)', borderBottom:'1px solid #ededed' }}>
-        <div style={{ maxWidth:1440, margin:'0 auto', padding:'18px clamp(20px,4vw,64px)', display:'flex', alignItems:'center', justifyContent:'space-between', gap:24 }}>
+        <div style={{ maxWidth:1440, margin:'0 auto', padding:'18px var(--sp)', display:'flex', alignItems:'center', justifyContent:'space-between', gap:24 }}>
           {/* Logo */}
           <Link href="/" style={{ display:'flex', alignItems:'center', gap:9, textDecoration:'none', flex:'none' }}>
             <Logo variant="dark" height={32} />

@@ -16,7 +16,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number>(-1)
 
   return (
-    <section id="faq" style={{ maxWidth:1440, margin:'0 auto', padding:'104px clamp(20px,4vw,64px) 0' }}>
+    <section id="faq" style={{ maxWidth:1440, margin:'0 auto', padding:'104px var(--sp) 0' }}>
       <div className="faq-grid" style={{ display:'grid', gridTemplateColumns:'0.7fr 1.3fr', gap:64, alignItems:'start' }}>
 
         {/* Sticky heading */}

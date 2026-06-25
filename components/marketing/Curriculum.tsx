@@ -13,7 +13,7 @@ const modules = [
 
 export default function Curriculum() {
   return (
-    <section id="программа" style={{ maxWidth:1440, margin:'0 auto', padding:'104px clamp(20px,4vw,64px) 0' }}>
+    <section id="программа" style={{ maxWidth:1440, margin:'0 auto', padding:'104px var(--sp) 0' }}>
       <span style={{ display:'inline-flex', alignItems:'center', gap:10, color:'#CB172C', font:"600 14px/1 'Inter Tight'", letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:22 }}>
         <span style={{ fontSize:15 }}>✳</span> Программа
       </span>

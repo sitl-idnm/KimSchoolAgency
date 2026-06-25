@@ -6,7 +6,7 @@ import Logo from '@/components/Logo'
 export default function Footer() {
   return (
     <footer style={{ background:'#16181B', color:'#fff' }}>
-      <div style={{ maxWidth:1440, margin:'0 auto', padding:'64px clamp(20px,4vw,64px)' }}>
+      <div style={{ maxWidth:1440, margin:'0 auto', padding:'64px var(--sp)' }}>
         <div className="footer-grid" style={{ display:'grid', gridTemplateColumns:'1.4fr 1fr 1fr', gap:48, paddingBottom:48, borderBottom:'1px solid rgba(255,255,255,0.1)' }}>
 
           {/* Brand */}

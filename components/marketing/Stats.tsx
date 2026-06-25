@@ -11,7 +11,7 @@ const stats = [
 export default function Stats() {
   return (
     <section style={{ marginTop:104, background:'#16181B', color:'#fff' }}>
-      <div style={{ maxWidth:1440, margin:'0 auto', padding:'96px clamp(20px,4vw,64px)' }}>
+      <div style={{ maxWidth:1440, margin:'0 auto', padding:'96px var(--sp)' }}>
         <span style={{ display:'inline-flex', alignItems:'center', gap:10, color:'#E52D43', font:"600 14px/1 'Inter Tight'", letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:22 }}>
           <span style={{ fontSize:15 }}>✳</span> Цифры и факты
         </span>
