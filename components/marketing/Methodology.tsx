@@ -1,25 +1,29 @@
+import { IconBrain, IconTarget, IconCheckCircle, IconZap, IconShield } from '@/components/icons'
+
 const steps = [
-  { icon: '🔍', title: 'Понять',          desc: 'Как работает ИИ и почему он ошибается' },
-  { icon: '🎯', title: 'Поставить задачу', desc: 'Формулировать запросы и не получать мусор' },
-  { icon: '✓',  title: 'Проверить',        desc: 'Факты, источники, логика, галлюцинации', active: true },
-  { icon: '⚡', title: 'Применить',        desc: 'Учёба, проекты, презентации, творчество' },
-  { icon: '🛡', title: 'Защитить',         desc: 'Презентовать проект, показать ход мысли' },
+  { Icon: IconBrain,       title: 'Понять',          desc: 'Как работает ИИ и почему он ошибается', active: false },
+  { Icon: IconTarget,      title: 'Поставить задачу', desc: 'Формулировать запросы и не получать мусор', active: false },
+  { Icon: IconCheckCircle, title: 'Проверить',        desc: 'Факты, источники, логика, галлюцинации', active: true },
+  { Icon: IconZap,         title: 'Применить',        desc: 'Учёба, проекты, презентации, творчество', active: false },
+  { Icon: IconShield,      title: 'Защитить',         desc: 'Презентовать проект, показать ход мысли', active: false },
 ]
 
 export default function Methodology() {
   return (
     <section className="kim-section" id="методология">
       <div className="kim-container">
-        <span className="kim-eyebrow">Методология</span>
-        <h2 className="kim-h2" style={{ marginBottom: 12 }}>Как мы учим думать с ИИ</h2>
-        <p className="kim-body" style={{ maxWidth: 520 }}>
+        <span className="kim-eyebrow reveal">Методология</span>
+        <h2 className="kim-h2 reveal d1" style={{ marginBottom: 12 }}>Как мы учим думать с ИИ</h2>
+        <p className="kim-body reveal d2" style={{ maxWidth: 520 }}>
           Пять этапов, которые превращают хаотичное использование нейросетей в осознанный навык.
         </p>
         <div className="method-steps">
-          {steps.map(s => (
-            <div className={`method-step${s.active ? ' active' : ''}`} key={s.title}>
-              <div className="method-step-circle">{s.icon}</div>
-              <div className="kim-h3" style={{ fontSize: 15, marginBottom: 8 }}>{s.title}</div>
+          {steps.map((s, i) => (
+            <div className={`method-step reveal d${i + 1}`} key={s.title}>
+              <div className={`method-step-circle${s.active ? ' active' : ''}`}>
+                <s.Icon />
+              </div>
+              <div className="kim-h3" style={{ fontSize: 15, marginBottom: 6 }}>{s.title}</div>
               <p className="kim-small">{s.desc}</p>
             </div>
           ))}

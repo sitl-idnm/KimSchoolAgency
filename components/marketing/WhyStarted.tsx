@@ -4,8 +4,8 @@ export default function WhyStarted() {
       <div className="kim-container">
         <div className="kim-section-inner">
           <div className="why-inner">
-            <span className="kim-eyebrow">Почему я запустил эту школу</span>
-            <blockquote className="kim-quote" style={{ color: 'rgba(255,255,255,.7)', borderColor: 'var(--kim-red)', fontSize: 'clamp(17px,2vw,22px)', fontStyle: 'italic', marginBottom: 28, textAlign: 'left', maxWidth: 680, margin: '0 auto 28px' }}>
+            <span className="kim-eyebrow reveal">Почему я запустил эту школу</span>
+            <blockquote className="kim-quote reveal d1" style={{ color: 'rgba(255,255,255,.7)', borderColor: 'var(--kim-red)', fontSize: 'clamp(17px,2vw,22px)', fontStyle: 'italic', marginBottom: 28, textAlign: 'left', maxWidth: 680, margin: '0 auto 28px' }}>
               Я вижу, как ИИ меняет бизнес, маркетинг, продажи, аналитику. Но дети
               знакомятся с нейросетями хаотично: как сделать домашку, как обойти проверку.
               Ребёнка нужно научить не списывать, а думать в новой среде: ставить задачу,

@@ -16,10 +16,13 @@
 .kim-section--dark .kim-section-inner { padding-top: 96px; padding-bottom: 96px; }
 .kim-section--dark .kim-section-inner > .kim-section { padding-bottom: 0; }
 
-/* Заголовки на тёмных секциях */
+/* Заголовки и текст на тёмных секциях — K.KIM ставит explicit color, override обязателен */
 .kim-section--dark .kim-h1,
 .kim-section--dark .kim-h2,
-.kim-section--dark .kim-h3 { color: #f1f2f4; }
+.kim-section--dark .kim-h3 { color: #f1f2f4 !important; }
+.kim-section--dark .kim-body  { color: rgba(255,255,255,.55); }
+.kim-section--dark .kim-small { color: rgba(255,255,255,.35); }
+.kim-section--dark .kim-quote { color: rgba(255,255,255,.75) !important; }
 
 /* Ghost-кнопка на тёмном фоне */
 .kim-section--dark .kim-btn--ghost {
@@ -217,14 +220,15 @@
 .trust-item:last-child { border-right: none; }
 
 /* ── Problem cards ──────────────────────────────────────────── */
-.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; }
 .problem-card {
-  background: var(--kim-white); border-radius: var(--kim-r-card-sm);
-  padding: 24px; border-left: 3px solid var(--kim-red);
-  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  background: var(--kim-white); border-radius: var(--kim-r-card);
+  padding: 28px 28px 32px; border: 1px solid var(--kim-border);
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
 }
-.problem-card h3 { font-family: var(--kim-font-head); font-size: 14px; font-weight: 700; color: var(--kim-ink); margin-bottom: 7px; }
-.problem-card p { font-size: 13px; color: var(--kim-body); line-height: 1.65; }
+.problem-card:hover { box-shadow: 0 12px 36px rgba(0,0,0,.08); transform: translateY(-3px); border-color: var(--kim-border-2); }
+.problem-card h3 { font-family: var(--kim-font-head); font-size: 16px; font-weight: 600; color: var(--kim-ink); margin-bottom: 8px; letter-spacing: -.3px; }
+.problem-card p  { font-size: 14px; color: var(--kim-body); line-height: 1.7; }
 
 /* ── Quote (WhyStarted) ─────────────────────────────────────── */
 .why-inner { max-width: 760px; margin: 0 auto; text-align: center; }
@@ -393,8 +397,7 @@
 .fq-q:hover { background: var(--kim-bg-soft); }
 .fq-ico { width: 24px; height: 24px; border-radius: 50%; background: var(--kim-card); display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 300; flex-shrink: 0; transition: transform .2s, background .2s; line-height: 1; color: var(--kim-ink); }
 .fq.open .fq-ico { transform: rotate(45deg); background: var(--kim-grad); color: #fff; }
-.fq-a { display: none; padding: 16px 22px 20px; font-size: 14px; color: var(--kim-body); line-height: 1.75; border-top: 1px solid var(--kim-border); }
-.fq.open .fq-a { display: block; }
+/* fq-a — см. секцию Keyframes выше (max-height анимация) */
 
 /* ── CTA form ───────────────────────────────────────────────── */
 .cta-inner { max-width: 520px; margin: 0 auto; text-align: center; }
@@ -453,9 +456,44 @@
 .badge-status.pending   { background: rgba(234,179,8,.10);  color: #ca8a04; }
 .badge-status.completed { background: rgba(99,102,241,.10); color: #4f46e5; }
 
+/* ── FAQ — анимированный аккордеон ─────────────────────────── */
+.fq-a {
+  max-height: 0; overflow: hidden;
+  padding: 0 22px; border-top: 0px solid var(--kim-border);
+  font-size: 14px; color: var(--kim-body); line-height: 1.75;
+  transition: max-height .38s cubic-bezier(.4,0,.2,1), padding .28s ease, border-top-width .28s ease;
+}
+.fq.open .fq-a {
+  max-height: 500px; padding: 16px 22px 20px;
+  border-top-width: 1px;
+}
+
+/* ── Reveal animations ──────────────────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .65s cubic-bezier(.4,0,.2,1), transform .65s cubic-bezier(.4,0,.2,1);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: .1s; }
+.reveal.d2 { transition-delay: .18s; }
+.reveal.d3 { transition-delay: .26s; }
+.reveal.d4 { transition-delay: .34s; }
+.reveal.d5 { transition-delay: .42s; }
+.reveal.d6 { transition-delay: .50s; }
+
+/* ── Icon circle ────────────────────────────────────────────── */
+.icon-circle {
+  width: 52px; height: 52px; border-radius: 16px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.icon-circle.red  { background: var(--kim-grad); color: #fff; }
+.icon-circle.soft { background: var(--kim-card); color: var(--kim-red); }
+.icon-circle.dark { background: rgba(255,255,255,.06); color: var(--cy); border: 1px solid rgba(255,255,255,.1); }
+
 /* ── Keyframes ──────────────────────────────────────────────── */
 @keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
 @keyframes pulse-cy { 0%,100%{box-shadow:0 0 0 0 rgba(34,211,238,.4)} 70%{box-shadow:0 0 0 5px rgba(34,211,238,0)} }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1024px) {

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { applyPhoneMask } from '@/lib/phoneMask'
 
 export default function CTA() {
   const [form, setForm]     = useState({ name:'', phone:'', email:'' })
@@ -54,7 +55,7 @@ export default function CTA() {
                   </div>
                   <div>
                     <label className="kim-small" style={{ display:'block', marginBottom:6, color:'rgba(255,255,255,.5)' }}>Телефон *</label>
-                    <input className="kim-field" type="tel" placeholder="+7 (___) ___-__-__" required value={form.phone} onChange={e => setForm(f => ({ ...f, phone:e.target.value }))} />
+                    <input className="kim-field" type="tel" placeholder="+7 (___) ___-__-__" required value={form.phone} onChange={e => setForm(f => ({ ...f, phone: applyPhoneMask(e.target.value) }))} />
                   </div>
                   <div>
                     <label className="kim-small" style={{ display:'block', marginBottom:6, color:'rgba(255,255,255,.5)' }}>Email</label>
