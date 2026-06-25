@@ -7,136 +7,84 @@ import { createClient } from '@/lib/supabase/client'
 
 export default function RegisterPage() {
   const router = useRouter()
-  const [form, setForm] = useState({ fullName: '', email: '', password: '', confirmPassword: '' })
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [form, setForm]   = useState({ fullName:'', email:'', password:'', confirm:'' })
+  const [loading, setLoad] = useState(false)
+  const [error, setError]  = useState('')
+  const [done, setDone]    = useState(false)
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (form.password !== form.confirmPassword) {
-      setError('Пароли не совпадают')
-      return
-    }
-    if (form.password.length < 8) {
-      setError('Пароль должен быть не менее 8 символов')
-      return
-    }
+    if (form.password !== form.confirm) { setError('Пароли не совпадают'); return }
+    if (form.password.length < 8)       { setError('Пароль минимум 8 символов'); return }
+    setLoad(true); setError('')
 
-    setLoading(true)
-    setError('')
-
-    const supabase = createClient()
-    const { data, error: authError } = await supabase.auth.signUp({
-      email: form.email,
-      password: form.password,
-      options: {
-        data: { full_name: form.fullName },
-      },
+    const { data, error: err } = await createClient().auth.signUp({
+      email: form.email, password: form.password,
+      options: { data: { full_name: form.fullName } },
     })
 
-    if (authError) {
-      setError(authError.message === 'User already registered'
-        ? 'Этот email уже зарегистрирован'
-        : 'Ошибка регистрации. Попробуйте ещё раз.')
-      setLoading(false)
-      return
+    if (err) {
+      setError(err.message === 'User already registered' ? 'Email уже зарегистрирован' : 'Ошибка регистрации')
+      setLoad(false); return
     }
-
-    if (data.user && !data.session) {
-      router.push('/register?check-email=1')
-    } else {
-      router.push('/dashboard')
-      router.refresh()
-    }
+    if (data.user && !data.session) { setDone(true) }
+    else { router.push('/dashboard'); router.refresh() }
+    setLoad(false)
   }
 
-  const checkEmail = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('check-email')
-
-  if (checkEmail) {
-    return (
-      <div className="auth-layout">
-        <div className="auth-card" style={{ textAlign: 'center' }}>
-          <div className="auth-logo">KIM <span>AI</span> School</div>
-          <div style={{ fontSize: 48, marginBottom: 20 }}>✉️</div>
-          <h1 className="auth-title">Проверьте почту</h1>
-          <p className="auth-sub">
-            Мы отправили письмо с подтверждением на{' '}
-            <strong>{form.email || 'ваш email'}</strong>.
-            Перейдите по ссылке в письме, чтобы активировать аккаунт.
-          </p>
-          <p className="auth-alt" style={{ marginTop: 24 }}>
-            <Link href="/login">Войти в кабинет →</Link>
-          </p>
-        </div>
+  if (done) return (
+    <div className="auth-layout">
+      <div className="kim-card" style={{ width:'100%', maxWidth:420, padding:40, textAlign:'center' }}>
+        <div style={{ fontSize:48, marginBottom:16 }}>✉️</div>
+        <h2 className="kim-h2" style={{ fontSize:22, marginBottom:8 }}>Проверьте почту</h2>
+        <p className="kim-body" style={{ marginBottom:24 }}>
+          Мы отправили письмо с подтверждением на <strong>{form.email}</strong>.
+          Перейдите по ссылке, чтобы активировать аккаунт.
+        </p>
+        <Link href="/login" className="kim-btn kim-btn--primary" style={{ width:'100%', justifyContent:'center' }}>
+          Войти →
+        </Link>
       </div>
-    )
-  }
+    </div>
+  )
 
   return (
     <div className="auth-layout">
-      <div className="auth-card">
-        <div className="auth-logo">KIM <span>AI</span> School</div>
-        <h1 className="auth-title">Создать аккаунт</h1>
-        <p className="auth-sub">Доступ к личному кабинету и курсам.</p>
+      <div className="kim-card" style={{ width:'100%', maxWidth:420, padding:40 }}>
+        <Link href="/" style={{ textDecoration:'none' }}>
+          <div className="kim-logo-word" style={{ marginBottom:32 }}>
+            KIM<span style={{ color:'var(--kim-red)' }}>.</span>SCHOOL
+          </div>
+        </Link>
 
-        {error && <div className="auth-error" style={{ marginBottom: 16 }}>{error}</div>}
+        <h1 className="kim-h2" style={{ fontSize:26, marginBottom:8 }}>Создать аккаунт</h1>
+        <p className="kim-body" style={{ marginBottom:28 }}>Доступ к личному кабинету и курсам.</p>
 
-        <form className="auth-form" onSubmit={submit}>
-          <div className="auth-field">
-            <label className="auth-label">Имя</label>
-            <input
-              className="auth-input"
-              type="text"
-              placeholder="Константин Ким"
-              required
-              value={form.fullName}
-              onChange={e => setForm(f => ({ ...f, fullName: e.target.value }))}
-            />
-          </div>
-          <div className="auth-field">
-            <label className="auth-label">Email</label>
-            <input
-              className="auth-input"
-              type="email"
-              placeholder="you@example.com"
-              required
-              value={form.email}
-              onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-            />
-          </div>
-          <div className="auth-field">
-            <label className="auth-label">Пароль</label>
-            <input
-              className="auth-input"
-              type="password"
-              placeholder="Минимум 8 символов"
-              required
-              value={form.password}
-              onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
-            />
-          </div>
-          <div className="auth-field">
-            <label className="auth-label">Повторите пароль</label>
-            <input
-              className="auth-input"
-              type="password"
-              placeholder="••••••••"
-              required
-              value={form.confirmPassword}
-              onChange={e => setForm(f => ({ ...f, confirmPassword: e.target.value }))}
-            />
-          </div>
-          <button className="auth-btn" type="submit" disabled={loading}>
+        {error && <div className="auth-error">{error}</div>}
+
+        <form style={{ display:'flex', flexDirection:'column', gap:16 }} onSubmit={submit}>
+          {[
+            { label:'Имя', type:'text',     key:'fullName', placeholder:'Константин Ким' },
+            { label:'Email', type:'email',  key:'email',    placeholder:'you@example.com' },
+            { label:'Пароль', type:'password', key:'password', placeholder:'Минимум 8 символов' },
+            { label:'Повторите пароль', type:'password', key:'confirm', placeholder:'••••••••' },
+          ].map(f => (
+            <div key={f.key}>
+              <label className="auth-label">{f.label}</label>
+              <input className="auth-input" type={f.type} placeholder={f.placeholder} required
+                value={form[f.key as keyof typeof form]}
+                onChange={e => setForm(prev => ({ ...prev, [f.key]: e.target.value }))} />
+            </div>
+          ))}
+          <button className="kim-btn kim-btn--primary" type="submit" disabled={loading}
+            style={{ marginTop:4, width:'100%', justifyContent:'center' }}>
             {loading ? 'Регистрируем...' : 'Создать аккаунт'}
           </button>
         </form>
 
-        <p className="auth-alt">
+        <p className="kim-small" style={{ textAlign:'center', marginTop:20 }}>
           Уже есть аккаунт?{' '}
-          <Link href="/login">Войти</Link>
-        </p>
-        <p className="auth-alt" style={{ marginTop: 8 }}>
-          <Link href="/" style={{ color: 'var(--kim-muted)', fontSize: 13 }}>← На главную</Link>
+          <Link href="/login" style={{ color:'var(--kim-red)', fontWeight:600, textDecoration:'none' }}>Войти</Link>
         </p>
       </div>
     </div>

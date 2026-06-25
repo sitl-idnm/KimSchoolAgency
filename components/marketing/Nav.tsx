@@ -5,59 +5,45 @@ import Link from 'next/link'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const fn = () => setScrolled(window.scrollY > 30)
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  const scroll = (id: string) => {
-    setMenuOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const go = (id: string) => { setOpen(false); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }) }
 
   return (
-    <nav className={`nav${scrolled ? ' on' : ''}`}>
-      <div className="wrap">
-        <div className="nav-in">
-          <a href="#" className="nav-logo">KIM <span>AI</span> School</a>
-          <ul className="nav-links">
-            <li><a href="#методология" onClick={e => { e.preventDefault(); scroll('методология') }}>Методология</a></li>
-            <li><a href="#программа" onClick={e => { e.preventDefault(); scroll('программа') }}>Программа</a></li>
-            <li><a href="#цены" onClick={e => { e.preventDefault(); scroll('цены') }}>Цены</a></li>
-            <li><a href="#наставник" onClick={e => { e.preventDefault(); scroll('наставник') }}>Наставник</a></li>
-            <li><a href="#faq" onClick={e => { e.preventDefault(); scroll('faq') }}>FAQ</a></li>
+    <nav className={`school-nav${scrolled ? ' scrolled' : ''}`}>
+      <div className="kim-container">
+        <div className="school-nav-inner">
+          <Link href="/" className="school-nav-logo">KIM<span>.</span>SCHOOL</Link>
+
+          <ul className="school-nav-links">
+            {[['методология','Методология'],['программа','Программа'],['цены','Цены'],['наставник','Наставник'],['faq','FAQ']].map(([id,label]) => (
+              <li key={id}><a href={`#${id}`} onClick={e => { e.preventDefault(); go(id) }}>{label}</a></li>
+            ))}
           </ul>
-          <Link href="/login" className="nav-links" style={{ marginLeft: 0 }}>
-            <a style={{ fontSize: 14, fontWeight: 500, color: '#9ca3af' }}>Войти</a>
-          </Link>
-          <a
-            href="#записаться"
-            className="nav-cta"
-            onClick={e => { e.preventDefault(); scroll('записаться') }}
-          >
+
+          <Link href="/login" className="school-nav-login">Войти</Link>
+          <a href="#записаться" className="kim-btn kim-btn--primary kim-btn--sm school-nav-cta" onClick={e => { e.preventDefault(); go('записаться') }}>
             Записаться
           </a>
-          <button
-            className="burger"
-            aria-label="Меню"
-            onClick={() => setMenuOpen(v => !v)}
-          >
-            <span />
-            <span />
-            <span />
+
+          <button className="burger" aria-label="Меню" onClick={() => setOpen(v => !v)}>
+            <span /><span /><span />
           </button>
         </div>
       </div>
-      <div className={`mnav${menuOpen ? ' open' : ''}`}>
-        <a href="#методология" onClick={e => { e.preventDefault(); scroll('методология') }}>Методология</a>
-        <a href="#программа" onClick={e => { e.preventDefault(); scroll('программа') }}>Программа</a>
-        <a href="#наставник" onClick={e => { e.preventDefault(); scroll('наставник') }}>Наставник</a>
-        <a href="#faq" onClick={e => { e.preventDefault(); scroll('faq') }}>FAQ</a>
-        <Link href="/login" style={{ padding: '12px 28px', fontSize: 15, fontWeight: 500, color: '#8d9198', borderBottom: '1px solid #252830', display: 'block' }}>Войти</Link>
-        <a href="#записаться" className="hot" onClick={e => { e.preventDefault(); scroll('записаться') }}>Записаться →</a>
+
+      <div className={`mobile-nav${open ? ' open' : ''}`}>
+        {[['методология','Методология'],['программа','Программа'],['наставник','Наставник'],['faq','FAQ']].map(([id,label]) => (
+          <a key={id} href={`#${id}`} onClick={e => { e.preventDefault(); go(id) }}>{label}</a>
+        ))}
+        <Link href="/login" onClick={() => setOpen(false)}>Войти</Link>
+        <a href="#записаться" className="cta" onClick={e => { e.preventDefault(); go('записаться') }}>Записаться →</a>
       </div>
     </nav>
   )
