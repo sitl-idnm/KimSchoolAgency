@@ -26,12 +26,12 @@ export default function Advantages() {
       <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
         {adv.map(a => (
           <div key={a.n}
-            style={{ background:'#F7F7F7', borderRadius:20, padding:'34px 32px', minHeight:200, display:'flex', flexDirection:'column', justifyContent:'space-between', gap:28, transition:'background .2s' }}
+            style={{ background:'#F7F7F7', borderRadius:20, padding:'34px 32px', display:'flex', flexDirection:'column', gap:16, transition:'background .2s' }}
             onMouseEnter={e => (e.currentTarget.style.background='#EFEFF2')}
             onMouseLeave={e => (e.currentTarget.style.background='#F7F7F7')}
           >
-            <span style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:18, color:'#CB172C' }}>{a.n}</span>
-            <span style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:500, fontSize:23, lineHeight:1.3, letterSpacing:'-0.3px', color:'#16181B' }}>{a.title}</span>
+            <span style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:40, letterSpacing:'-1px', color:'#CB172C', lineHeight:1 }}>{a.n}</span>
+            <span style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:500, fontSize:21, lineHeight:1.3, letterSpacing:'-0.3px', color:'#16181B' }}>{a.title}</span>
           </div>
         ))}
       </div>
