@@ -1,0 +1,212 @@
+/* ============================================================
+   K.KIM — Design System / Brand Stylesheet
+   Drop this file into any project and import it once.
+   Все токены — CSS-переменные в :root. Ниже — готовые
+   классы компонентов (кнопки, карточки, секции, формы).
+   Шрифты: Inter Tight (заголовки), Manrope (текст), Unbounded (лого).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap');
+
+:root {
+  /* ---- Brand colors ---- */
+  --kim-red:            #CB172C;   /* основной фирменный красный */
+  --kim-red-2:          #E52D43;   /* вторая точка градиента / акцент на тёмном */
+  --kim-grad:           linear-gradient(-72deg, #CB172C, #E52D43);  /* CTA, иконки, чек-маркеры */
+  --kim-grad-icon:      linear-gradient(-42deg, #CB172C, #E52D43);  /* круглые соц-иконки */
+  --kim-grad-dark:      linear-gradient(110deg, #16181B, #241A1C);  /* тёмный баннер «Стоимость» */
+
+  /* ---- Ink / neutrals ---- */
+  --kim-ink:            #16181B;   /* основной текст, тёмные секции */
+  --kim-ink-2:          #1F2125;   /* карточки на тёмном фоне */
+  --kim-body:           #52555B;   /* основной body-текст */
+  --kim-body-soft:      #6C6F75;   /* вторичный текст */
+  --kim-muted:          #8A8D93;   /* подписи */
+  --kim-muted-2:        #9A9A9A;   /* хлебные крошки */
+
+  /* ---- Surfaces ---- */
+  --kim-card:           #F7F7F7;   /* светлые карточки */
+  --kim-card-2:         #E7E8EC;   /* карточки кейсов / крупные номера-декор */
+  --kim-bg-soft:        #FAFAFA;   /* фон вторичных секций */
+  --kim-white:          #FFFFFF;
+  --kim-border:         #EDEDED;   /* разделители */
+  --kim-border-2:       #E2E2E2;   /* контурные кнопки */
+
+  /* ---- On-dark (поверх --kim-ink) ---- */
+  --kim-on-dark:        rgba(255,255,255,0.60);
+  --kim-on-dark-soft:   rgba(255,255,255,0.40);
+  --kim-on-dark-line:   rgba(255,255,255,0.10);
+
+  /* ---- Type ---- */
+  --kim-font-head:      'Inter Tight', sans-serif;
+  --kim-font-body:      'Manrope', sans-serif;
+  --kim-font-logo:      'Unbounded', sans-serif;
+
+  /* ---- Radius ---- */
+  --kim-r-btn:          8px;
+  --kim-r-input:        10px;
+  --kim-r-card-sm:      14px;
+  --kim-r-card:         20px;
+  --kim-r-card-lg:      28px;
+
+  /* ---- Layout ---- */
+  --kim-container:      1440px;
+  --kim-gutter:         clamp(20px, 4vw, 64px);   /* горизонтальные паддинги секций */
+  --kim-section-y:      104px;                    /* вертикальный ритм между секциями */
+
+  /* ---- Shadow (использовать скупо) ---- */
+  --kim-shadow-cta:     0 12px 40px rgba(203,23,44,0.40);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--kim-white);
+  color: var(--kim-ink);
+  font-family: var(--kim-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--kim-red); color: #fff; }
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+.kim-container { max-width: var(--kim-container); margin: 0 auto; padding-left: var(--kim-gutter); padding-right: var(--kim-gutter); }
+.kim-section   { padding-top: var(--kim-section-y); }
+.kim-section--dark { background: var(--kim-ink); color: #fff; }
+.kim-section--dark .kim-section-inner { padding-top: 96px; padding-bottom: 96px; }
+.kim-section--soft { background: var(--kim-bg-soft); }
+
+/* ============================================================
+   Typography
+   ============================================================ */
+.kim-h1 {
+  font-family: var(--kim-font-head); font-weight: 600;
+  font-size: clamp(40px, 5.4vw, 72px); line-height: 1.04;
+  letter-spacing: -2px; color: var(--kim-ink); margin: 0;
+}
+.kim-h2 {
+  font-family: var(--kim-font-head); font-weight: 600;
+  font-size: clamp(30px, 3.4vw, 46px); line-height: 1.08;
+  letter-spacing: -1.2px; color: var(--kim-ink); margin: 0;
+}
+.kim-h3 {
+  font-family: var(--kim-font-head); font-weight: 500;
+  font-size: 24px; letter-spacing: -0.4px; color: var(--kim-ink); margin: 0;
+}
+.kim-body  { font: 400 19px/1.65 var(--kim-font-body); color: var(--kim-body); }
+.kim-small { font: 400 15px/1.5 var(--kim-font-body); color: var(--kim-body-soft); }
+
+/* Eyebrow / надзаголовок секции (красный, с «✳») */
+.kim-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 600 14px/1 var(--kim-font-head);
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--kim-red);
+  margin-bottom: 22px;
+}
+.kim-eyebrow::before { content: "✳"; font-size: 15px; }
+.kim-section--dark .kim-eyebrow { color: var(--kim-red-2); }
+
+/* Большая статистическая цифра */
+.kim-stat-num {
+  font-family: var(--kim-font-head); font-weight: 600;
+  font-size: clamp(44px, 5vw, 68px); line-height: 1; letter-spacing: -2px;
+}
+/* Крупный декоративный номер шага */
+.kim-step-num {
+  font-family: var(--kim-font-head); font-weight: 600;
+  font-size: 52px; line-height: 1; letter-spacing: -2px; color: var(--kim-card-2);
+}
+
+.kim-accent { color: var(--kim-red); }   /* акцентное слово в заголовке */
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.kim-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 18px 32px; border-radius: var(--kim-r-btn); border: none; cursor: pointer;
+  font: 500 17px/1 var(--kim-font-head); text-decoration: none; white-space: nowrap;
+  transition: opacity .2s ease, filter .2s ease, border-color .2s ease;
+}
+.kim-btn--primary { background: var(--kim-grad); color: #FAFAFA; }
+.kim-btn--primary:hover { opacity: .92; }
+.kim-btn--ghost { background: transparent; color: var(--kim-ink); border: 1.5px solid var(--kim-border-2); }
+.kim-btn--ghost:hover { border-color: var(--kim-ink); }
+.kim-btn--sm { padding: 14px 24px; font-size: 16px; }
+.kim-btn--lg { padding: 20px 40px; font-size: 18px; font-weight: 600; }
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.kim-card {                       /* светлая карточка (преимущества/отзывы) */
+  background: var(--kim-card); border-radius: var(--kim-r-card);
+  padding: 34px 32px; transition: background .2s ease;
+}
+.kim-card:hover { background: #EFEFF2; }
+
+.kim-card--outline {              /* контурная карточка (CMS/платформы) */
+  background: transparent; border: 1.5px solid var(--kim-border);
+  border-radius: var(--kim-r-card); padding: 32px 28px; transition: border-color .2s ease;
+}
+.kim-card--outline:hover { border-color: var(--kim-red); }
+
+.kim-card--case {                 /* карточка кейса */
+  background: var(--kim-card-2); border-radius: var(--kim-r-card-lg); padding: 28px;
+}
+
+/* Тег-плашка (на карточке кейса) */
+.kim-tag {
+  display: inline-flex; padding: 7px 14px; border-radius: 6px;
+  background: rgba(0,0,0,0.06); font: 500 13px/1 var(--kim-font-head); color: var(--kim-ink);
+}
+
+/* ============================================================
+   Icon circles (соц-иконки, чек-маркеры)
+   ============================================================ */
+.kim-icon-circle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--kim-grad-icon); color: #fff; text-decoration: none;
+  transition: opacity .2s ease;
+}
+.kim-icon-circle:hover { opacity: .88; }
+.kim-check {                       /* круглый чек-маркер для списков */
+  flex: none; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--kim-grad); display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* ============================================================
+   Forms (на тёмном фоне)
+   ============================================================ */
+.kim-field {
+  width: 100%; padding: 18px 20px; border-radius: var(--kim-r-input);
+  border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04);
+  color: #fff; font: 400 16px/1 var(--kim-font-body); outline: none;
+}
+.kim-field::placeholder { color: rgba(255,255,255,0.4); }
+.kim-field:focus { border-color: var(--kim-red-2); }
+.kim-form-card {
+  background: var(--kim-ink-2); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px; padding: clamp(28px, 3vw, 44px);
+}
+
+/* ============================================================
+   Misc
+   ============================================================ */
+.kim-quote {                       /* цитата с левым красным бордером */
+  border-left: 3px solid var(--kim-red); padding: 6px 0 6px 24px;
+  font-family: var(--kim-font-head); font-weight: 500; font-size: 22px; line-height: 1.45; color: var(--kim-ink);
+}
+.kim-divider-row { border-top: 1px solid var(--kim-border); }   /* ряды этапов */
+.kim-header {                      /* sticky-шапка */
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,0.86); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--kim-border);
+}
+.kim-link { color: var(--kim-ink); text-decoration: none; font: 500 16px/1 var(--kim-font-head); transition: color .2s ease; }
+.kim-link:hover { color: var(--kim-red); }
+.kim-logo-word { font-family: var(--kim-font-logo); font-weight: 600; font-size: 24px; letter-spacing: -1px; color: var(--kim-ink); }
