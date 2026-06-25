@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
+import Logo from '@/components/Logo'
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -51,10 +52,8 @@ export default function RegisterPage() {
   return (
     <div className="auth-layout">
       <div className="kim-card" style={{ width:'100%', maxWidth:420, padding:40 }}>
-        <Link href="/" style={{ textDecoration:'none' }}>
-          <div className="kim-logo-word" style={{ marginBottom:32 }}>
-            KIM<span style={{ color:'var(--kim-red)' }}>.</span>SCHOOL
-          </div>
+        <Link href="/" style={{ textDecoration:'none', display:'inline-flex', marginBottom:32 }}>
+          <Logo variant="dark" height={28} />
         </Link>
 
         <h1 className="kim-h2" style={{ fontSize:26, marginBottom:8 }}>Создать аккаунт</h1>

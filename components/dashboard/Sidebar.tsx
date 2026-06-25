@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import Image from 'next/image'
+import Logo from '@/components/Logo'
 
 const nav = [
   { group:'Обучение', items:[
@@ -28,8 +28,8 @@ export default function Sidebar({ userName }: { userName?: string | null }) {
   return (
     <aside className="dash-sidebar">
       <div className="dash-sidebar-logo">
-        <Link href="/" style={{ textDecoration:'none' }}>
-          <span className="kim-logo-word" style={{ fontSize:16 }}>KIM<span style={{ color:'var(--kim-red)' }}>.</span>SCHOOL</span>
+        <Link href="/" style={{ textDecoration:'none', display:'flex', alignItems:'center' }}>
+          <Logo variant="dark" height={24} />
         </Link>
       </div>
 

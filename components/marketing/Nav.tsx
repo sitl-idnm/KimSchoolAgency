@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -19,7 +20,9 @@ export default function Nav() {
     <nav className={`school-nav${scrolled ? ' scrolled' : ''}`}>
       <div className="kim-container">
         <div className="school-nav-inner">
-          <Link href="/" className="school-nav-logo">KIM<span>.</span>SCHOOL</Link>
+          <Link href="/" style={{ display:'flex', alignItems:'center' }}>
+            <Logo variant="light" height={28} />
+          </Link>
 
           <ul className="school-nav-links">
             {[['методология','Методология'],['программа','Программа'],['цены','Цены'],['наставник','Наставник'],['faq','FAQ']].map(([id,label]) => (
