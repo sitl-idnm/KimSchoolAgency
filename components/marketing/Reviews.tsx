@@ -1,40 +1,40 @@
+/* Отзывы — точно по standoff §REVIEWS */
 const reviews = [
-  { text:'Сын после курса сам нашёл ошибку в ответе ChatGPT и объяснил нам, почему нейросеть «придумала» источник. Это дорогого стоит.', author:'Елена К.', role:'Мама ученика, 14 лет', initial:'Е' },
-  { text:'Дочь стала задавать правильные вопросы ИИ, а не просто копировать ответы. Преподаватель в школе заметил, что работы стали сильнее.', author:'Андрей М.', role:'Папа ученицы, 13 лет', initial:'А' },
-  { text:'Константин объясняет так, что даже сложные темы становятся понятны. После занятий ребёнок сам начал читать о нейросетях.', author:'Татьяна Р.', role:'Мама ученика, 16 лет', initial:'Т' },
+  { name:'Елена К.',  role:'Мама ученика, 14 лет', initial:'Е', text:'Сын после курса сам нашёл ошибку в ответе ChatGPT и объяснил нам, почему нейросеть «придумала» источник. Это дорогого стоит.' },
+  { name:'Андрей М.', role:'Папа ученицы, 13 лет', initial:'А', text:'Дочь стала задавать правильные вопросы ИИ, а не просто копировать ответы. Преподаватель в школе заметил, что работы стали сильнее.' },
+  { name:'Татьяна Р.', role:'Мама ученика, 16 лет', initial:'Т', text:'Константин объясняет так, что даже сложные темы становятся понятны. После занятий ребёнок сам начал читать про нейросети.' },
 ]
-
-const Stars = () => (
-  <div style={{ display:'flex', gap:3 }}>
-    {[...Array(5)].map((_,i) => <div className="rev-star" key={i} />)}
-  </div>
-)
 
 export default function Reviews() {
   return (
-    <section className="kim-section">
-      <div className="kim-container">
-        <span className="kim-eyebrow reveal">Отзывы</span>
-        <h2 className="kim-h2 reveal d1" style={{ marginBottom: 0 }}>Что говорят родители</h2>
-        <div className="reviews-grid">
-          {reviews.map((r, i) => (
-            <div className={`kim-card reveal d${i + 1}`} key={r.author} style={{ display:'flex', flexDirection:'column', gap: 16 }}>
-              <Stars />
-              <p className="kim-body" style={{ fontSize: 15, fontStyle:'italic', flex: 1, lineHeight: 1.75, color: 'var(--kim-body)' }}>
-                «{r.text}»
-              </p>
-              <div style={{ display:'flex', alignItems:'center', gap: 12, paddingTop: 16, borderTop: '1px solid var(--kim-border)' }}>
-                <div style={{ width:40, height:40, borderRadius:'50%', background:'var(--kim-grad)', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:'var(--kim-font-head)', fontSize:15, fontWeight:700, color:'#fff', flexShrink:0 }}>
-                  {r.initial}
-                </div>
-                <div>
-                  <div className="kim-h3" style={{ fontSize: 14 }}>{r.author}</div>
-                  <div className="kim-small">{r.role}</div>
-                </div>
+    <section style={{ maxWidth:1440, margin:'0 auto', padding:'104px clamp(20px,4vw,64px) 0' }}>
+      <span style={{ display:'inline-flex', alignItems:'center', gap:10, color:'#CB172C', font:"600 14px/1 'Inter Tight'", letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:22 }}>
+        <span style={{ fontSize:15 }}>✳</span> Отзывы
+      </span>
+      <h2 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:'clamp(30px,3.4vw,46px)', lineHeight:1.08, letterSpacing:'-1.2px', color:'#16181B', margin:'0 0 52px', maxWidth:640 }}>
+        Что говорят родители
+      </h2>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24 }}>
+        {reviews.map(r => (
+          <div key={r.name} style={{ background:'#F7F7F7', borderRadius:20, padding:'34px 32px', display:'flex', flexDirection:'column', gap:24, height:'100%' }}>
+            {/* Stars */}
+            <div style={{ display:'flex', gap:4 }}>
+              {'★★★★★'.split('').map((s,i) => <span key={i} style={{ color:'#CB172C', fontSize:18 }}>{s}</span>)}
+            </div>
+            <p style={{ font:"400 17px/1.6 'Manrope'", color:'#3c3f45', margin:0, flex:1 }}>
+              «{r.text}»
+            </p>
+            <div style={{ display:'flex', alignItems:'center', gap:14 }}>
+              <div style={{ width:48, height:48, borderRadius:'50%', background:'linear-gradient(-72deg,#CB172C,#E52D43)', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter Tight',sans-serif", fontWeight:700, fontSize:18, color:'#fff', flexShrink:0 }}>
+                {r.initial}
+              </div>
+              <div>
+                <div style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:16, color:'#16181B' }}>{r.name}</div>
+                <div style={{ font:"400 14px/1.3 'Manrope'", color:'#8a8d93' }}>{r.role}</div>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   )

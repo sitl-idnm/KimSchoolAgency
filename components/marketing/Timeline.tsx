@@ -1,30 +1,27 @@
+/* Как начать — по standoff §HOW TO START: 4-col step numbers */
 const steps = [
-  { n:'1', cls:'',      title:'Заявка от родителя',              sub:'Оставляете контакт на сайте' },
-  { n:'2', cls:'',      title:'Короткая консультация',           sub:'15 минут — знакомство, ответы на вопросы' },
-  { n:'3', cls:'red',   title:'Вводная диагностика ребёнка',     sub:'Уровень, интересы, карта развития' },
-  { n:'4', cls:'',      title:'Подбор программы',                sub:'Формат и темп — индивидуально' },
-  { n:'5', cls:'',      title:'Занятия онлайн',                  sub:'4 или 8 занятий, 1–2 раза в неделю' },
-  { n:'6', cls:'accent',title:'AI-проект ребёнка',               sub:'Личный проект на интересную тему' },
-  { n:'7', cls:'accent',title:'Итоговый отчёт для родителя',     sub:'Что освоил, навыки, рекомендации' },
+  { n:'01', text:'Оставляете заявку — свяжемся в течение нескольких часов' },
+  { n:'02', text:'Проводим бесплатную консультацию 15 минут' },
+  { n:'03', text:'Проводим вводную диагностику ребёнка — уровень и интересы' },
+  { n:'04', text:'Подбираем программу, подписываем договор, начинаем занятия' },
 ]
 
 export default function Timeline() {
   return (
-    <section className="kim-section kim-section--soft">
-      <div className="kim-container">
-        <span className="kim-eyebrow">Как всё устроено</span>
-        <h2 className="kim-h2" style={{ marginBottom: 0 }}>7 шагов от заявки до результата</h2>
-        <div className="tl">
-          {steps.map(s => (
-            <div className="tl-item" key={s.n}>
-              <div className={`tl-circle${s.cls ? ` ${s.cls}` : ''}`}>{s.n}</div>
-              <div style={{ paddingTop: 6 }}>
-                <div className="kim-h3" style={{ fontSize: 15, marginBottom: 3 }}>{s.title}</div>
-                <p className="kim-small">{s.sub}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section style={{ maxWidth:1440, margin:'0 auto', padding:'104px clamp(20px,4vw,64px) 0' }}>
+      <span style={{ display:'inline-flex', alignItems:'center', gap:10, color:'#CB172C', font:"600 14px/1 'Inter Tight'", letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:22 }}>
+        <span style={{ fontSize:15 }}>✳</span> Как начать
+      </span>
+      <h2 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:'clamp(30px,3.4vw,46px)', lineHeight:1.08, letterSpacing:'-1.2px', color:'#16181B', margin:'0 0 52px', maxWidth:640 }}>
+        Начать просто
+      </h2>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:20 }}>
+        {steps.map(s => (
+          <div key={s.n} style={{ display:'flex', flexDirection:'column', gap:20 }}>
+            <span style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:52, letterSpacing:'-2px', color:'#E7E8EC', lineHeight:1 }}>{s.n}</span>
+            <p style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:500, fontSize:19, lineHeight:1.35, color:'#16181B', margin:0 }}>{s.text}</p>
+          </div>
+        ))}
       </div>
     </section>
   )

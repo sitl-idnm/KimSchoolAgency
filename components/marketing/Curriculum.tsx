@@ -1,39 +1,39 @@
+'use client'
+/* Программа — точно по standoff §STAGES: ряды с разделителями */
 const modules = [
-  { num:'01', title:'Как работает ИИ',              badge:'starter', points:['Что такое нейросети простыми словами','Почему ИИ уверенно ошибается','Галлюцинации и как их замечать'] },
-  { num:'02', title:'Запросы и постановка задач',   badge:'starter', points:['Принципы хорошего промпта','Контекст, роль, формат, ограничения','Личная prompt-карта'] },
-  { num:'03', title:'Проверка фактов',              badge:'starter', points:['Как проверять ответы ИИ','Источники и критическое мышление','Практика: найти ошибку в ответе'] },
-  { num:'04', title:'ИИ для учёбы',                 badge:'starter', points:['Учёба с ИИ без списывания','Объяснение → понимание → своими словами','Как родитель увидит прогресс'] },
-  { num:'05', title:'Презентации и исследования',   badge:'full',    points:['Структура проекта с ИИ','Аргументы, источники, визуал','Итоговая презентация ученика'] },
-  { num:'06', title:'Тексты, изображения, идеи',    badge:'full',    points:['Творческие задачи с ИИ','Midjourney и генерация изображений','Авторский голос vs ИИ-текст'] },
-  { num:'07', title:'Безопасность и этика',         badge:'full',    points:['Что нельзя вводить в чат','Данные, приватность, цифровой след','Фейки и дипфейки: как не попасться'] },
-  { num:'08', title:'Финальный проект и защита',    badge:'full',    points:['Собственный AI-проект на интересную тему','Ребёнок объясняет ход мысли','Отчёт родителю + карта навыков'] },
+  { n:'01', title:'Как работает ИИ',             desc:'Что такое нейросеть, почему она уверенно ошибается, что такое галлюцинации и как их замечать.' },
+  { n:'02', title:'Запросы и промпты',            desc:'Принципы хорошего промпта. Контекст, роль, формат, ограничения. Личная prompt-карта ребёнка.' },
+  { n:'03', title:'Проверка фактов',             desc:'Как проверять ответы ИИ, работать с источниками и практиковать критическое мышление.' },
+  { n:'04', title:'ИИ для учёбы',                desc:'Учёба с ИИ без списывания. Объяснение → понимание → своими словами. Отчёт родителю.' },
+  { n:'05', title:'Презентации и исследования',   desc:'Структура проекта с ИИ, аргументы, источники, визуал. Итоговая презентация ученика.' },
+  { n:'06', title:'Тексты, изображения, идеи',   desc:'Творческие задачи с ИИ, генерация изображений, авторский голос vs ИИ-текст.' },
+  { n:'07', title:'Безопасность и этика',         desc:'Что нельзя вводить в чат, данные и приватность, цифровой след, фейки и дипфейки.' },
+  { n:'08', title:'Финальный проект и защита',    desc:'Собственный AI-проект на тему интересов ребёнка. Объясняет ход мысли. Карта навыков + отчёт.' },
 ]
-
-const label: Record<string,string> = { starter:'Стартовый', full:'Полная' }
 
 export default function Curriculum() {
   return (
-    <section className="kim-section" id="программа">
-      <div className="kim-container">
-        <span className="kim-eyebrow">Программа</span>
-        <h2 className="kim-h2" style={{ marginBottom: 12 }}>8 модулей — от основ до защиты проекта</h2>
-        <p className="kim-body" style={{ maxWidth: 560 }}>
-          Стартовый пакет — модули 1–4. Полная программа — все 8 модулей с финальным AI-проектом.
-        </p>
-        <div className="modules-grid">
-          {modules.map(m => (
-            <div className="kim-card--outline" key={m.num} style={{ padding: '18px 20px' }}>
-              <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:8 }}>
-                <span className="kim-small" style={{ fontFamily:'var(--kim-font-head)', fontWeight:700, letterSpacing:1, width:24 }}>{m.num}</span>
-                <span className="kim-h3" style={{ fontSize:14, flex:1 }}>{m.title}</span>
-                <span className={`mod-badge ${m.badge}`}>{label[m.badge]}</span>
-              </div>
-              <ul className="mod-points">
-                {m.points.map(p => <li key={p}>{p}</li>)}
-              </ul>
+    <section id="программа" style={{ maxWidth:1440, margin:'0 auto', padding:'104px clamp(20px,4vw,64px) 0' }}>
+      <span style={{ display:'inline-flex', alignItems:'center', gap:10, color:'#CB172C', font:"600 14px/1 'Inter Tight'", letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:22 }}>
+        <span style={{ fontSize:15 }}>✳</span> Программа
+      </span>
+      <h2 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:'clamp(30px,3.4vw,46px)', lineHeight:1.08, letterSpacing:'-1.2px', color:'#16181B', margin:'0 0 52px', maxWidth:640 }}>
+        8 модулей — от основ до защиты проекта
+      </h2>
+      <div style={{ display:'flex', flexDirection:'column' }}>
+        {modules.map((m, i) => (
+          <div key={m.n}
+            style={{ display:'grid', gridTemplateColumns:'120px 1fr', gap:32, padding:'30px 0', borderTop:'1px solid #ededed', alignItems:'baseline', transition:'background .15s', borderRadius:4 }}
+            onMouseEnter={e => (e.currentTarget.style.background='#fafafa')}
+            onMouseLeave={e => (e.currentTarget.style.background='transparent')}
+          >
+            <span style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:40, letterSpacing:'-1px', color:'#CB172C' }}>{m.n}</span>
+            <div style={{ display:'grid', gridTemplateColumns:'0.6fr 1fr', gap:32, alignItems:'baseline' }}>
+              <h3 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:500, fontSize:24, letterSpacing:'-0.4px', color:'#16181B', margin:0 }}>{m.title}</h3>
+              <p style={{ font:"400 17px/1.55 'Manrope'", color:'#6c6f75', margin:0 }}>{m.desc}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   )

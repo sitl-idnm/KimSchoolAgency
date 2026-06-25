@@ -1,84 +1,88 @@
+/* Цены — по standoff §PRICE: тёмный закруглённый баннер, адаптирован для 3 планов */
 'use client'
+import { useState } from 'react'
 
-import { useEffect, useRef } from 'react'
+const plans = [
+  {
+    name:'Стартовый', sessions:'4 занятия',
+    desc:'Базовая AI-грамотность и первый результат',
+    features:['Вводная диагностика','Как работает ИИ','Запросы и промпты','ИИ для учёбы','Личная prompt-карта','Отчёт родителю'],
+    cta:'Записаться', highlight:false,
+  },
+  {
+    name:'Полный', sessions:'8 занятий',
+    desc:'Полный навык + собственный AI-проект с защитой',
+    features:['Всё из стартового','Проверка фактов и источников','Презентации с ИИ','Творческие задачи','Безопасность и этика','Финальный AI-проект','Карта навыков + отчёт'],
+    cta:'Записаться', highlight:true,
+  },
+  {
+    name:'Личный', sessions:'По запросу',
+    desc:'Индивидуальная траектория под конкретного ребёнка',
+    features:['Диагностика + личная карта','Гибкий темп и расписание','Наставничество 1-на-1','Глубокий разбор интересов','Полный отчёт + рекомендации'],
+    cta:'Обсудить', highlight:false,
+  },
+]
 
-const CheckIcon = () => (
-  <svg className="pf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20 6 9 17l-5-5" />
+const Check = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" style={{ flexShrink:0, marginTop:2 }}>
+    <path d="M5 13l4 4L19 7" stroke="#E52D43" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 )
 
-const plans = [
-  { name:'Стартовый', desc:'Базовая AI-грамотность и первый результат уже после 4 занятий',  amount:'4',        unit:'занятия', popular:false, btnClass:'gl', btnText:'Записаться',
-    features:['Вводная диагностика + карта развития','Как работает ИИ и почему ошибается','Запросы и промпты на практике','ИИ для учёбы без списывания','Личная prompt-карта','Отчёт родителю после каждого занятия'] },
-  { name:'Полная',    desc:'Полный навык + собственный AI-проект с финальной защитой',        amount:'8',        unit:'занятий', popular:true,  btnClass:'cy', btnText:'Записаться',
-    features:['Всё из стартового пакета','Проверка фактов и критическое мышление','Презентации и исследовательские проекты','Изображения, тексты, идеи с ИИ','Безопасность, данные, цифровая этика','Собственный AI-проект с защитой','Карта навыков + расширенный отчёт'] },
-  { name:'Личное',    desc:'Индивидуальная траектория для сильных и нестандартных учеников', amount:'По запросу',unit:null,      popular:false, btnClass:'gl', btnText:'Обсудить',
-    features:['Диагностика + личная карта целей','Гибкое расписание и темп','Наставничество 1-на-1','Глубокий разбор интересов ребёнка','Полный отчёт + рекомендации по развитию'] },
-]
-
 export default function Pricing() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-    let raf: number
-    const pts = Array.from({ length: 55 }, () => ({
-      x: Math.random() * canvas.offsetWidth, y: Math.random() * canvas.offsetHeight,
-      vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
-      s: Math.random() * 1.4 + .4, o: Math.random() * .35 + .05,
-    }))
-    const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight }
-    resize()
-    window.addEventListener('resize', resize)
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      pts.forEach(p => {
-        p.x += p.vx; p.y += p.vy
-        if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0
-        if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(34,211,238,${p.o})`; ctx.fill()
-      })
-      raf = requestAnimationFrame(draw)
-    }
-    draw()
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize) }
-  }, [])
-
-  const go = () => document.getElementById('записаться')?.scrollIntoView({ behavior: 'smooth' })
+  const go = () => document.getElementById('записаться')?.scrollIntoView({ behavior:'smooth' })
 
   return (
-    <section className="kim-section pricing-section" id="цены">
-      <canvas ref={canvasRef} className="pricing-canvas" />
-      <div className="kim-container pricing-inner">
-        <div className="kim-section-inner">
-          <span className="kim-eyebrow">Стоимость</span>
-          <h2 className="kim-h2" style={{ marginBottom: 12 }}>Выберите программу</h2>
-          <p className="kim-body" style={{ color: 'rgba(255,255,255,.45)', maxWidth: 480 }}>
-            Начните с бесплатной диагностики — уточним уровень, цели и подберём формат.
+    <section id="цены" style={{ maxWidth:1440, margin:'0 auto', padding:'104px clamp(20px,4vw,64px) 0' }}>
+      <div style={{ background:'linear-gradient(110deg,#16181B 0%,#241a1c 100%)', borderRadius:28, padding:'clamp(36px,5vw,72px)' }}>
+        <div style={{ marginBottom:52 }}>
+          <span style={{ display:'inline-flex', alignItems:'center', gap:10, color:'#E52D43', font:"600 14px/1 'Inter Tight'", letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:22 }}>
+            <span style={{ fontSize:15 }}>✳</span> Стоимость
+          </span>
+          <h2 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:'clamp(30px,3.6vw,46px)', lineHeight:1.1, letterSpacing:'-1.2px', color:'#fff', margin:'0 0 14px' }}>
+            Выберите формат
+          </h2>
+          <p style={{ font:"400 18px/1.6 'Manrope'", color:'rgba(255,255,255,0.6)', margin:0, maxWidth:480 }}>
+            Начните с бесплатной диагностики — подберём программу под уровень и интересы ребёнка.
           </p>
-          <div className="pricing-grid">
-            {plans.map(p => (
-              <div className={`pcard${p.popular ? ' pop' : ''}`} key={p.name}>
-                {p.popular && <div className="pop-badge">Популярный</div>}
-                <div className="pcard-name">{p.name}</div>
-                <div className="pcard-desc">{p.desc}</div>
-                <div className="pcard-amount">
-                  <span className={`pcard-num${p.unit ? '' : ' sm'}`}>{p.amount}</span>
-                  {p.unit && <span className="pcard-unit">{p.unit}</span>}
+        </div>
+
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
+          {plans.map(p => (
+            <div key={p.name} style={{
+              background: p.highlight ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',
+              border: p.highlight ? '1.5px solid rgba(229,45,67,.4)' : '1.5px solid rgba(255,255,255,.08)',
+              borderRadius:20, padding:'32px 28px', display:'flex', flexDirection:'column', gap:0,
+              position:'relative',
+            }}>
+              {p.highlight && (
+                <div style={{ position:'absolute', top:-13, left:28, background:'linear-gradient(-72deg,#CB172C,#E52D43)', color:'#fff', font:"700 10px/1 'Inter Tight'", letterSpacing:.8, textTransform:'uppercase', padding:'4px 12px', borderRadius:20 }}>
+                  Популярный
                 </div>
-                <div className="pcard-divider" />
-                <ul className="pcard-features" style={{ listStyle: 'none' }}>
-                  {p.features.map(f => <li className="pf" key={f}><CheckIcon />{f}</li>)}
-                </ul>
-                <button className={`pbtn ${p.btnClass}`} onClick={go}>{p.btnText}</button>
-              </div>
-            ))}
-          </div>
+              )}
+              <div style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:400, fontSize:28, letterSpacing:'-0.5px', color:'#fff', marginBottom:6 }}>{p.name}</div>
+              <div style={{ font:"700 40px/1 'Inter Tight'", letterSpacing:'-1px', color:'#fff', marginBottom:4 }}>{p.sessions}</div>
+              <div style={{ font:"400 14px/1.5 'Manrope'", color:'rgba(255,255,255,.45)', marginBottom:24 }}>{p.desc}</div>
+              <div style={{ height:1, background:'linear-gradient(90deg,transparent,rgba(255,255,255,.12) 50%,transparent)', marginBottom:24 }} />
+              <ul style={{ listStyle:'none', margin:0, padding:0, display:'flex', flexDirection:'column', gap:10, flex:1, marginBottom:28 }}>
+                {p.features.map(f => (
+                  <li key={f} style={{ display:'flex', alignItems:'flex-start', gap:10, font:"400 14px/1.45 'Manrope'", color:'rgba(255,255,255,.7)' }}>
+                    <Check />{f}
+                  </li>
+                ))}
+              </ul>
+              <button onClick={go} style={{
+                width:'100%', padding:15, borderRadius:10, border:'none', cursor:'pointer',
+                background: p.highlight ? 'linear-gradient(-72deg,#CB172C,#E52D43)' : 'rgba(255,255,255,.08)',
+                color: p.highlight ? '#fff' : 'rgba(255,255,255,.8)',
+                font:"600 16px/1 'Inter Tight'",
+                transition:'filter .2s',
+              }}
+                onMouseEnter={e => (e.currentTarget.style.filter='brightness(1.1)')}
+                onMouseLeave={e => (e.currentTarget.style.filter='brightness(1)')}
+              >{p.cta}</button>
+            </div>
+          ))}
         </div>
       </div>
     </section>
