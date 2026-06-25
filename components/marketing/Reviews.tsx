@@ -14,7 +14,7 @@ export default function Reviews() {
       <h2 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:'clamp(30px,3.4vw,46px)', lineHeight:1.08, letterSpacing:'-1.2px', color:'#16181B', margin:'0 0 52px', maxWidth:640 }}>
         Что говорят родители
       </h2>
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24 }}>
+      <div className="reviews-grid" style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24 }}>
         {reviews.map(r => (
           <div key={r.name} style={{ background:'#F7F7F7', borderRadius:20, padding:'34px 32px', display:'flex', flexDirection:'column', gap:24, height:'100%' }}>
             {/* Stars */}

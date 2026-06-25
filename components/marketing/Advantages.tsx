@@ -23,7 +23,7 @@ export default function Advantages() {
           Не абстрактные знания — конкретные умения, которые применяются уже во время курса.
         </p>
       </div>
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
+      <div className="adv-grid" style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
         {adv.map(a => (
           <div key={a.n}
             style={{ background:'#F7F7F7', borderRadius:20, padding:'34px 32px', display:'flex', flexDirection:'column', gap:16, transition:'background .2s' }}

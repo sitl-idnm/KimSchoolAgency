@@ -79,15 +79,84 @@
 /* ── Keyframes ───────────────────────────────────────────────── */
 @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
 
-/* ── Responsive ──────────────────────────────────────────────── */
+/* ── Responsive — Landing ────────────────────────────────────── */
 @media (max-width: 900px) {
+  /* Nav */
   .burger { display: flex; }
   .desk-nav { display: none !important; }
+
+  /* Hero */
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-ai-card { max-width: 100% !important; }
+
+  /* Intro (sticky left + right) */
+  .intro-grid { grid-template-columns: 1fr !important; }
+  .intro-sticky { position: static !important; }
+
+  /* Advantages */
+  .adv-grid { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* Use Cases */
+  .uc-grid { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* Curriculum rows */
+  .cur-row { grid-template-columns: 80px 1fr !important; gap: 16px !important; }
+  .cur-row-inner { grid-template-columns: 1fr !important; gap: 8px !important; }
+
+  /* Includes */
+  .includes-grid { grid-template-columns: 1fr !important; }
+  .includes-sticky { position: static !important; }
+  .includes-checklist { grid-template-columns: 1fr !important; }
+
+  /* Pricing */
+  .pricing-cards { grid-template-columns: 1fr !important; }
+
+  /* Mentor */
+  .mentor-grid { grid-template-columns: 1fr !important; }
+  .mentor-photo-col { position: static !important; }
+
+  /* Reviews */
+  .reviews-grid { grid-template-columns: 1fr !important; }
+
+  /* Timeline */
+  .timeline-grid { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* FAQ */
+  .faq-grid { grid-template-columns: 1fr !important; }
+  .faq-sticky { position: static !important; }
+
+  /* CTA */
+  .cta-grid { grid-template-columns: 1fr !important; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+  /* Dashboard */
   .stat-cards { grid-template-columns: repeat(2,1fr); }
   .dash-sidebar { display: none; }
   .dash-main { margin-left: 0; }
 }
+
 @media (max-width: 640px) {
+  /* Advantages */
+  .adv-grid { grid-template-columns: 1fr !important; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: 1fr !important; }
+
+  /* Use Cases */
+  .uc-grid { grid-template-columns: 1fr !important; }
+
+  /* Timeline */
+  .timeline-grid { grid-template-columns: 1fr !important; }
+
+  /* Curriculum */
+  .cur-row { grid-template-columns: 64px 1fr !important; }
+
+  /* Dashboard */
   .stat-cards { grid-template-columns: 1fr; }
   .dash-content { padding: 16px; }
 }

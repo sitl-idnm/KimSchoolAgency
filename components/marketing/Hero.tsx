@@ -38,7 +38,7 @@ export default function Hero() {
         <span style={{ color:'#CB172C' }}>KIM AI School</span>
       </div>
 
-      <div style={{ display:'grid', gridTemplateColumns:'1.05fr 0.95fr', gap:56, alignItems:'center' }}>
+      <div className="hero-grid" style={{ display:'grid', gridTemplateColumns:'1.05fr 0.95fr', gap:56, alignItems:'center' }}>
         {/* Left */}
         <div>
           <span style={{ display:'inline-flex', alignItems:'center', gap:10, color:'#CB172C', font:"600 14px/1 'Inter Tight'", letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:24 }}>

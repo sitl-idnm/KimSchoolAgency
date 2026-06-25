@@ -18,7 +18,7 @@ export default function Stats() {
         <h2 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:'clamp(30px,3.4vw,46px)', lineHeight:1.08, letterSpacing:'-1.2px', color:'#fff', margin:'0 0 52px', maxWidth:640 }}>
           Опыт и команда за каждым занятием
         </h2>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'48px 32px' }}>
+        <div className="stats-grid" style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'48px 32px' }}>
           {stats.map(s => (
             <div key={s.num} style={{ borderTop:'1px solid rgba(255,255,255,0.16)', paddingTop:24 }}>
               <div style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:'clamp(44px,5vw,68px)', lineHeight:1, letterSpacing:'-2px', color:'#fff', marginBottom:14 }}>{s.num}</div>

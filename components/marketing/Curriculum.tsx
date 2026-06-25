@@ -22,13 +22,13 @@ export default function Curriculum() {
       </h2>
       <div style={{ display:'flex', flexDirection:'column' }}>
         {modules.map((m, i) => (
-          <div key={m.n}
+          <div key={m.n} className="cur-row"
             style={{ display:'grid', gridTemplateColumns:'120px 1fr', gap:32, padding:'30px 0', borderTop:'1px solid #ededed', alignItems:'baseline', transition:'background .15s', borderRadius:4 }}
             onMouseEnter={e => (e.currentTarget.style.background='#fafafa')}
             onMouseLeave={e => (e.currentTarget.style.background='transparent')}
           >
             <span style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:40, letterSpacing:'-1px', color:'#CB172C' }}>{m.n}</span>
-            <div style={{ display:'grid', gridTemplateColumns:'0.6fr 1fr', gap:32, alignItems:'baseline' }}>
+            <div className="cur-row-inner" style={{ display:'grid', gridTemplateColumns:'0.6fr 1fr', gap:32, alignItems:'baseline' }}>
               <h3 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:500, fontSize:24, letterSpacing:'-0.4px', color:'#16181B', margin:0 }}>{m.title}</h3>
               <p style={{ font:"400 17px/1.55 'Manrope'", color:'#6c6f75', margin:0 }}>{m.desc}</p>
             </div>

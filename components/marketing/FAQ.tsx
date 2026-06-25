@@ -17,10 +17,10 @@ export default function FAQ() {
 
   return (
     <section id="faq" style={{ maxWidth:1440, margin:'0 auto', padding:'104px clamp(20px,4vw,64px) 0' }}>
-      <div style={{ display:'grid', gridTemplateColumns:'0.7fr 1.3fr', gap:64, alignItems:'start' }}>
+      <div className="faq-grid" style={{ display:'grid', gridTemplateColumns:'0.7fr 1.3fr', gap:64, alignItems:'start' }}>
 
         {/* Sticky heading */}
-        <div style={{ position:'sticky', top:120 }}>
+        <div className="faq-sticky" style={{ position:'sticky', top:120 }}>
           <span style={{ display:'inline-flex', alignItems:'center', gap:10, color:'#CB172C', font:"600 14px/1 'Inter Tight'", letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:22 }}>
             <span style={{ fontSize:15 }}>✳</span> FAQ
           </span>

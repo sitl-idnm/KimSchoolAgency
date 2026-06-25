@@ -22,8 +22,8 @@ export default function Includes() {
   return (
     <section style={{ marginTop:104, background:'#FAFAFA' }}>
       <div style={{ maxWidth:1440, margin:'0 auto', padding:'96px clamp(20px,4vw,64px)' }}>
-        <div style={{ display:'grid', gridTemplateColumns:'0.8fr 1.2fr', gap:64, alignItems:'start' }}>
-          <div style={{ position:'sticky', top:120 }}>
+        <div className="includes-grid" style={{ display:'grid', gridTemplateColumns:'0.8fr 1.2fr', gap:64, alignItems:'start' }}>
+          <div className="includes-sticky" style={{ position:'sticky', top:120 }}>
             <span style={{ display:'inline-flex', alignItems:'center', gap:10, color:'#CB172C', font:"600 14px/1 'Inter Tight'", letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:22 }}>
               <span style={{ fontSize:15 }}>✳</span> Что создаст ребёнок
             </span>
@@ -34,7 +34,7 @@ export default function Includes() {
               После курса у ребёнка остаются реальные работы, которые он сделал сам — с помощью ИИ, но своим умом.
             </p>
           </div>
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:14 }}>
+          <div className="includes-checklist" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:14 }}>
             {items.map(item => (
               <div key={item} style={{ display:'flex', alignItems:'center', gap:16, background:'#fff', borderRadius:14, padding:'22px 24px' }}>
                 <Check />

@@ -26,7 +26,7 @@ export default function CTA() {
 
   return (
     <section id="записаться" style={{ marginTop:104, background:'#16181B' }}>
-      <div style={{ maxWidth:1440, margin:'0 auto', padding:'96px clamp(20px,4vw,64px)', display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'center' }}>
+      <div className="cta-grid" style={{ maxWidth:1440, margin:'0 auto', padding:'96px clamp(20px,4vw,64px)', display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'center' }}>
 
         {/* Left — text */}
         <div>

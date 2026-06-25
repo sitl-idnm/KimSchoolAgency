@@ -15,7 +15,7 @@ export default function Timeline() {
       <h2 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:'clamp(30px,3.4vw,46px)', lineHeight:1.08, letterSpacing:'-1.2px', color:'#16181B', margin:'0 0 52px', maxWidth:640 }}>
         Начать просто
       </h2>
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:20 }}>
+      <div className="timeline-grid" style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:20 }}>
         {steps.map(s => (
           <div key={s.n} style={{ display:'flex', flexDirection:'column', gap:20 }}>
             <span style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:52, letterSpacing:'-2px', color:'#E7E8EC', lineHeight:1 }}>{s.n}</span>

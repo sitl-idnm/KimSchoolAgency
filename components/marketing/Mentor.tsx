@@ -9,10 +9,10 @@ export default function Mentor() {
       <h2 style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:'clamp(30px,3.4vw,46px)', lineHeight:1.08, letterSpacing:'-1.2px', color:'#16181B', margin:'0 0 52px', maxWidth:640 }}>
         Живой практик, а не теоретик
       </h2>
-      <div style={{ display:'grid', gridTemplateColumns:'0.85fr 1.15fr', gap:64, alignItems:'start' }}>
+      <div className="mentor-grid" style={{ display:'grid', gridTemplateColumns:'0.85fr 1.15fr', gap:64, alignItems:'start' }}>
 
         {/* Photo */}
-        <div style={{ background:'#E7E8EC', borderRadius:24, padding:28, display:'flex', flexDirection:'column', gap:24, position:'sticky', top:100 }}>
+        <div className="mentor-photo-col" style={{ background:'#E7E8EC', borderRadius:24, padding:28, display:'flex', flexDirection:'column', gap:24, position:'sticky', top:100 }}>
           <div style={{ width:'100%', height:360, borderRadius:14, background:'linear-gradient(160deg,#1c2235,#0e1014)', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:12 }}>
             <div style={{ width:96, height:96, borderRadius:'50%', background:'rgba(34,211,238,.08)', border:'2px solid rgba(34,211,238,.18)', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter Tight',sans-serif", fontWeight:700, fontSize:30, color:'#22d3ee' }}>КК</div>
             <div style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:700, fontSize:18, color:'#f1f2f4' }}>Константин Ким</div>

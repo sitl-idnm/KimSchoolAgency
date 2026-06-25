@@ -47,7 +47,7 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
+        <div className="pricing-cards" style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:20 }}>
           {plans.map(p => (
             <div key={p.name} style={{
               background: p.highlight ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',

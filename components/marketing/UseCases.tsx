@@ -45,7 +45,7 @@ export default function UseCases() {
           Ребёнок работает с задачами, которые у него уже есть — домашние, творческие, личные.
         </p>
       </div>
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:20 }}>
+      <div className="uc-grid" style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:20 }}>
         {cases.map(({ Icon, name, desc }) => (
           <div key={name}
             style={{ border:'1.5px solid #ededed', borderRadius:20, padding:'32px 28px', minHeight:190, display:'flex', flexDirection:'column', justifyContent:'space-between', gap:20, transition:'border-color .2s' }}
