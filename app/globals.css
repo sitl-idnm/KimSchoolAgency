@@ -113,6 +113,11 @@
 /* ── Keyframes ───────────────────────────────────────────────── */
 @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
 
+/* Smooth page transition — applied by app/template.tsx on every route change */
+@keyframes pageEnter { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+.route-transition { animation: pageEnter .42s cubic-bezier(.22,.61,.36,1); }
+@media (prefers-reduced-motion: reduce) { .route-transition { animation: none; } }
+
 /* ── Responsive — Landing ────────────────────────────────────── */
 @media (max-width: 900px) {
   /* Nav */

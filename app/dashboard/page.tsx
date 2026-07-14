@@ -58,9 +58,9 @@ export default async function DashboardPage() {
             <div style={{ background:'#F7F7F7', borderRadius:20, padding:'52px 32px', textAlign:'center' }}>
               <div style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:22, color:'#16181B', marginBottom:8 }}>Курсов пока нет</div>
               <div style={{ font:"400 16px/1.5 'Manrope'", color:'#8A8D93', marginBottom:28 }}>Запишитесь на диагностику — подберём программу</div>
-              <a href="/#записаться" style={{ display:'inline-flex', alignItems:'center', padding:'14px 28px', borderRadius:8, background:'linear-gradient(-72deg,#CB172C,#E52D43)', color:'#fff', font:"500 16px/1 'Inter Tight'", textDecoration:'none' }}>
+              <Link href="/#записаться" style={{ display:'inline-flex', alignItems:'center', padding:'14px 28px', borderRadius:8, background:'linear-gradient(-72deg,#CB172C,#E52D43)', color:'#fff', font:"500 16px/1 'Inter Tight'", textDecoration:'none' }}>
                 Записаться на диагностику
-              </a>
+              </Link>
             </div>
           ) : (
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))', gap:20 }}>

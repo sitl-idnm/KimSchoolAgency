@@ -56,8 +56,15 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div style={{ paddingTop:28, font:"400 14px/1.5 'Manrope'", color:'rgba(255,255,255,0.4)' }}>
-          © 2024–2025 KIM AI School · KIM.agency с 2015
+        {/* Requisites */}
+        <div style={{ paddingTop:28, font:"400 13px/1.7 'Manrope'", color:'rgba(255,255,255,0.4)' }}>
+          ИП Мурзаев Багаутдин Ибрагимович · ИНН 057001361332 · ОГРНИП 324050000053489<br />
+          E-mail: <a href="mailto:info@kim-agency.ru" style={{ color:'rgba(255,255,255,0.6)', textDecoration:'none' }}>info@kim-agency.ru</a>
+        </div>
+
+        <div style={{ paddingTop:16, display:'flex', gap:20, flexWrap:'wrap', alignItems:'center', font:"400 14px/1.5 'Manrope'", color:'rgba(255,255,255,0.4)' }}>
+          <span>© 2024–2026 KIM AI School · KIM.agency с 2015</span>
+          <Link href="/privacy" style={{ color:'rgba(255,255,255,0.6)', textDecoration:'none' }}>Политика конфиденциальности</Link>
         </div>
       </div>
     </footer>

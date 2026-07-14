@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import YandexMetrika from '@/components/analytics/YandexMetrika'
+import CookieBanner from '@/components/CookieBanner'
 
 export const metadata: Metadata = {
   title: 'KIM AI School — Школа AI-мышления для подростков',
@@ -16,7 +18,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieBanner />
+      </body>
+      <YandexMetrika />
     </html>
   )
 }
