@@ -25,9 +25,9 @@ export default async function CoursesPage() {
           <div style={{ background:'#F7F7F7', borderRadius:20, padding:'80px 32px', textAlign:'center', maxWidth:480, margin:'0 auto' }}>
             <div style={{ fontFamily:"'Inter Tight',sans-serif", fontWeight:600, fontSize:24, color:'#16181B', marginBottom:10 }}>Курсов пока нет</div>
             <div style={{ font:"400 16px/1.55 'Manrope'", color:'#8A8D93', marginBottom:32 }}>Запишитесь на бесплатную диагностику — подберём подходящую программу</div>
-            <a href="/#записаться" style={{ display:'inline-flex', alignItems:'center', padding:'16px 32px', borderRadius:8, background:'linear-gradient(-72deg,#CB172C,#E52D43)', color:'#fff', font:"500 16px/1 'Inter Tight'", textDecoration:'none' }}>
+            <Link href="/#записаться" style={{ display:'inline-flex', alignItems:'center', padding:'16px 32px', borderRadius:8, background:'linear-gradient(-72deg,#CB172C,#E52D43)', color:'#fff', font:"500 16px/1 'Inter Tight'", textDecoration:'none' }}>
               Записаться на диагностику
-            </a>
+            </Link>
           </div>
         ) : (
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(300px,1fr))', gap:24 }}>

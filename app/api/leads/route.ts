@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import { notifyLead } from '@/lib/telegram'
 
 export async function POST(request: Request) {
   try {
@@ -29,6 +30,14 @@ export async function POST(request: Request) {
       console.error('Lead insert error:', error)
       return NextResponse.json({ error: 'Ошибка сохранения' }, { status: 500 })
     }
+
+    // Notify the team in Telegram (fire-and-forget, never blocks the response).
+    await notifyLead({
+      name: body.name,
+      phone: body.phone.trim(),
+      email: body.email,
+      source: body.source ?? 'landing_cta',
+    })
 
     return NextResponse.json({ ok: true })
   } catch {
