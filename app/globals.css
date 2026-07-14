@@ -118,6 +118,12 @@
 .route-transition { animation: pageEnter .42s cubic-bezier(.22,.61,.36,1); }
 @media (prefers-reduced-motion: reduce) { .route-transition { animation: none; } }
 
+/* Dashboard helpers */
+.hide-scroll::-webkit-scrollbar { display: none; }
+@media (max-width: 860px) {
+  .dash-two-col { grid-template-columns: 1fr !important; }
+}
+
 /* ── Responsive — Landing ────────────────────────────────────── */
 @media (max-width: 900px) {
   /* Nav */
